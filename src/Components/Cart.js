@@ -1,6 +1,8 @@
 //
 import '../static/css/style.css'
-
+import image1 from 'https://bootstrapious.com/i/snippets/sn-cart/product-1.jpg'
+import image2 from 'https://bootstrapious.com/i/snippets/sn-cart/product-2.jpg'
+import image3 from 'https://bootstrapious.com/i/snippets/sn-cart/product-3.jpg'
 
 function Cart() {
     return (
@@ -38,7 +40,7 @@ function Cart() {
                                             <tr>
                                                 <th scope="row" class="border-0">
                                                     <div class="p-2">
-                                                        <img src="https://bootstrapious.com/i/snippets/sn-cart/product-1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                        <img src={image1} alt="" width="70" class="img-fluid rounded shadow-sm">
                                                             <div class="ml-3 d-inline-block align-middle">
                                                                 <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Timex Unisex Originals</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
                                                             </div>
@@ -51,7 +53,7 @@ function Cart() {
                                             <tr>
                                                 <th scope="row">
                                                     <div class="p-2">
-                                                        <img src="https://bootstrapious.com/i/snippets/sn-cart/product-2.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                        <img src={image2} alt="" width="70" class="img-fluid rounded shadow-sm">
                                                             <div class="ml-3 d-inline-block align-middle">
                                                                 <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Lumix camera lense</a></h5><span class="text-muted font-weight-normal font-italic">Category: Electronics</span>
                                                             </div>
@@ -65,7 +67,7 @@ function Cart() {
                                             <tr>
                                                 <th scope="row">
                                                     <div class="p-2">
-                                                        <img src="https://bootstrapious.com/i/snippets/sn-cart/product-3.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                        <img src={image3} alt="" width="70" class="img-fluid rounded shadow-sm">
                                                             <div class="ml-3 d-inline-block align-middle">
                                                                 <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Gray Nike running shoe</a></h5><span class="text-muted font-weight-normal font-italic">Category: Fashion</span>
                                                             </div>

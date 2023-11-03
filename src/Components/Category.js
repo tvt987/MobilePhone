@@ -1,5 +1,10 @@
 import '../static/css/style.css'
 import '../static/css/category.css'
+import image1 from '../images/image-slide/img-slide3.webp'
+import image2 from '../images/image-slide/img-slide4.webp'
+import image3 from '../images/img-iphone/iphone-11-white-thumbtz-650x650.webp'
+import happyIcon from '../images/icon/icon-happy.png'
+import badIcon from '../images/icon/icon-bad.png'
 function Category() {
     return (
         <div>
@@ -10,10 +15,10 @@ function Category() {
                 <div id="carouselExampleInterval" class="carousel slide mt-md-4 mb-md-4 " data-ride="carousel">
                     <div class="carousel-inner" style="border-radius: 30px;">
                         <div class="carousel-item active" data-interval="10000">
-                            <img src="/images/image-slide/img-slide3.webp" class="d-block w-100" alt="...">
+                            <img src={image1} className="d-block w-100" alt="..." />
                         </div>
                         <div class="carousel-item" data-interval="2000">
-                            <img src="/images/image-slide/img-slide4.webp" class="d-block w-100" alt="...">
+                            <img src={image2} className="d-block w-100" alt="..." />
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval" data-slide="prev">
@@ -47,7 +52,7 @@ function Category() {
                 </div>
                 <div class="products mt-md-4 mb-md-4" style="margin-top: 5px;">
                     <div class="item-product">
-                        <img src="/images/img-iphone/iphone-11-white-thumbtz-650x650.webp" alt="">
+                        <img src={image3} alt="">
                             <ul class="prods-group">
                                 <li class="merge__item item">256GB</li>
                                 <li class="merge__item item">512GB</li>
@@ -64,7 +69,7 @@ function Category() {
                             <p class="notification">Online giá rẻ</p>
                     </div>
                     <div class="item-product">
-                        <img src="/images/img-iphone/iphone-11-white-thumbtz-650x650.webp" alt="">
+                        <img src={image3} alt="">
                             <ul class="prods-group">
                                 <li class="merge__item item">256GB</li>
                                 <li class="merge__item item">512GB</li>
@@ -81,7 +86,7 @@ function Category() {
                             <p class="notification">Online giá rẻ</p>
                     </div>
                     <div class="item-product">
-                        <img src="/images/img-iphone/iphone-11-white-thumbtz-650x650.webp" alt="">
+                        <img src={image3} alt="">
                             <ul class="prods-group">
                                 <li class="merge__item item">256GB</li>
                                 <li class="merge__item item">512GB</li>
@@ -98,7 +103,7 @@ function Category() {
                             <p class="notification">Online giá rẻ</p>
                     </div>
                     <div class="item-product">
-                        <img src="/images/img-iphone/iphone-11-white-thumbtz-650x650.webp" alt="">
+                        <img src={image3} alt="">
                             <ul class="prods-group">
                                 <li class="merge__item item">256GB</li>
                                 <li class="merge__item item">512GB</li>
@@ -115,7 +120,7 @@ function Category() {
                             <p class="notification">Online giá rẻ</p>
                     </div>
                     <div class="item-product">
-                        <img src="/images/img-iphone/iphone-11-white-thumbtz-650x650.webp" alt="">
+                        <img src={image3} alt="">
                             <ul class="prods-group">
                                 <li class="merge__item item">256GB</li>
                                 <li class="merge__item item">512GB</li>
@@ -132,7 +137,7 @@ function Category() {
                             <p class="notification">Online giá rẻ</p>
                     </div>
                     <div class="item-product">
-                        <img src="/images/img-iphone/iphone-11-white-thumbtz-650x650.webp" alt="">
+                        <img src={image3} alt="">
                             <ul class="prods-group">
                                 <li class="merge__item item">256GB</li>
                                 <li class="merge__item item">512GB</li>
@@ -149,7 +154,7 @@ function Category() {
                             <p class="notification">Online giá rẻ</p>
                     </div>
                     <div class="item-product">
-                        <img src="/images/img-iphone/iphone-11-white-thumbtz-650x650.webp" alt="">
+                        <img src={image3} alt="">
                             <ul class="prods-group">
                                 <li class="merge__item item">256GB</li>
                                 <li class="merge__item item">512GB</li>
@@ -166,7 +171,7 @@ function Category() {
                             <p class="notification">Online giá rẻ</p>
                     </div>
                     <div class="item-product">
-                        <img src="/images/img-iphone/iphone-11-white-thumbtz-650x650.webp" alt="">
+                        <img src={image3} alt="">
                             <ul class="prods-group">
                                 <li class="merge__item item">256GB</li>
                                 <li class="merge__item item">512GB</li>
@@ -190,11 +195,11 @@ function Category() {
                         </p>
                         <div class="icon-fb">
                             <div class="icon-smile">
-                                <img src="/images/icon/icon-happy.png">
+                                <img src={happyIcon}>
                                     <span>Hài lòng</span>
                             </div>
                             <div class="icon-bad">
-                                <img src="/images/icon/icon-bad.png">
+                                <img src={badIcon}>
                                     <span>Không hài lòng</span>
                             </div>
                         </div>
