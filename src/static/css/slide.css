@@ -1,0 +1,644 @@
+/* Silder-Iphone */
+.container-iphone {
+    background-color: #161616;
+    max-width: 100vw;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#slider-iphone {
+    max-width: 100vw;
+    width: 100%;
+}
+
+#slider-iphone>.product-iphone {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    scrollbar-width: none;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+}
+
+#slider-iphone>.product-iphone::-webkit-scrollbar {
+    display: none;
+}
+
+.topzoneIphone>#prev-topzone,
+#slider-iphone>#prev-iphone {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #ccc;
+    background-color: #666666;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    transform: translateY(-50%);
+    left: -20px;
+}
+
+.topzoneIphone>#prev-topzone:hover,
+.topzoneIphone>#next-topzone:hover,
+#slider-iphone>#next-iphone:hover,
+#slider-iphone>#prev-iphone:hover {
+    background-color: #444;
+}
+
+.topzoneIphone>#next-topzone,
+#slider-iphone>#next-iphone {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #ccc;
+    background-color: #666666;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    transform: translateY(-50%);
+    right: -20px;
+    display: block;
+}
+
+#slider-iphone {
+    position: relative;
+}
+
+.container-iphone .product-iphone {
+    display: flex;
+    border-radius: 16px;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.container-iphone .product-iphone .name-product {
+    line-height: 20px;
+    height: 40px;
+    margin-top: 20px;
+    color: white;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.product-iphone>.product-item {
+    background-color: #323232;
+    border-radius: 20px;
+}
+
+.product-iphone>.product-item>img {
+    width: 200px;
+    height: auto;
+}
+
+.product-iphone>.product-item>.price>.price-new {
+    color: #FF9921;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-iphone>.product-item>.price>.price-old {
+    color: #999999;
+    text-decoration-line: line-through;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+.product-iphone>.product-item>.price>.price-old:after {
+    content: "-10%";
+    position: absolute;
+    top: -10px;
+    right: -38px;
+    background-color: #F70000;
+    color: #DEFFF2;
+    padding: 1px;
+    border-radius: 5px;
+}
+
+/* Silder-Ipad ------------------------------------------------- */
+.container-ipad {
+    background-color: #161616;
+    max-width: 100vw;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#slider-ipad {
+    max-width: 100vw;
+    width: 100%;
+}
+
+#slider-ipad>.product-ipad {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    scrollbar-width: none;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+}
+
+#slider-ipad>.product-ipad::-webkit-scrollbar {
+    display: none;
+}
+
+.topzoneIpad>#prev-topzone,
+#slider-ipad>#prev-ipad {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #ccc;
+    background-color: #666666;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    transform: translateY(-50%);
+    left: -20px;
+}
+
+.topzoneIpad>#prev-topzone:hover,
+.topzoneIpad>#next-topzone:hover,
+#slider-ipad>#next-ipad:hover,
+#slider-ipad>#prev-ipad:hover {
+    background-color: #444;
+}
+
+.topzoneIpad>#next-topzone,
+#slider-ipad>#next-ipad {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #ccc;
+    background-color: #666666;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    transform: translateY(-50%);
+    right: -20px;
+    display: block;
+}
+
+#slider-ipad {
+    position: relative;
+}
+
+.container-ipad .product-ipad {
+    display: flex;
+    border-radius: 16px;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.container-ipad .product-ipad .name-product {
+    line-height: 20px;
+    height: 40px;
+    margin-top: 20px;
+    color: white;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.product-ipad>.product-item {
+    background-color: #323232;
+    border-radius: 20px;
+}
+
+.product-ipad>.product-item>img {
+    width: 200px;
+    height: auto;
+}
+
+.product-ipad>.product-item>.price>.price-new {
+    color: #FF9921;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-ipad>.product-item>.price>.price-old {
+    color: #999999;
+    text-decoration-line: line-through;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+.product-ipad>.product-item>.price>.price-old:after {
+    content: "-10%";
+    position: absolute;
+    top: -10px;
+    right: -38px;
+    background-color: #F70000;
+    color: #DEFFF2;
+    padding: 1px;
+    border-radius: 5px;
+}
+
+/* Silder-Mac ------------------------------------------------- */
+.container-mac {
+    background-color: #161616;
+    max-width: 100vw;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#slider-mac {
+    max-width: 100vw;
+    width: 100%;
+}
+
+#slider-mac>.product-mac {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    scrollbar-width: none;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+}
+
+#slider-mac>.product-mac::-webkit-scrollbar {
+    display: none;
+}
+
+.topzoneMac>#prev-topzone,
+#slider-mac>#prev-mac {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #ccc;
+    background-color: #666666;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    transform: translateY(-50%);
+    left: -20px;
+}
+
+.topzoneMac>#prev-topzone:hover,
+.topzoneMac>#next-topzone:hover,
+#slider-mac>#next-mac:hover,
+#slider-mac>#prev-mac:hover {
+    background-color: #444;
+}
+
+.topzoneMac>#next-topzone,
+#slider-mac>#next-mac {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #ccc;
+    background-color: #666666;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    transform: translateY(-50%);
+    right: -20px;
+    display: block;
+}
+
+#slider-mac {
+    position: relative;
+}
+
+.container-mac .product-mac {
+    display: flex;
+    border-radius: 16px;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.container-mac .product-mac .name-product {
+    line-height: 20px;
+    height: 40px;
+    margin-top: 20px;
+    color: white;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.product-mac>.product-item {
+    background-color: #323232;
+    border-radius: 20px;
+}
+
+.product-mac>.product-item>img {
+    width: 200px;
+    height: auto;
+}
+
+.product-mac>.product-item>.price>.price-new {
+    color: #FF9921;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-mac>.product-item>.price>.price-old {
+    color: #999999;
+    text-decoration-line: line-through;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+.product-mac>.product-item>.price>.price-old:after {
+    content: "-10%";
+    position: absolute;
+    top: -10px;
+    right: -38px;
+    background-color: #F70000;
+    color: #DEFFF2;
+    padding: 1px;
+    border-radius: 5px;
+}
+
+/* Silder-Watch ------------------------------------------------- */
+.container-watch {
+    background-color: #161616;
+    max-width: 100vw;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#slider-watch {
+    max-width: 100vw;
+    width: 100%;
+}
+
+#slider-watch>.product-watch {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    scrollbar-width: none;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+}
+
+#slider-watch>.product-watch::-webkit-scrollbar {
+    display: none;
+}
+
+.topzoneWatch>#prev-topzone,
+#slider-watch>#prev-watch {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #ccc;
+    background-color: #666666;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    transform: translateY(-50%);
+    left: -20px;
+}
+
+.topzoneWatch>#prev-topzone:hover,
+.topzoneWatch>#next-topzone:hover,
+#slider-watch>#next-watch:hover,
+#slider-watch>#prev-watch:hover {
+    background-color: #444;
+}
+
+.topzoneWatch>#next-topzone,
+#slider-watch>#next-watch {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #ccc;
+    background-color: #666666;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    transform: translateY(-50%);
+    right: -20px;
+    display: block;
+}
+
+#slider-watch {
+    position: relative;
+}
+
+.container-watch .product-watch {
+    display: flex;
+    border-radius: 16px;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.container-watch .product-watch .name-product {
+    line-height: 20px;
+    height: 40px;
+    margin-top: 20px;
+    color: white;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.product-watch>.product-item {
+    background-color: #323232;
+    border-radius: 20px;
+}
+
+.product-watch>.product-item>img {
+    width: 200px;
+    height: auto;
+}
+
+.product-watch>.product-item>.price>.price-new {
+    color: #FF9921;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-watch>.product-item>.price>.price-old {
+    color: #999999;
+    text-decoration-line: line-through;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+.product-watch>.product-item>.price>.price-old:after {
+    content: "-10%";
+    position: absolute;
+    top: -10px;
+    right: -38px;
+    background-color: #F70000;
+    color: #DEFFF2;
+    padding: 1px;
+    border-radius: 5px;
+}
+
+/* Silder-at ------------------------------------------------- */
+.container-at {
+    background-color: #161616;
+    max-width: 100vw;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#slider-at {
+    max-width: 100vw;
+    width: 100%;
+}
+
+#slider-at>.product-at {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    scrollbar-width: none;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+}
+
+#slider-at>.product-at::-webkit-scrollbar {
+    display: none;
+}
+
+.topzoneAt>#prev-topzone,
+#slider-at>#prev-at {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #ccc;
+    background-color: #666666;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    transform: translateY(-50%);
+    left: -20px;
+}
+
+.topzoneAt>#prev-topzone:hover,
+.topzoneAt>#next-topzone:hover,
+#slider-at>#next-at:hover,
+#slider-at>#prev-at:hover {
+    background-color: #444;
+}
+
+.topzoneAt>#next-topzone,
+#slider-at>#next-at {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #ccc;
+    background-color: #666666;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    transform: translateY(-50%);
+    right: -20px;
+    display: block;
+}
+
+#slider-at {
+    position: relative;
+}
+
+.container-at .product-at {
+    display: flex;
+    border-radius: 16px;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.container-at .product-at .name-product {
+    line-height: 20px;
+    height: 40px;
+    margin-top: 20px;
+    color: white;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.product-at>.product-item {
+    background-color: #323232;
+    border-radius: 20px;
+}
+
+.product-at>.product-item>img {
+    width: 200px;
+    height: auto;
+}
+
+.product-at>.product-item>.price>.price-new {
+    color: #FF9921;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-at>.product-item>.price>.price-old {
+    color: #999999;
+    text-decoration-line: line-through;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+.product-at>.product-item>.price>.price-old:after {
+    content: "-10%";
+    position: absolute;
+    top: -10px;
+    right: -38px;
+    background-color: #F70000;
+    color: #DEFFF2;
+    padding: 1px;
+    border-radius: 5px;
+}
