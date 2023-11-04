@@ -51,9 +51,10 @@ function Nav() {
               }}
             ></div>
           </div>
-          <div className="nav__right-control js-control">Sign in</div>
+          <div className="nav__right-control js-control js-model-login">Sign in</div>
         </div>
       </div>
+      <script type="module" src="../static/js/home.js"></script>
     </div>
   );
 }

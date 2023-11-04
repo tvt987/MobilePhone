@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Nav from './Nav.js'
 import logoProfile from '../static/images/img-model/ex_setprofile.jpg'
 import "../static/css/style.css"
@@ -46,10 +47,14 @@ import iconBeatStudioBudsTrangThumb from '../static/images/img-amthanh/beats-stu
 import iconBluetoothAirpodsProMagsafe from '../static/images/img-amthanh/bluetooth-airpods-pro-magsafe-charge-apple-mlwk3-tkm-650x650.webp'
 import iconLogoGoogle from '../static/images/img-model/logo-google.png'
 import iconLogoFace from '../static/images/img-model/logo-face.png'
+import home from '../static/js/home.js'
 
 
 
 function Home() {
+    useEffect(() => {
+        home()
+    }, [])
     return (
         <div>
             <Nav />
@@ -905,8 +910,7 @@ backgroundImage: `url(${logoProfile})`,
 
                 </div>
             </div>
-            <script type="module" src="/js/script.js"></script>
-            <script type="module" src="/js/home.js"></script>
+            <script type="module" src="../static/js/script.js"></script>
         </div >
     )
 }
