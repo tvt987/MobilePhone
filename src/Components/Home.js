@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import Nav from './Nav.js'
+import Footer from './Footer.js'
 import logoProfile from '../static/images/img-model/ex_setprofile.jpg'
 import "../static/css/style.css"
 import "../static/css/home.css"
@@ -629,6 +630,7 @@ function Home() {
                     </div>
                 </div>
             </div>
+            <Footer />
             <div className="model-login">
                 <div className="model-form">
 
