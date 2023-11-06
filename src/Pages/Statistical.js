@@ -13,7 +13,7 @@ function Statistical() {
   return (
     <div>
       <div class="main">
-        <!-- Main header -->
+
         <div class="main__header">
           <div class="nav row">
             <div class="nav__lef 
@@ -56,11 +56,11 @@ function Statistical() {
             </div>
           </div>
         </div>
-        <!-- Main body -->
+
         <div class="main__body row">
           <div class="main__body-left col-lg-6 col-md-6 col-sm-12">
-            <!-- Body left -->
-            <!-- Body left statistical -->
+
+
             <div class="body__left-statistical">
               <div class="row">
                 <div class="left__statistical-min col-lg-4 col-md-4 col-sm-12">
@@ -136,7 +136,7 @@ function Statistical() {
                 </div>
               </div>
             </div>
-            <!-- Body left tableOrder statistical -->
+
             <div class="body__left-tableOrder-wrap">
               <table class="body__left-tableOrder">
                 <tr class="left__tableOrder">
@@ -214,7 +214,7 @@ function Statistical() {
                   <td>15/06/2012</td>
                   <td>Done</td>
                 </tr>
-                <!--  -->
+
                 <tr class="left__tableOrder-item">
                   <td>DON1</td>
                   <td>15/12/2012</td>
@@ -250,7 +250,7 @@ function Statistical() {
                   <td>15/06/2012</td>
                   <td>Done</td>
                 </tr>
-                <!--  -->
+
                 <tr class="left__tableOrder-item">
                   <td>DON1</td>
                   <td>15/12/2012</td>
@@ -411,7 +411,7 @@ function Statistical() {
 
               </ul>
             </div>
-            <!-- Body left tableProduct statistical -->
+
             <div class="body__left-tableProduct-wrap">
               <table class="body__left-tableProduct">
                 <tr class="left__tableProduct">
@@ -489,7 +489,7 @@ function Statistical() {
                   <td>15/06/2012</td>
                   <td>Done</td>
                 </tr>
-                <!--  -->
+
                 <tr class="left__tableProduct-item">
                   <td>DON1</td>
                   <td>15/12/2012</td>
@@ -525,7 +525,7 @@ function Statistical() {
                   <td>15/06/2012</td>
                   <td>Done</td>
                 </tr>
-                <!--  -->
+
                 <tr class="left__tableProduct-item">
                   <td>DON1</td>
                   <td>15/12/2012</td>
@@ -687,9 +687,9 @@ function Statistical() {
               </ul>
             </div>
           </div>
-          <!-- Body right -->
+
           <div class="main__body-right col-lg-6 col-md-6 col-sm-12">
-            <!-- Body right order -->
+
             <div class="body__right-order">
               <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-8 row">
@@ -739,15 +739,15 @@ function Statistical() {
                 </div>
               </div>
             </div>
-            <!-- Body right order detail -->
+
             <div class="body__right-orderDetail">
 
-              <!-- header -->
+
               <div class="right__orderDetail-header">
                 Chi tiết đơn hàng <i class="fa-solid fa-money-bill fa-spin"></i>
               </div>
 
-              <!-- body -->
+
               <div class="right__orderDetail-body">
                 <div>Mã: VD1</div>
                 <div>ID khách hàng: US1</div>
@@ -756,7 +756,7 @@ function Statistical() {
                 <div>Giá tiền: 4.923.254đ</div>
               </div>
 
-              <!-- footer -->
+
               <div class="right__orderDetail-footer row">
                 <div class="orderDetail__item col-lg-3 col-md-3 col-sm-6">
                   <div class="orderDetail__item-img"
@@ -875,7 +875,7 @@ function Statistical() {
           </div>
         </div>
 
-        <!-- Main footer -->
+
         <div class="main__footer">
           <div class="main__footer-introduce">
             <video src={footerVideo}
@@ -905,130 +905,134 @@ function Statistical() {
                   p, hiện đại.
                 </div>
             </div>
-            <div class="main__footer-policy row">
-              <div class="footer__policy-item
+          </div>
+          <div class="main__footer-policy row">
+            <div class="footer__policy-item
         footer__policy-item--check
         col-lg-3 col-md-3 col-sm-6">
-                <i class="fa-solid fa-circle-check"></i>
-                <div class="policy__item-content">
-                  Mẫu mã đa dạng, chính hãng
-                </div>
-              </div>
-              <div class="footer__policy-item 
-        footer__policy-item--ship 
-        col-lg-3 col-md-3 col-sm-6">
-                <i class="fa-solid fa-truck"></i>
-                <div class="policy__item-content">
-                  Giao hàng toàn quốc
-                </div>
-              </div>
-              <div class="footer__policy-item
-        footer__policy-item--protect
-        col-lg-3 col-md-3 col-sm-6">
-                <i class="fa-solid fa-shield-cat"></i>
-                <div class="policy__item-content">
-                  Bảo hành cam kết, uy tín
-                </div>
-              </div>
-              <div class="footer__policy-item 
-        footer__policy-item--return
-        col-lg-3 col-md-3 col-sm-6">
-                <i class="fa-solid fa-arrow-rotate-left"></i>
-                <div class="policy__item-content">
-                  Có thể đổi trả lại
-                </div>
+              <i class="fa-solid fa-circle-check"></i>
+              <div class="policy__item-content">
+                Mẫu mã đa dạng, chính hãng
               </div>
             </div>
-            <div class="main__footer-content">
-              <div class="footer__content-header">
-                <div class="content__header-name">
+            <div class="footer__policy-item 
+        footer__policy-item--ship 
+        col-lg-3 col-md-3 col-sm-6">
+              <i class="fa-solid fa-truck"></i>
+              <div class="policy__item-content">
+                Giao hàng toàn quốc
+              </div>
+            </div>
+            <div class="footer__policy-item
+        footer__policy-item--protect
+        col-lg-3 col-md-3 col-sm-6">
+              <i class="fa-solid fa-shield-cat"></i>
+              <div class="policy__item-content">
+                Bảo hành cam kết, uy tín
+              </div>
+            </div>
+            <div class="footer__policy-item 
+        footer__policy-item--return
+        col-lg-3 col-md-3 col-sm-6">
+              <i class="fa-solid fa-arrow-rotate-left"></i>
+              <div class="policy__item-content">
+                Có thể đổi trả lại
+              </div>
+            </div>
+          </div>
+          <div class="main__footer-content">
+            <div class="footer__content-header">
+              <div class="content__header-name">
+                <span>Mobile</span>
+                <span>-</span>
+                <span>League</span>
+                <span>-</span>
+                <span>OTI</span>
+              </div>
+              <div class="content__header-logo"
+                style={{
+                  backgroundImage: `url(${logoPhone})`,
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'contain'
+                }}></div>
+            </div>
+            <div class="footer__content-body row">
+              <div class="content__body-item
+          col-lg-3 col-md-3 col-sm-6">
+                <div>Tổng đài</div>
+                <div>Mua hàng: 032545674</div>
+                <div>CSKH: 0325456574</div>
+                <div>Kết nối với chúng tôi</div>
+                <div class="row">
+                  <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div style={{
+                      backgroundImage: `url(${faceImage})`,
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: 'contain'
+                    }}></div>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div style={{
+                      backgroundImage: `url(${zaloImage})`,
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: 'contain'
+                    }}></div>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div style={{
+                      backgroundImage: `url(${instarImage})`,
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: 'contain'
+                    }}></div>
+                  </div>
+                </div>
+              </div>
+              <div class="content__body-item 
+          col-lg-3 col-md-3 col-sm-6">
+                <div>Hệ thống cửa hàng</div>
+                <div>Xem vị trí cửa hàng</div>
+                <div>Nội quy cửa hàng</div>
+                <div>Chất lượng phục vụ</div>
+                <div>Chính sách bảo hành & đổi trả</div>
+              </div>
+              <div class="content__body-item 
+          col-lg-3 col-md-3 col-sm-6">
+                <div>Hỗ trợ khách hàng</div>
+                <div>Điều kiện giao dịch chung</div>
+                <div>Hướng dẫn mua hàng online</div>
+                <div>Chính sách giao hàng</div>
+                <div>Hướng dẫn thanh toán</div>
+              </div>
+              <div class="content__body-item 
+          col-lg-3 col-md-3 col-sm-6">
+                <div>Trung tâm bảo hành</div>
+                <div>
                   <span>Mobile</span>
                   <span>-</span>
                   <span>League</span>
                   <span>-</span>
                   <span>OTI</span>
                 </div>
-                <div class="content__header-logo"
-                  style={{
-                    backgroundImage: `url(${logoPhone})`,
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'contain'
-                  }}></div>
               </div>
-              <div class="footer__content-body row">
-                <div class="content__body-item
-          col-lg-3 col-md-3 col-sm-6">
-                  <div>Tổng đài</div>
-                  <div>Mua hàng: 032545674</div>
-                  <div>CSKH: 0325456574</div>
-                  <div>Kết nối với chúng tôi</div>
-                  <div class="row">
-                    <div class="col-lg-2 col-md-2 col-sm-2">
-                      <div style={{
-                        backgroundImage: `url(${faceImage})`,
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundSize: 'contain'
-                      }}></div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2">
-                      <div style={{
-                        backgroundImage: `url(${zaloImage})`,
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundSize: 'contain'
-                      }}></div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2">
-                      <div style={{
-                        backgroundImage: `url(${instarImage})`,
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundSize: 'contain'
-                      }}></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="content__body-item 
-          col-lg-3 col-md-3 col-sm-6">
-                  <div>Hệ thống cửa hàng</div>
-                  <div>Xem vị trí cửa hàng</div>
-                  <div>Nội quy cửa hàng</div>
-                  <div>Chất lượng phục vụ</div>
-                  <div>Chính sách bảo hành & đổi trả</div>
-                </div>
-                <div class="content__body-item 
-          col-lg-3 col-md-3 col-sm-6">
-                  <div>Hỗ trợ khách hàng</div>
-                  <div>Điều kiện giao dịch chung</div>
-                  <div>Hướng dẫn mua hàng online</div>
-                  <div>Chính sách giao hàng</div>
-                  <div>Hướng dẫn thanh toán</div>
-                </div>
-                <div class="content__body-item 
-          col-lg-3 col-md-3 col-sm-6">
-                  <div>Trung tâm bảo hành</div>
-                  <div>
-                    <span>Mobile</span>
-                    <span>-</span>
-                    <span>League</span>
-                    <span>-</span>
-                    <span>OTI</span>
-                  </div>
-                </div>
-              </div>
-              <div class="footer__content-footer">
-                © 2023. Công ty cổ phần Mobile-League-OTI. <br>
-                  Địa chỉ: 128 Trần Quang Khải, P.Tân Định, Q.1, TP. Hồ Chí Minh. <br>
-                    Điện thoại: 032.545.6574. <br>
-                      Địa chỉ liên hệ và gửi chứng từ: Lô T2-1.2, Đường D1, Đ. D1, P.Tân Phú, TP.Thủ Đức, TP.Hồ Chí Minh. <br>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              <script src="./js/statistical.js"></script>
             </div>
-            )
+            <div class="footer__content-footer">
+              © 2023. Công ty cổ phần Mobile-League-OTI. <br>
+                Địa chỉ: 128 Trần Quang Khải, P.Tân Định, Q.1, TP. Hồ Chí Minh. <br>
+                  Điện thoại: 032.545.6574. <br>
+                    Địa chỉ liên hệ và gửi chứng từ: Lô T2-1.2, Đường D1, Đ. D1, P.Tân Phú, TP.Thủ Đức, TP.Hồ Chí Minh. <br>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <script src="./js/statistical.js"></script>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
-            export default Statistical
+export default Statistical
