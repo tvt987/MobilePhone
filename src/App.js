@@ -1,9 +1,14 @@
 
 import Nav from './Components/Nav.js';
-import Home from './Components/Home.js'
+import Home from './Pages/Home.js'
+import User from './Pages/User.js'
 function App() {
+  const i = 1;
   return (
-    <Home />
+    <div>
+      {i === 1 ?  <User /> : <Nav />}
+    </div>
+   
   )
 }
 

@@ -1,4 +1,4 @@
-import '../static/css/adminH.css'
+import '../static/css/adminF.css'
 import '../static/css/statistical.css'
 import iconLogoPhone from '../static/images/img-model/header__logophone.png'
 
@@ -11,7 +11,7 @@ function Footer() {
         <div>
             <div className="main__footer">
                 <div className="main__footer-introduce">
-                    <video src={videoFooter}
+                    <video typeof='video/mp4' src={videoFooter}
                         autoPlay loop></video>
 
                     <div className="footer__introduce-logo fa-shake"
