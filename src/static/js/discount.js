@@ -1,4 +1,5 @@
-const $ = document.querySelector.bind(document);
+function discount(){
+    const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 let thisPage = 1;
@@ -26,7 +27,7 @@ function listPage(){
     let count = Math.ceil(list.length / limit);
     $('.body__left-tableDiscount--listPage').innerHTML = ''
     if(count >= 5){
-        for(i = 1; i <= 3; i++){
+        for(var i = 1; i <= 3; i++){
             let newPage = document.createElement('li');
             newPage.classList.add('table__discount-item')
             newPage.innerText = i;
@@ -66,7 +67,7 @@ function reLoadListPage(i){
     let lengtharr = listBtn.length
     if(i == Number(listBtn[2].innerText)){
         if(i < length){
-            for(j = 0; j <= 2; j++){
+            for(var j = 0; j <= 2; j++){
                 listBtn[j].innerText = Number(listBtn[j].innerText) + 1
                 listBtn[j].setAttribute('onclick', 'changePage(' + Number(listBtn[j].innerText) + ')')
             }
@@ -80,7 +81,7 @@ function reLoadListPage(i){
             if (listBtn[lengtharr - 1] && listBtn[lengtharr - 1].parentNode) {
                 listBtn[lengtharr - 1].style.display = ''
             }
-            for(j = 0; j <= 2; j++){
+            for(var j = 0; j <= 2; j++){
                 listBtn[j].innerText = Number(listBtn[j].innerText) - 1
                 listBtn[j].setAttribute('onclick', 'changePage(' + Number(listBtn[j].innerText) + ')')
             }
@@ -174,7 +175,7 @@ function btnFinal(){
                 let count = Math.ceil(listP.length / limitP);
                 $('.body__left-tableProduct--listPage').innerHTML = ''
                 if(count >= 5){
-                    for(i = 1; i <= 3; i++){
+                    for(var i = 1; i <= 3; i++){
                         let newPage = document.createElement('li');
                         newPage.classList.add('tableProduct__listPage-item')
                         newPage.innerText = i;
@@ -214,7 +215,7 @@ function btnFinal(){
                 let lengtharr = listBtn.length
                 if(i == Number(listBtn[2].innerText)){
                     if(i < length){
-                        for(j = 0; j <= 2; j++){
+                        for(var j = 0; j <= 2; j++){
                             listBtn[j].innerText = Number(listBtn[j].innerText) + 1
                             listBtn[j].setAttribute('onclick', 'changePageP(' + Number(listBtn[j].innerText) + ')')
                         }
@@ -279,4 +280,5 @@ function btnFinal(){
                     }
                 });
             }
-            
+}
+export default discount

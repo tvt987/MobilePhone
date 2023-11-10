@@ -10,7 +10,10 @@
     font-size: 14px;
     white-space: nowrap;
 }
-
+.category-title{
+    padding-top: 8px;
+    margin-top: 0 !important;
+}
 .ft-cate a {
     color: #AAB4B8;
     padding: 10px;

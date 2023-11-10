@@ -1,119 +1,121 @@
 //
 import '../static/css/style.css'
-import image1 from 'https://bootstrapious.com/i/snippets/sn-cart/product-1.jpg'
-import image2 from 'https://bootstrapious.com/i/snippets/sn-cart/product-2.jpg'
-import image3 from 'https://bootstrapious.com/i/snippets/sn-cart/product-3.jpg'
+import image1 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
+import image2 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
+import image3 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 
 function Cart() {
     return (
         <div>
-            <div class="container">
+            <div className="container">
 
-                <div class="pb-5 pt-5">
-                    <div class="container">
-                        <a href="#" class="text-white-50 buy-more">
-                            <i class="fas fa-long-arrow-alt-left"></i>Mua thêm sản phẩm khác
+                <div className="pb-5 pt-5">
+                    <div className="container">
+                        <a href="#" className="text-white-50 buy-more">
+                            <i className="fas fa-long-arrow-alt-left"></i>Mua thêm sản phẩm khác
                         </a>
-                        <div class="row">
-                            <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+                        <div className="row">
+                            <div className="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
 
-                                <!-- Shopping cart table -->
-                                <div class="table-responsive">
-                                    <table class="table">
+                                
+                                <div className="table-responsive">
+                                    <table className="table">
                                         <thead>
                                             <tr>
-                                                <th scope="col" class="border-0 bg-light">
-                                                    <div class="p-2 px-3 text-uppercase">Product</div>
+                                                <th scope="col" className="border-0 bg-light">
+                                                    <div className="p-2 px-3 text-uppercase">Product</div>
                                                 </th>
-                                                <th scope="col" class="border-0 bg-light">
-                                                    <div class="py-2 text-uppercase">Price</div>
+                                                <th scope="col" className="border-0 bg-light">
+                                                    <div className="py-2 text-uppercase">Price</div>
                                                 </th>
-                                                <th scope="col" class="border-0 bg-light">
-                                                    <div class="py-2 text-uppercase">Quantity</div>
+                                                <th scope="col" className="border-0 bg-light">
+                                                    <div className="py-2 text-uppercase">Quantity</div>
                                                 </th>
-                                                <th scope="col" class="border-0 bg-light">
-                                                    <div class="py-2 text-uppercase">Remove</div>
+                                                <th scope="col" className="border-0 bg-light">
+                                                    <div className="py-2 text-uppercase">Remove</div>
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th scope="row" class="border-0">
-                                                    <div class="p-2">
-                                                        <img src={image1} alt="" width="70" class="img-fluid rounded shadow-sm">
-                                                            <div class="ml-3 d-inline-block align-middle">
-                                                                <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Timex Unisex Originals</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
+                                                <th scope="row" className="border-0">
+                                                    <div className="p-2">
+                                                        <img src={image1} alt="" width="70" className="img-fluid rounded shadow-sm"/>
+                                                            <div className="ml-3 d-inline-block align-middle">
+                                                                <h5 className="mb-0"> <a href="#" className="text-dark d-inline-block align-middle">Timex Unisex Originals</a></h5><span className="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
                                                             </div>
                                                     </div>
                                                 </th>
-                                                <td class="border-0 align-middle"><strong>$79.00</strong></td>
-                                                <td class="border-0 align-middle"><strong>3</strong></td>
-                                                <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                                                <td className="border-0 align-middle"><strong>$79.00</strong></td>
+                                                <td className="border-0 align-middle"><strong>3</strong></td>
+                                                <td className="border-0 align-middle"><a href="#" className="text-dark"><i className="fa fa-trash"></i></a></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">
-                                                    <div class="p-2">
-                                                        <img src={image2} alt="" width="70" class="img-fluid rounded shadow-sm">
-                                                            <div class="ml-3 d-inline-block align-middle">
-                                                                <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Lumix camera lense</a></h5><span class="text-muted font-weight-normal font-italic">Category: Electronics</span>
+                                                    <div className="p-2">
+                                                        <img src={image2} alt="" width="70" className="img-fluid rounded shadow-sm"/>
+                                                            <div className="ml-3 d-inline-block align-middle">
+                                                                <h5 className="mb-0"><a href="#" className="text-dark d-inline-block">Lumix camera lense</a></h5><span className="text-muted font-weight-normal font-italic">Category: Electronics</span>
                                                             </div>
                                                     </div>
                                                 </th>
-                                                <td class="align-middle"><strong>$79.00</strong></td>
-                                                <td class="align-middle"><strong>3</strong></td>
-                                                <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                                                <td className="align-middle"><strong>$79.00</strong></td>
+                                                <td className="align-middle"><strong>3</strong></td>
+                                                <td className="align-middle"><a href="#" className="text-dark"><i className="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">
-                                                    <div class="p-2">
-                                                        <img src={image3} alt="" width="70" class="img-fluid rounded shadow-sm">
-                                                            <div class="ml-3 d-inline-block align-middle">
-                                                                <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Gray Nike running shoe</a></h5><span class="text-muted font-weight-normal font-italic">Category: Fashion</span>
+                                                    <div className="p-2">
+                                                        <img src={image3} alt="" width="70" className="img-fluid rounded shadow-sm"/>
+                                                            <div className="ml-3 d-inline-block align-middle">
+                                                                <h5 className="mb-0"> <a href="#" className="text-dark d-inline-block">Gray Nike running shoe</a></h5><span className="text-muted font-weight-normal font-italic">Category: Fashion</span>
                                                             </div>
                                                     </div>
-                                                    <td class="align-middle"><strong>$79.00</strong></td>
-                                                    <td class="align-middle"><strong>3</strong></td>
-                                                    <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                                                    </th>
+                                                    <td className="align-middle"><strong>$79.00</strong></td>
+                                                    <td className="align-middle"><strong>3</strong></td>
+                                                    <td className="align-middle"><a href="#" className="text-dark"><i className="fa fa-trash"></i></a>
                                                     </td>
+                                                    
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <!-- End -->
+                                
                             </div>
                         </div>
 
-                        <div class="row py-5 p-4 bg-white rounded shadow-sm">
-                            <div class="col-lg-6">
-                                <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
-                                <div class="p-4">
-                                    <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
-                                    <div class="input-group mb-4 border rounded-pill p-2">
-                                        <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3" class="form-control border-0">
-                                            <div class="input-group-append border-0">
-                                                <button id="button-addon3" type="button" class="btn btn-dark px-4 rounded-pill"><i class="fa fa-gift mr-2"></i>Apply coupon</button>
+                        <div className="row py-5 p-4 bg-white rounded shadow-sm">
+                            <div className="col-lg-6">
+                                <div className="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
+                                <div className="p-4">
+                                    <p className="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
+                                    <div className="input-group mb-4 border rounded-pill p-2">
+                                        <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3" className="form-control border-0"/>
+                                            <div className="input-group-append border-0">
+                                                <button id="button-addon3" type="button" className="btn btn-dark px-4 rounded-pill"><i className="fa fa-gift mr-2"></i>Apply coupon</button>
                                             </div>
                                     </div>
                                 </div>
-                                <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Instructions for seller</div>
-                                <div class="p-4">
-                                    <p class="font-italic mb-4">If you have some information for the seller you can leave them in the box below</p>
-                                    <textarea name="" cols="30" rows="2" class="form-control"></textarea>
+                                <div className="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Instructions for seller</div>
+                                <div className="p-4">
+                                    <p className="font-italic mb-4">If you have some information for the seller you can leave them in the box below</p>
+                                    <textarea name="" cols="30" rows="2" className="form-control"></textarea>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
-                                <div class="p-4">
-                                    <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
-                                    <ul class="list-unstyled mb-4">
-                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
-                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
-                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
-                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                                            <h5 class="font-weight-bold">$400.00</h5>
+                            <div className="col-lg-6">
+                                <div className="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+                                <div className="p-4">
+                                    <p className="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
+                                    <ul className="list-unstyled mb-4">
+                                        <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
+                                        <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
+                                        <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Tax</strong><strong>$0.00</strong></li>
+                                        <li className="d-flex justify-content-between py-3 border-bottom"><strong className="text-muted">Total</strong>
+                                            <h5 className="font-weight-bold">$400.00</h5>
                                         </li>
-                                    </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+                                    </ul><a href="#" className="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
                                 </div>
                             </div>
                         </div>
