@@ -33,7 +33,7 @@ function Model(){
 
                         <div className="model-body__remember">
                             <div className="model-body__remember-wrap">
-                                <div className="model-body__rememberMe js-model-changepass">
+                                <div className="model-body__rememberMe ">
                                     Remember Me?
                                 </div>
                                 <div className="model-body__forgotPass js-model-forget">
@@ -57,7 +57,7 @@ function Model(){
                                 <img src={iconLogoFace} alt="" />
                             </div>
                             <div className="model-footer__regiter">
-                                <span className="js-model-setprofileO">Don't have a account?</span>
+                                <span>Don't have a account?</span>
                                 <span className="js-model-registerO">Register</span>
                             </div>
                         </div>

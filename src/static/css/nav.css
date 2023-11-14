@@ -145,7 +145,6 @@
 }
 
 .nav__right-control{
-   width: 60px;
    text-align: center;
    font-size: large;
    display: flex;
@@ -155,6 +154,18 @@
    padding-left: 6px;
 }
 
+.dropdown-item{
+margin-right: 5px;
+text-align: left !important;
+font-size: large;   
+}
 
+.admin{
+  color: white;  
+  border: none;
+}
 
+.admin:hover{
+    color: white;
+}
 
