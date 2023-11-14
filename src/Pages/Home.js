@@ -55,6 +55,8 @@ import home from '../static/js/home.js'
 function Home() {
     useEffect(() => {
         home()
+        
+        
     }, [])
     return (
         <div>
@@ -629,7 +631,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <script type="module" src="../static/js/script.js"></script>
         </div >
     )
 }

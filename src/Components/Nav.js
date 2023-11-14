@@ -1,7 +1,7 @@
 import '../static/css/nav.css'
 import logoPhone from '../static/images/img-model/header__logophone.png'
 import logoUser from '../static/images/img-model/user.svg'
-
+import { Link } from 'react-router-dom';
 function Nav() {
 
   return (
@@ -28,9 +28,9 @@ function Nav() {
         </div>
         <div className="nav__center col-lg-6 col-md-6 col-sm-0">
           <a className="nav__center-item nav__center-item--active fa-fade">IPHONE</a>
-          <a className="nav__center-item">OPPO</a>
-          <a className="nav__center-item">XIAOMI</a>
-          <a className="nav__center-item">HUAWEI</a>
+          <Link to='/oppo' className="nav__center-item">OPPO</Link>
+          <Link to='/' className="nav__center-item">XIAOMI</Link>
+          <Link to='/' className="nav__center-item">HUAWEI</Link>
         </div>
         <div className="nav__right col-lg-3 col-md-3 col-sm-6">
           <div className="nav__right-btns">

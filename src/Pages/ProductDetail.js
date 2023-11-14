@@ -8,8 +8,12 @@ import image5 from '../static/images/image-sale/Frame-482029--1--920x230.png'
 import avatar1 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import avatar2 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import avatar3 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
+import { useEffect } from 'react'
 
 function ProductDetail() {
+  useEffect(() => {
+    clearInterval()
+  }, [])
   return (
     <div>
 
@@ -269,7 +273,6 @@ function ProductDetail() {
         </div>
       </div>
 
-      <script type="module" src="/js/script.js"></script>
     </div>
   )
 }
