@@ -51,7 +51,7 @@ function Category() {
                     </a>
                 </div>
                 <div className="products mt-md-4 mb-md-4" style={{marginTop: '5px'}}>
-                    <div className="item-product">
+                    <a href='/ProductDetail' className="item-product">
                         <img src={image3} alt=""/>
                             <ul className="prods-group">
                                 <li className="merge__item item">256GB</li>
@@ -67,7 +67,7 @@ function Category() {
                                 </div>
                             </div>
                             <p className="notification">Online giá rẻ</p>
-                    </div>
+                    </a>
                     <div className="item-product">
                         <img src={image3} alt=""/>
                             <ul className="prods-group">

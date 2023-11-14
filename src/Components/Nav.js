@@ -37,9 +37,9 @@ function Nav() {
             <div className="nav__right-btn">
               <i className="fa-solid fa-magnifying-glass"></i>
             </div>
-            <div className="nav__right-btn">
+            <a href='/Cart' className="nav__right-btn">
               <i className="fa-solid fa-cart-arrow-down"></i>
-            </div>
+            </a>
           </div>
           <div>
             <div
@@ -51,7 +51,19 @@ function Nav() {
               }}
             ></div>
           </div>
-          <div className="nav__right-control js-control js-model-login">Sign in</div>
+          <div className="nav__right-control js-control js-model-login">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown button
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+          
         </div>
       </div>
       <script type="module" src="../static/js/home.js"></script>

@@ -49,14 +49,46 @@ import iconBeatStudioBudsTrangThumb from '../static/images/img-amthanh/beats-stu
 import iconBluetoothAirpodsProMagsafe from '../static/images/img-amthanh/bluetooth-airpods-pro-magsafe-charge-apple-mlwk3-tkm-650x650.webp'
 
 import home from '../static/js/home.js'
-
+import { useRef } from 'react'
 
 
 function Home() {
+    let conutdown = useRef()
+    
     useEffect(() => {
+        /**------------------------set coundown time sale-----------------------  **/
+
+let countDownDate = new Date("Nov 5, 2023 15:37:25").getTime();
+conutdown.current = setInterval(() => {
+  let now = new Date().getTime();
+  let distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  if (hours < 10) {
+    hours = '0' + hours;
+  }
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
+  if (minutes < 10) {
+    minutes = '0' + minutes;
+  }
+
+  document.querySelector('.count-down .countdown-time .hours span').innerHTML = hours;
+  document.querySelector('.count-down .countdown-time .minutes span').innerHTML = minutes;
+  document.querySelector('.count-down .countdown-time .seconds span').innerHTML = seconds;
+  if (distance < 0) {
+    clearInterval();
+  }
+
+}, 1000);
+
         home()
-        
-        
+        return(
+            clearInterval(conutdown.current)
+            )
     }, [])
     return (
         <div>
