@@ -1,7 +1,21 @@
 import iconLogoGoogle from '../static/images/img-model/logo-google.png'
 import iconLogoFace from '../static/images/img-model/logo-face.png'
 import logoProfile from '../static/images/img-model/ex_setprofile.jpg'
+import { useState, useEffect } from 'react'
+
 function Model(){
+    const [user, setUser] = useState()
+    const $ = document.querySelector.bind(document)
+    const $$ = document.querySelectorAll.bind(document)
+
+    let iptEmail;
+    let iptPass;
+
+        const handleSubmitLogin =  () => {
+            alert('a')
+        }
+    
+
     return (
         <div>
             <div className="model-login">
@@ -33,14 +47,17 @@ function Model(){
 
                         <div className="model-body__remember">
                             <div className="model-body__remember-wrap">
-                                <div className="model-body__rememberMe js-model-changepass">
+                                <div  className="model-body__rememberMe">
                                     Remember Me?
                                 </div>
-                                <div className="model-body__forgotPass js-model-forget">
+                                <div  className="model-body__forgotPass js-model-forget">
                                     Forgot Password?
                                 </div>
                             </div>
-                            <button type="submit">Login
+                            <button onClick={(e) => {
+                                e.stopPropagation()
+                                alert('a')
+                            }}>Login
                                 <i className="fa-solid fa-right-to-bracket"></i>
                             </button>
 </div>
@@ -57,7 +74,7 @@ function Model(){
                                 <img src={iconLogoFace} alt="" />
                             </div>
                             <div className="model-footer__regiter">
-                                <span className="js-model-setprofileO">Don't have a account?</span>
+                                <span >Don't have a account?</span>
                                 <span className="js-model-registerO">Register</span>
                             </div>
                         </div>

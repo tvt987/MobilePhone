@@ -51,17 +51,20 @@ function Nav() {
               }}
             ></div>
           </div>
-          <div className="nav__right-control js-control js-model-login">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown button
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+          <div style={{display: 'none'}} className="nav__right-control">
+          <div className="dropdown">
+              <button className="btn admin dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Admin
+              </button>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div className="dropdown-item js-model-changepass">Change Password</div>
+                <div className="dropdown-item js-model-setprofileO">Set Profile</div>
+                <div className="dropdown-item ">Logout</div>
               </div>
+            </div>
+            </div>
+            <div className="nav__right-control js-model-login">
+              Login
             </div>
           
         </div>

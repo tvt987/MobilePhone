@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import Nav from '../Components/Nav.js'
 import Footer from '../Components/Footer.js'
 import Model from '../Components/Model.js'
@@ -49,13 +48,23 @@ import iconBeatStudioBudsTrangThumb from '../static/images/img-amthanh/beats-stu
 import iconBluetoothAirpodsProMagsafe from '../static/images/img-amthanh/bluetooth-airpods-pro-magsafe-charge-apple-mlwk3-tkm-650x650.webp'
 
 import home from '../static/js/home.js'
-import { useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 
 function Home() {
+    const allProduct = 'http://localhost:8080/getProducts'
+    const [iphoneList, setIphoneList] = useState([]);
+    
     let conutdown = useRef()
     
     useEffect(() => {
+        fetch(allProduct)
+            .then(response => response.json())
+            .then(data => {
+                setIphoneList(data)
+            })
+
+            
         /**------------------------set coundown time sale-----------------------  **/
 
 let countDownDate = new Date("Nov 5, 2023 15:37:25").getTime();
@@ -86,9 +95,23 @@ conutdown.current = setInterval(() => {
 }, 1000);
 
         home()
-        return(
+        
+        
+        
+        
+        
+            return(
             clearInterval(conutdown.current)
             )
+    }, [])
+    const allProductDC = 'http://localhost:8080/getProductsDiscount'
+    const [productDCList, setProductDCList] = useState([])
+    useEffect(() => {
+        fetch(allProductDC)
+        .then(response => response.json())
+        .then(data => {
+            setProductDCList(data)
+        })
     }, [])
     return (
         <div>
@@ -152,126 +175,21 @@ conutdown.current = setInterval(() => {
                             <i className="fas fa-chevron-left"></i>
                         </button>
                         <div className="product-sale">
-                            <div className="product-item">
-                                <img src={iconIphone11Black} />
-                                <p className="name-sale">Iphone 11 128GB</p>
-                                <div className="price">
-                                    <p className="price-new">11.790.000₫</p>
-                                    <p className="price-old">13.790.000₫</p>
-                                </div>
-                                <div className="count-product">
-                                    <img src={iconFsIconFire} />
-                                    <i>10/10</i>
-                                </div>
-                            </div>
-                            <div className="product-item">
+                        {productDCList.map((product, index) => (
+                            <a href={`/ProductDetail/${product.id}`} key={index} className="product-item">
                                 <img src={iconAdaptor} />
-                                <p className="name-sale">Adapter</p>
+                                <p className="name-sale">{product.name}</p>
                                 <div className="price">
-                                    <p className="price-new">315.000₫</p>
-<p className="price-old">450.000₫</p>
+                                    <p className="price-new">{product.price}</p>
+                                <p className="price-old">{product.priceUpdate}</p>
                                 </div>
                                 <div className="count-product">
                                     <img src={iconFsIconFire} />
                                     <i>10/10</i>
                                 </div>
-                            </div>
-                            <div className="product-item">
-                                <img src={iconAirpods3} />
-                                <p className="name-sale">Airpods-3</p>
-                                <div className="price">
-                                    <p className="price-new">4.190.000₫</p>
-                                    <p className="price-old">4.490.000₫</p>
-                                </div>
-                                <div className="count-product">
-                                    <img src={iconFsIconFire} />
-                                    <i>10/10</i>
-                                </div>
-                            </div>
-                            <div className="product-item">
-                                <img src={iconAppleWatchSe} />
-                                <p className="name-sale">Apple-watch-se</p>
-                                <div className="price">
-                                    <p className="price-new">6.090.000₫</p>
-                                    <p className="price-old">7.790.000₫</p>
-                                </div>
-                                <div className="count-product">
-                                    <img src={iconFsIconFire} />
-                                    <i>10/10</i>
-                                </div>
-                            </div>
-                            <div className="product-item">
-                                <img src={iconAppleWatchSe} />
-                                <p className="name-sale">Apple-watch-se</p>
-                                <div className="price">
-                                    <p className="price-new">6.090.000₫</p>
-                                    <p className="price-old">7.790.000₫</p>
-                                </div>
-                                <div className="count-product">
-                                    <img src={iconFsIconFire} />
-                                    <i>10/10</i>
-                                </div>
-                            </div>
-                            <div className="product-item">
-                                <img src={iconIphone12Green} />
-                                <p className="name-sale">Iphone 12</p>
-                                <div className="price">
-                                    <p className="price-new">11.490.000₫</p>
-                                    <p className="price-old">18.990.000₫</p>
-                                </div>
-                                <div className="count-product">
-                                    <img src={iconFsIconFire} />
-<i>10/10</i>
-                                </div>
-                            </div>
-                            <div className="product-item">
-                                <img src={iconIphone12Sale} />
-                                <p className="name-sale">Iphone 12 64GB</p>
-                                <div className="price">
-                                    <p className="price-new">13.490.000₫</p>
-                                    <p className="price-old">16.090.000₫</p>
-                                </div>
-                                <div className="count-product">
-                                    <img src={iconFsIconFire} />
-                                    <i>10/10</i>
-                                </div>
-                            </div>
-                            <div className="product-item">
-                                <img src={iconIphone14ProMaxPurple} />
-                                <p className="name-sale">Iphone 14 Pro Max 128GB</p>
-                                <div className="price">
-                                    <p className="price-new">25.990.000₫</p>
-                                    <p className="price-old">26.690.000₫</p>
-                                </div>
-                                <div className="count-product">
-                                    <img src={iconFsIconFire} />
-                                    <i>10/10</i>
-                                </div>
-                            </div>
-                            <div className="product-item">
-                                <img src={iconMouse} />
-                                <p className="name-sale">Mouse</p>
-                                <div className="price">
-                                    <p className="price-new">1.640.000₫</p>
-                                    <p className="price-old">2.690.000₫</p>
-                                </div>
-                                <div className="count-product">
-                                    <img src={iconFsIconFire} />
-                                    <i>10/10</i>
-                                </div>
-                            </div>
-                            <div className="product-item">
-                                <img src={iconOpLung} />
-                                <p className="name-sale">Ốp Lưng</p>
-                                <div className="price">
-                                    <p className="price-new">635.000₫</p>
-                                    <p className="price-old">1.790.000₫</p>
-                                </div>
-                                <div className="count-product">
-                                    <img src={iconFsIconFire} />
-                                    <i>10/10</i>
-                                </div>
-                            </div>
+                            </a>
+                        ))}
+
                         </div>
                         <button id="next-product" className="btn-slide-product">
 <i className="fas fa-chevron-right"></i>
@@ -314,62 +232,19 @@ conutdown.current = setInterval(() => {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-iphone">
-                                <div className="product-item">
+                                {iphoneList.map((iphone, index) => (
+                                    <div key={index} className="product-item">
                                     <img src={iconIphone11WhiteThumb} />
-                                    <p className="name-product">Iphone 11 64GB</p>
+                                    <p className="name-product">{iphone.name}</p>
                                     <div className="price">
-                                        <p className="price-new">10.190.000₫</p>
-                                        <p className="price-old">11.590.000₫ <span className="discount">-3%</span></p>
+                                        <p className="price-new">{iphone.price}</p>
+                                        <p className="price-old">{iphone.priceUpdate}<span className="discount">-3%</span></p>
                                     </div>
                                 </div>
-                                <div className="product-item">
-                                    <img src={iconIphone13BlueThumb} />
-                                    <p className="name-product">Iphone 13 128GB</p>
-                                    <div className="price">
-                                        <p className="price-new">16.490.000₫</p>
-                                        <p className="price-old">18.790.000₫ <span className="discount">-3%</span></p>
-                                    </div>
-                                </div>
-<div className="product-item">
-                                    <img src={iconIphone14ProGoldThumb} />
-                                    <p className="name-product">Iphone 14 Pro 128GB</p>
-                                    <div className="price">
-                                        <p className="price-new">23.790.000₫</p>
-                                        <p className="price-old">27.590.000₫ <span className="discount">-3%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconIphone13BlueThumb} />
-                                    <p className="name-product">Iphone 15 128GB</p>
-                                    <div className="price">
-                                        <p className="price-new">20.490.000₫</p>
-                                        <p className="price-old">30.790.000₫ <span className="discount">-3%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconIphone11WhiteThumb} />
-                                    <p className="name-product">Iphone 11 64GB</p>
-                                    <div className="price">
-                                        <p className="price-new">10.190.000₫</p>
-                                        <p className="price-old">11.590.000₫ <span className="discount">-3%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconIphone14ProGoldThumb} />
-                                    <p className="name-product">Iphone 14 Pro 128GB</p>
-                                    <div className="price">
-                                        <p className="price-new">23.790.000₫</p>
-                                        <p className="price-old">27.590.000₫ <span className="discount">-3%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconIphone14ProGoldThumb} />
-                                    <p className="name-product">Iphone 14 Pro 128GB</p>
-                                    <div className="price">
-                                        <p className="price-new">23.790.000₫</p>
-                                        <p className="price-old">27.590.000₫ <span className="discount">-3%</span></p>
-                                    </div>
-                                </div>
+                                ))}
+                                
+
+                                
                             </div>
                             <button id="next-iphone" className="btn-slide-product">
                                 <i className="fas fa-chevron-right"></i>
@@ -385,62 +260,17 @@ conutdown.current = setInterval(() => {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-ipad">
-                                <div className="product-item">
+                            {iphoneList.map((iphone, index) => (
+                                    <div key={index} className="product-item">
                                     <img src={iconIpadAir5Wifi} />
-                                    <p className="name-product">iPad 9 64GB</p>
+                                    <p className="name-product">{iphone.name}</p>
                                     <div className="price">
-                                        <p className="price-new">7.490.000₫</p>
-                                        <p className="price-old">8.390.000₫ <span className="discount">-10%</span></p>
+                                        <p className="price-new">{iphone.price}</p>
+                                        <p className="price-old">{iphone.priceUpdate} <span className="discount">-10%</span></p>
                                     </div>
                                 </div>
-                                <div className="product-item">
-                                    <img src={iconIpadGen10SliverThumb} />
-                                    <p className="name-product">iPad 10 64GB</p>
-                                    <div className="price">
-                                        <p className="price-new">11.290.000₫</p>
-                                        <p className="price-old">11.390.000₫</p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconIpadGen0SliverLabel} />
-                                    <p className="name-product">iPad Pro M2 128GB</p>
-                                    <div className="price">
-                                        <p className="price-new">20.490.000₫</p>
-                                        <p className="price-old">20.990.000₫ <span className="discount">-2%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconIpadProM211SliverThumb} />
-                                    <p className="name-product">iPad Air 5 64GB</p>
-                                    <div className="price">
-                                        <p className="price-new">14.390.000₫</p>
-                                        <p className="price-old">15.390.000₫ <span className="discount">-6%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconIpadGen10SliverThumb} />
-<p className="name-product">iPad 10 64GB</p>
-                                    <div className="price">
-                                        <p className="price-new">11.290.000₫</p>
-                                        <p className="price-old">11.390.000₫</p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconIpadGen0SliverLabel} />
-                                    <p className="name-product">iPad Pro M2 128GB</p>
-                                    <div className="price">
-                                        <p className="price-new">20.490.000₫</p>
-                                        <p className="price-old">20.990.000₫ <span className="discount">-2%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconIpadGen10SliverThumb} />
-                                    <p className="name-product">iPad 10 64GB</p>
-                                    <div className="price">
-                                        <p className="price-new">11.290.000₫</p>
-                                        <p className="price-old">11.390.000₫</p>
-                                    </div>
-                                </div>
+                                ))}
+
                             </div>
                             <button id="next-ipad" className="btn-slide-product">
                                 <i className="fas fa-chevron-right"></i>
@@ -456,62 +286,17 @@ conutdown.current = setInterval(() => {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-mac">
-                                <div className="product-item">
+                            {iphoneList.map((iphone, index) => (
+                                    <div key={index} className="product-item">
                                     <img src={iconMacAir13M1Xam} />
-                                    <p className="name-product">MacBook Air M1</p>
+                                    <p className="name-product">{iphone.name}</p>
                                     <div className="price">
-                                        <p className="price-new">19.190.000₫</p>
-                                        <p className="price-old">19.590.000₫ <span className="discount">-3%</span></p>
+                                        <p className="price-new">{iphone.price}</p>
+                                        <p className="price-old">{iphone.priceUpdate}<span className="discount">-3%</span></p>
                                     </div>
                                 </div>
-                                <div className="product-item">
-                                    <img src={iconMacAir13M2Bac} />
-<p className="name-product">MacBook Air M2</p>
-                                    <div className="price">
-                                        <p className="price-new">26.790.000₫</p>
-                                        <p className="price-old">27.090.000₫ <span className="discount">-3%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconMacAir15M2Xam} />
-                                    <p className="name-product">MacBook Air M3</p>
-                                    <div className="price">
-                                        <p className="price-new">29.990.000₫</p>
-                                        <p className="price-old">30.490.000₫ <span className="discount">-3%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconMacPro13M2Bac} />
-                                    <p className="name-product">MacBook Air M4</p>
-                                    <div className="price">
-                                        <p className="price-new">31.490.000₫</p>
-                                        <p className="price-old">32.290.000₫<span className="discount">-3%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconMacAir13M1Xam} />
-                                    <p className="name-product">MacBook Air M1</p>
-                                    <div className="price">
-                                        <p className="price-new">19.190.000₫</p>
-                                        <p className="price-old">19.590.000₫ <span className="discount">-3%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconMacAir13M2Bac} />
-                                    <p className="name-product">MacBook Air M2</p>
-                                    <div className="price">
-                                        <p className="price-new">26.790.000₫</p>
-                                        <p className="price-old">27.090.000₫ <span className="discount">-3%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconMacAir15M2Xam} />
-                                    <p className="name-product">MacBook Air M3</p>
-                                    <div className="price">
-                                        <p className="price-new">29.990.000₫</p>
-<p className="price-old">30.490.000₫ <span className="discount">-3%</span></p>
-                                    </div>
-                                </div>
+                                ))}
+
                             </div>
                             <button id="next-mac" className="btn-slide-product">
                                 <i className="fas fa-chevron-right"></i>
@@ -527,62 +312,17 @@ conutdown.current = setInterval(() => {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-watch">
-                                <div className="product-item">
+                            {iphoneList.map((iphone, index) => (
+                                    <div key={index} className="product-item">
                                     <img src={iconAppleWatchS841mmDoThumb} />
-                                    <p className="name-product">AW SE 2022 GPS 40mm</p>
+                                    <p className="name-product">{iphone.name}</p>
                                     <div className="price">
-                                        <p className="price-new">6.990.000₫</p>
-                                        <p className="price-old">8.490.000₫ <span className="discount">-17%</span></p>
+                                        <p className="price-new">{iphone.price}</p>
+                                        <p className="price-old">{iphone.priceUpdate}<span className="discount">-17%</span></p>
                                     </div>
                                 </div>
-                                <div className="product-item">
-                                    <img src={iconAppleWatchS8Gps45mmWhiteThumb} />
-                                    <p className="name-product">AW Series 8 GPS 41mm</p>
-                                    <div className="price">
-                                        <p className="price-new">8.990.000₫</p>
-                                        <p className="price-old">11.990.000₫ <span className="discount">-25%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconAppleWatchS8UltraCaoSuVang} />
-                                    <p className="name-product">AW Ultra GPS</p>
-                                    <div className="price">
-                                        <p className="price-new">19.990.000₫</p>
-                                        <p className="price-old">23.990.000₫ <span className="discount">-16%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={{ iconAppleWatchSe2022Thumb }} />
-                                    <p className="name-product">AW Series 8 GPS 45mm</p>
-                                    <div className="price">
-<p className="price-new">10.190.000₫</p>
-                                        <p className="price-old">12.990.000₫ <span className="discount">-21%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconAppleWatchS8Gps45mmWhiteThumb} />
-                                    <p className="name-product">AW Series 8 GPS 41mm</p>
-                                    <div className="price">
-                                        <p className="price-new">8.990.000₫</p>
-                                        <p className="price-old">11.990.000₫ <span className="discount">-25%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconAppleWatchS8UltraCaoSuVang} />
-                                    <p className="name-product">AW Ultra GPS</p>
-                                    <div className="price">
-                                        <p className="price-new">19.990.000₫</p>
-                                        <p className="price-old">23.990.000₫ <span className="discount">-16%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconAppleWatchSe2022Gps} />
-                                    <p className="name-product">AW Series 8 GPS 45mm</p>
-                                    <div className="price">
-                                        <p className="price-new">10.190.000₫</p>
-                                        <p className="price-old">12.990.000₫ <span className="discount">-21%</span></p>
-                                    </div>
-                                </div>
+                                ))}
+
                             </div>
                             <button id="next-watch" className="btn-slide-product">
                                 <i className="fas fa-chevron-right"></i>
@@ -599,62 +339,17 @@ conutdown.current = setInterval(() => {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-at">
-                                <div className="product-item">
+                            {iphoneList.map((iphone, index) => (
+                                    <div key={index} className="product-item">
                                     <img src={iconAirpodsMaxSelecthongThumb} />
-                                    <p className="name-product">AirPods Max</p>
-<div className="price">
-                                        <p className="price-new">12.490.000₫</p>
-                                        <p className="price-old">13.990.000₫<span className="discount">-10%</span></p>
+                                    <p className="name-product">{iphone.iphone}</p>
+                                        <div className="price">
+                                        <p className="price-new">{iphone.price}</p>
+                                        <p className="price-old">{iphone.priceUpdate}<span className="discount">-10%</span></p>
                                     </div>
                                 </div>
-                                <div className="product-item">
-                                    <img src={iconBeatStudioBudsTrangThumb} />
-                                    <p className="name-product">WB Studio Buds</p>
-                                    <div className="price">
-                                        <p className="price-new">3.190.000₫</p>
-                                        <p className="price-old">3.990.000₫<span className="discount">-20%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconBluetoothAirpodsProMagsafe} />
-                                    <p className="name-product">Hộp sạc MagSafe</p>
-                                    <div className="price">
-                                        <p className="price-new">4.990.000₫</p>
-                                        <p className="price-old">6.790.000₫ <span className="discount">-26%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconBeatStudioBudsTrangThumb} />
-                                    <p className="name-product">WB Studio Buds</p>
-                                    <div className="price">
-                                        <p className="price-new">3.190.000₫</p>
-                                        <p className="price-old">3.990.000₫<span className="discount">-20%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconBeatStudioBudsTrangThumb} />
-                                    <p className="name-product">WB Studio Buds</p>
-                                    <div className="price">
-                                        <p className="price-new">3.190.000₫</p>
-                                        <p className="price-old">3.990.000₫<span className="discount">-20%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconBeatStudioBudsTrangThumb} />
-                                    <p className="name-product">WB Studio Buds</p>
-                                    <div className="price">
-                                        <p className="price-new">3.190.000₫</p>
-<p className="price-old">3.990.000₫<span className="discount">-20%</span></p>
-                                    </div>
-                                </div>
-                                <div className="product-item">
-                                    <img src={iconAirpodsMaxSelecthongThumb} />
-                                    <p className="name-product">AirPods Max</p>
-                                    <div className="price">
-                                        <p className="price-new">12.490.000₫</p>
-                                        <p className="price-old">13.990.000₫<span className="discount">-10%</span></p>
-                                    </div>
-                                </div>
+                                ))}
+
                             </div>
                             <button id="next-at" className="btn-slide-product">
                                 <i className="fas fa-chevron-right"></i>

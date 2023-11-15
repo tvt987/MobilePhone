@@ -18,6 +18,7 @@ function User() {
         <Route path='/' element={<Home />} />
         <Route path='/oppo' element={<Category />} />
         <Route path='/ProductDetail' element={<ProductDetail />} />
+        <Route path='/ProductDetail/:productId' element={<ProductDetail />} />
         <Route path='/Cart' element={<Cart />} />
       </Routes>
       {/* Use state values instead of querying the DOM */}

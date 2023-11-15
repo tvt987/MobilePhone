@@ -156,5 +156,23 @@
 }
 
 
+.dropdown-item{
+    margin-right: 5px;
+    text-align: left !important;
+    font-size: large;   
+    }
+    
+    .admin{
+      color: white;  
+      border: none;
+    }
+    
+    .admin:hover{
+        color: white;
+    }
 
 
+    .nav__right-control .dropdown .dropdown-menu  div {
+        border: none;
+        border-radius: 0% !important;
+    }

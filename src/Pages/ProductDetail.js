@@ -8,9 +8,21 @@ import image5 from '../static/images/image-sale/Frame-482029--1--920x230.png'
 import avatar1 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import avatar2 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import avatar3 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 
 function ProductDetail() {
+  const { productId } = useParams();
+  const productDetail = `http://localhost:8080/getInformation/${productId}`
+  const [product, setProduct] = useState([])
+  useEffect(() => {
+    fetch(productDetail)
+      .then(response => response.json())
+      .then(data => {
+        setProduct(data)
+      })
+  }, [])
+  console.log(product.imageList)
   useEffect(() => {
     clearInterval()
   }, [])
@@ -22,60 +34,96 @@ function ProductDetail() {
           <div className="container-carousel">
             <div className="row">
               <div className="col-md-12">
-                <div id="custCarousel" className="carousel slide" data-ride="carousel" align="center">
-                  
-                  <div className="carousel-inner">
-                    <div className="carousel-item active">
-                      <img src={image1} alt="Hills" />
+                {product.imageList && product.imageList.length > 0 ? (
+                  <div id="custCarousel" className="carousel slide" data-ride="carousel" align="center">
+
+                    <div className="carousel-inner">
+                      {product.imageList.map((product, index) => {
+                        if (index == 0) {
+                          return (
+                            <div key={index} className="carousel-item active">
+                              <img src={product} alt="Hills" />
+                            </div>
+                          )
+                        } else {
+                          return (
+                            <div key={index} className="carousel-item">
+                              <img src={product} alt="Hills" />
+                            </div>
+                          )
+                        }
+                      })}
+
+                      {product.imageList.map((product, index) => (
+                        <div key={index} className="carousel-item">
+                          <img src={product} alt="Hills" />
+                        </div>
+                      )
+
+                      )}
+                      {product.imageList.map((product, index) => (
+                        <div key={index} className="carousel-item">
+                          <img src={product} alt="Hills" />
+                        </div>
+                      )
+
+                      )}
+                      {product.imageList.map((product, index) => (
+                        <div key={index} className="carousel-item">
+                          <img src={product} alt="Hills" />
+                        </div>
+                      )
+
+                      )}
+                      {product.imageList.map((product, index) => (
+                        <div key={index} className="carousel-item">
+                          <img src={product} alt="Hills" />
+                        </div>
+                      )
+
+                      )}
+
+
+
                     </div>
 
-                    <div className="carousel-item">
-                      <img src={image2} alt="Hills"/>
-                    </div>
 
-                    <div className="carousel-item">
-                      <img src={image3} alt="Hills"/>
-                    </div>
+                    <a className="carousel-control-prev" href="#custCarousel" data-slide="prev">
+                      <span className="carousel-control-prev-icon"></span>
+                    </a>
+                    <a className="carousel-control-next" href="#custCarousel" data-slide="next">
+                      <span className="carousel-control-next-icon"></span>
+                    </a>
 
-                    <div className="carousel-item">
-                      <img src={image4} alt="Hills"/>
-                    </div>
+
+                    <ol className="carousel-indicators list-inline">
+                      <li className="list-inline-item active">
+                        <a id="carousel-selector-0" className="selected" data-slide-to="0" data-target="#custCarousel">
+                          <img src={image1} className="img-fluid" />
+                        </a>
+                      </li>
+
+                      <li className="list-inline-item">
+                        <a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel">
+                          <img src={image2} className="img-fluid" />
+                        </a>
+                      </li>
+
+                      <li className="list-inline-item">
+                        <a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel">
+                          <img src={image3} className="img-fluid" />
+                        </a>
+                      </li>
+                      <li className="list-inline-item">
+                        <a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel">
+                          <img src={image4} className="img-fluid" />
+                        </a>
+                      </li>
+                    </ol>
                   </div>
-
-                  
-                  <a className="carousel-control-prev" href="#custCarousel" data-slide="prev">
-                    <span className="carousel-control-prev-icon"></span>
-                  </a>
-                  <a className="carousel-control-next" href="#custCarousel" data-slide="next">
-                    <span className="carousel-control-next-icon"></span>
-                  </a>
-
-                  
-                  <ol className="carousel-indicators list-inline">
-                    <li className="list-inline-item active">
-                      <a id="carousel-selector-0" className="selected" data-slide-to="0" data-target="#custCarousel">
-                        <img src={image1} className="img-fluid"/>
-                      </a>
-                    </li>
-
-                    <li className="list-inline-item">
-                      <a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel">
-                        <img src={image2} className="img-fluid"/>
-                      </a>
-                    </li>
-
-                    <li className="list-inline-item">
-                      <a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel">
-                        <img src={image3} className="img-fluid"/>
-                      </a>
-                    </li>
-                    <li className="list-inline-item">
-                      <a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel">
-                        <img src={image4} className="img-fluid"/>
-                      </a>
-                    </li>
-                  </ol>
-                </div>
+                ) : (
+                  <p>Không có hình ảnh nào</p>
+                )}
               </div>
             </div>
           </div>
@@ -94,18 +142,18 @@ function ProductDetail() {
               <li className="merge__item item">1TB</li>
             </ul>
             <span className="prod-color">Màu: Titan Xanh</span>
-            <img className="img-dis" src={image5} alt=""/>
-              <div className="pay-addcart">
-                <button>Thêm vào giỏ</button>
-                <button>Mua ngay</button>
-              </div>
-              <ul className="describe">
-                <li><i className="fas fa-box"></i>Bộ sản phẩm gồm: Hộp, Sách hướng dẫn, Cây lấy sim, Cáp Type C</li>
-                <li><i className="fas fa-undo"></i>Hư gì đổi nấy 12 tháng tại 3453 siêu thị trên toàn quốc Xem chi tiết chính sách bảo hành, đổi trả</li>
-                <li><i className="fas fa-shield-alt"></i>Bảo hành chính hãng 1 năm</li>
-                <li><i className="fas fa-shipping-fast"></i>Giao hàng nhanh toàn quốc Xem chi tiết</li>
-                <li><i className="fas fa-phone-alt"></i>Tổng đài: 1900.9696.42 (9h00 - 21h00 mỗi ngày)</li>
-              </ul>
+            <img className="img-dis" src={image5} alt="" />
+            <div className="pay-addcart">
+              <button>Thêm vào giỏ</button>
+              <button>Mua ngay</button>
+            </div>
+            <ul className="describe">
+              <li><i className="fas fa-box"></i>Bộ sản phẩm gồm: Hộp, Sách hướng dẫn, Cây lấy sim, Cáp Type C</li>
+              <li><i className="fas fa-undo"></i>Hư gì đổi nấy 12 tháng tại 3453 siêu thị trên toàn quốc Xem chi tiết chính sách bảo hành, đổi trả</li>
+              <li><i className="fas fa-shield-alt"></i>Bảo hành chính hãng 1 năm</li>
+              <li><i className="fas fa-shipping-fast"></i>Giao hàng nhanh toàn quốc Xem chi tiết</li>
+              <li><i className="fas fa-phone-alt"></i>Tổng đài: 1900.9696.42 (9h00 - 21h00 mỗi ngày)</li>
+            </ul>
 
           </div>
         </div>
@@ -114,7 +162,7 @@ function ProductDetail() {
         <div className="container">
           <div className="row mh-100">
             <div className="col-12 mh-100 tab-content-3">
-              
+
               <ul className="nav nav-tabs d-flex justify-content-center tab-content-l" role="tablist">
                 <li role="presentation" className="nav-item">
                   <a href="#home" aria-controls="home" role="tab" data-toggle="tab" className="nav-link active text-dark">Mô tả</a>
@@ -188,7 +236,7 @@ function ProductDetail() {
               <div className="be-comment">
                 <div className="be-img-comment">
                   <a href="blog-detail-2.html">
-                    <img src={avatar1} alt="" className="be-ava-comment"/>
+                    <img src={avatar1} alt="" className="be-ava-comment" />
                   </a>
                 </div>
                 <div className="be-comment-content">
@@ -211,7 +259,7 @@ function ProductDetail() {
               <div className="be-comment">
                 <div className="be-img-comment">
                   <a href="blog-detail-2.html">
-                    <img src={avatar2} alt="" className="be-ava-comment"/>
+                    <img src={avatar2} alt="" className="be-ava-comment" />
                   </a>
                 </div>
                 <div className="be-comment-content">
@@ -230,7 +278,7 @@ function ProductDetail() {
               <div className="be-comment">
                 <div className="be-img-comment">
                   <a href="blog-detail-2.html">
-                    <img src={avatar3} alt="" className="be-ava-comment"/>
+                    <img src={avatar3} alt="" className="be-ava-comment" />
                   </a>
                 </div>
                 <div className="be-comment-content">
@@ -257,7 +305,7 @@ function ProductDetail() {
                   <div className="col-xs-12 col-sm-6 fl_icon">
                     <div className="form-group fl_icon">
                       <div className="icon"><i className="fa fa-envelope-o"></i></div>
-                      <input className="form-input" type="text" placeholder="Your email"/>
+                      <input className="form-input" type="text" placeholder="Your email" />
                     </div>
                   </div>
                   <div className="col-xs-12  col-sm-12">

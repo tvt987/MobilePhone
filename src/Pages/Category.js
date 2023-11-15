@@ -5,7 +5,9 @@ import image2 from '../static/images/image-slide/img-slide4.webp'
 import image3 from '../static/images/img-iphone/iphone-11-white-thumbtz-650x650.webp'
 import happyIcon from '../static/images/icon/icon-happy.png'
 import badIcon from '../static/images/icon/icon-bad.png'
+import { useState, useEffect } from 'react'
 function Category() {
+    const productCategory = ''
     return (
         <div>
             <div className="container ">
