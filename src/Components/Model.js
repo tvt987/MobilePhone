@@ -55,7 +55,7 @@ function Model(){
                                 </div>
                             </div>
                             <button onClick={(e) => {
-                                e.stopPropagation()
+                                e.preventDefault();
                                 alert('a')
                             }}>Login
                                 <i className="fa-solid fa-right-to-bracket"></i>

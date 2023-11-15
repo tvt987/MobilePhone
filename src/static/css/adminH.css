@@ -112,8 +112,7 @@
 } */
 
 .nav__right div:nth-child(1) div{
-    border-radius: 50%;
-    width: 100%;
+   
     margin-bottom:-10px;
 }
 
@@ -124,7 +123,7 @@
     margin-right: 5px;
     text-align: center;
     font-size: large;
-    border-left: 2px solid blue;
+
     margin-bottom: 5px;
 }
 
@@ -140,3 +139,4 @@
 .nav__right-user{
     cursor: pointer;
 }
+
