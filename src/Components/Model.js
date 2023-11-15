@@ -1,19 +1,13 @@
 import iconLogoGoogle from '../static/images/img-model/logo-google.png'
 import iconLogoFace from '../static/images/img-model/logo-face.png'
 import logoProfile from '../static/images/img-model/ex_setprofile.jpg'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 function Model(){
-    const [user, setUser] = useState()
     const $ = document.querySelector.bind(document)
     const $$ = document.querySelectorAll.bind(document)
 
-    let iptEmail;
-    let iptPass;
-
-        const handleSubmitLogin =  () => {
-            alert('a')
-        }
+    
     
 
     return (
@@ -54,10 +48,7 @@ function Model(){
                                     Forgot Password?
                                 </div>
                             </div>
-                            <button onClick={(e) => {
-                                e.stopPropagation()
-                                alert('a')
-                            }}>Login
+                            <button onClick={() => alert('a')} className='model__btn-login'>Login
                                 <i className="fa-solid fa-right-to-bracket"></i>
                             </button>
 </div>

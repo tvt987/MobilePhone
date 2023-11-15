@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Home from '../Pages/Home.js';
 import Nav from '../Components/Nav.js';
@@ -7,13 +7,48 @@ import Model from '../Components/Model.js';
 import ProductDetail from './ProductDetail.js';
 import Category from '../Pages/Category.js'
 import Cart from '../Pages/Cart.js'
-
+import { useEffect } from 'react';
 function User() {
+    const [user, setUser] = useState(undefined)
+    useEffect(() => {
+            
+const btnModelLogin = document.querySelector('.model__btn-login');
+let iptEmail = document.getElementById('model-body__emailIpt');
+let iptPass = document.getElementById('model-body__passIpt');
+
+btnModelLogin.addEventListener('click', () => {
+  const apiUser = `http://localhost:8080/signin/${iptEmail.value}/${iptPass.value}`;
+  
+  fetch(apiUser, {
+    method: 'POST', // Giả sử điều này là một yêu cầu POST dựa trên mã phía máy chủ của bạn
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    // Bao gồm một body nếu cần, ví dụ:
+    // body: JSON.stringify({ email: iptEmail.value, password: iptPass.value }),
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      setUser(data)
+    })
+    .catch(error => console.error('Lỗi:', error));
+});
+function handleClickLogout(){
+  setUser(undefined)
+}
+
+let btnLogout = document.querySelector('.js-model-logout')
+btnLogout.addEventListener('click', () => {
+  handleClickLogout()
+})
+  }, [])
+
   
 
   return (
     <div style={{ backgroundColor: '#3E3E3F' }}>
-      <Nav />
+      <Nav user={user} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/oppo' element={<Category />} />

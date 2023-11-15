@@ -112,6 +112,10 @@ conutdown.current = setInterval(() => {
         .then(data => {
             setProductDCList(data)
         })
+
+
+
+
     }, [])
     return (
         <div>
