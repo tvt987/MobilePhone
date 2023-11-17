@@ -253,5 +253,6 @@ modelLoginOpen.addEventListener('click', () => {
   modelRegister.style.display = 'none'
 })
 
+
 }
 export default home

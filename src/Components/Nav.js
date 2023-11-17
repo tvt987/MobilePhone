@@ -2,8 +2,7 @@ import '../static/css/nav.css'
 import logoPhone from '../static/images/img-model/header__logophone.png'
 import logoUser from '../static/images/img-model/user.svg'
 import { Link } from 'react-router-dom';
-function Nav() {
-
+function Nav({user}) {
   return (
     <div className="main__header">
       <div className="nav row">
@@ -51,21 +50,29 @@ function Nav() {
               }}
             ></div>
           </div>
-          <div style={{display: 'none'}} className="nav__right-control">
-          <div className="dropdown">
+
+                <div style={(user && user.roles === 'USER') ? { display: 'block' } : { display: 'none' }} className="nav__right-control">
+              <div className="dropdown">
               <button className="btn admin dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Admin
+                {(user) ? user.fullName : ''}
               </button>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div className="dropdown-item js-model-changepass">Change Password</div>
                 <div className="dropdown-item js-model-setprofileO">Set Profile</div>
-                <div className="dropdown-item ">Logout</div>
+                <div className="dropdown-item js-model-logout">Logout</div>
               </div>
             </div>
             </div>
-            <div className="nav__right-control js-model-login">
-              Login
-            </div>
+                <div style={(user && user.roles === 'USER') ? { display: 'none' } : { display: 'block' }} className="nav__right-control js-model-login">
+                  Login
+                </div>
+
+
+          
+
+
+
+            
           
         </div>
       </div>
