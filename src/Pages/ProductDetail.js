@@ -27,7 +27,7 @@ function ProductDetail() {
     clearInterval()
   }, [])
   return (
-    <div>
+    <div className="prcss">
 
       <div className="container mt-sm-2 mt-md-5 mb-sm-2 mb-md-5">
         <div className="product-detail">
@@ -177,7 +177,7 @@ function ProductDetail() {
               <div className="tab-content mh-100">
                 <div role="tabpanel" className="tab-pane active py-3" id="home">
                   <div className="row flex-row justify-content-center">
-                    <div className="col-lg-4">
+                    <div className="col-lg-4 abc">
                       <div className="card">
                         <div className="card-block">
                           <h4>Card</h4>
@@ -190,12 +190,11 @@ function ProductDetail() {
                 </div>
                 <div role="tabpanel" className="tab-pane py-3 mh-100" id="profile">
                   <div className="row flex-row justify-content-center">
-                    <div className="col-lg-4">
+                    <div className="col-lg-4 abc">
                       <div className="card">
-                        <div className="card-block">
+                        <div className="card-block ">
                           <h4>Card</h4>
-                          <p>Meggings flannel Brooklyn literally
-                            small batch, mumblecore PBR try-hard kale chips. Brooklyn vinyl.</p>
+                          <p>dasdasdsadsdasdasdasdasdadsad</p>
                         </div>
                       </div>
                     </div>
@@ -203,20 +202,10 @@ function ProductDetail() {
                 </div>
                 <div role="tabpanel" className="tab-pane py-3 mh-100" id="messages">
                   <div className="row flex-row justify-content-center">
-                    <div className="col-lg-4">
+                    <div className="col-lg-4 abc" >
                       <div className="card">
                         <div className="card-block">
-                          <h4>Card</h4>
-                          <p>Meggings flannel Brooklyn literally
-                            small batch, mumblecore PBR try-hard kale chips. Brooklyn vinyl.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 mh-100 review-content">
+                        <div className="col-12 mh-100 review-content">
               <div className="review d-flex flex-column align-content-center text-center ">
                 <h3>Đánh giá sản phẩm này</h3>
                 <p className="description">
@@ -231,6 +220,14 @@ function ProductDetail() {
                 </ul>
               </div>
             </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             <div className="be-comment-block">
               <h1 className="comments-title">Comments (3)</h1>
               <div className="be-comment">
