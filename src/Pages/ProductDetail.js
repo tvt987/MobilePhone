@@ -12,6 +12,11 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
 function ProductDetail() {
+  const [showReply, setShowReply] = useState(false);
+
+  const showReplyForm = () => {
+    setShowReply(!showReply);
+  };
   const { productId } = useParams();
   const productDetail = `http://localhost:8080/admin/getInformation/${productId}`
   const [product, setProduct] = useState([])
@@ -27,7 +32,7 @@ function ProductDetail() {
     clearInterval()
   }, [])
   return (
-    <div>
+    <div className="prcss">
 
       <div className="container mt-sm-2 mt-md-5 mb-sm-2 mb-md-5">
         <div className="product-detail">
@@ -177,7 +182,7 @@ function ProductDetail() {
               <div className="tab-content mh-100">
                 <div role="tabpanel" className="tab-pane active py-3" id="home">
                   <div className="row flex-row justify-content-center">
-                    <div className="col-lg-4">
+                    <div className="col-lg-4 abc">
                       <div className="card">
                         <div className="card-block">
                           <h4>Card</h4>
@@ -190,12 +195,11 @@ function ProductDetail() {
                 </div>
                 <div role="tabpanel" className="tab-pane py-3 mh-100" id="profile">
                   <div className="row flex-row justify-content-center">
-                    <div className="col-lg-4">
+                    <div className="col-lg-4 abc">
                       <div className="card">
-                        <div className="card-block">
+                        <div className="card-block ">
                           <h4>Card</h4>
-                          <p>Meggings flannel Brooklyn literally
-                            small batch, mumblecore PBR try-hard kale chips. Brooklyn vinyl.</p>
+                          <p>dasdasdsadsdasdasdasdasdadsad</p>
                         </div>
                       </div>
                     </div>
@@ -203,12 +207,24 @@ function ProductDetail() {
                 </div>
                 <div role="tabpanel" className="tab-pane py-3 mh-100" id="messages">
                   <div className="row flex-row justify-content-center">
-                    <div className="col-lg-4">
+                    <div className="col-lg-4 abc" >
                       <div className="card">
                         <div className="card-block">
-                          <h4>Card</h4>
-                          <p>Meggings flannel Brooklyn literally
-                            small batch, mumblecore PBR try-hard kale chips. Brooklyn vinyl.</p>
+                          <div className="col-12 mh-100 review-content">
+                            <div className="review d-flex flex-column align-content-center text-center ">
+                              <h3>Đánh giá sản phẩm này</h3>
+                              <p className="description">
+                                Nếu đã mua sản phẩm này tại TopZone. Hãy đánh giá ngay để giúp hàng ngàn người chọn mua hàng tốt nhất bạn nhé!
+                              </p>
+                              <ul className="star">
+                                <li><i className="far fa-star"></i><span>Rất tệ</span></li>
+                                <li><i className="far fa-star"></i><span>Tệ</span></li>
+                                <li><i className="far fa-star"></i><span>Tạm ổn</span></li>
+                                <li><i className="far fa-star"></i><span>Tốt</span></li>
+                                <li><i className="far fa-star"></i><span>Rất tốt</span></li>
+                              </ul>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -216,21 +232,7 @@ function ProductDetail() {
                 </div>
               </div>
             </div>
-            <div className="col-12 mh-100 review-content">
-              <div className="review d-flex flex-column align-content-center text-center ">
-                <h3>Đánh giá sản phẩm này</h3>
-                <p className="description">
-                  Nếu đã mua sản phẩm này tại TopZone. Hãy đánh giá ngay để giúp hàng ngàn người chọn mua hàng tốt nhất bạn nhé!
-                </p>
-                <ul className="star">
-                  <li><i className="far fa-star"></i><span>Rất tệ</span></li>
-                  <li><i className="far fa-star"></i><span>Tệ</span></li>
-                  <li><i className="far fa-star"></i><span>Tạm ổn</span></li>
-                  <li><i className="far fa-star"></i><span>Tốt</span></li>
-                  <li><i className="far fa-star"></i><span>Rất tốt</span></li>
-                </ul>
-              </div>
-            </div>
+
             <div className="be-comment-block">
               <h1 className="comments-title">Comments (3)</h1>
               <div className="be-comment">
@@ -254,6 +256,19 @@ function ProductDetail() {
                     Sed blandit varius mauris, vel volutpat urna hendrerit id.
                     Curabitur rutrum dolor gravida turpis tristique efficitur.
                   </p>
+                  <div>
+                    <button onClick={showReplyForm} className="btn btn-link">
+                      Trả lời
+                    </button>
+                  </div>
+                  {showReply && (
+                    <div className="form-group">
+                      <input type="text" className="form-input" />
+                      <button type="button" className="btn btn-secondary">
+                        Send
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="be-comment">

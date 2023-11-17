@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Nav({ user }) {
   return (
     <div className="main__header">
-      <div className="nav row">
+      <div className="nav1 row">
         <div className="nav__lef col-lg-3 col-md-3 col-sm-6">
           <div className="nav__lef-name">
             <span>Mobile</span>

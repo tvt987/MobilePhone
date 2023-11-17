@@ -56,7 +56,12 @@
     margin-top: 60px;
 }
 
-#myBtn {
+#myBtn .Nam {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+#myBtn .btn-thaydoi {
     text-decoration: none;
     color: white;
     font-weight: bold;
