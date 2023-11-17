@@ -2,7 +2,7 @@ import '../static/css/nav.css'
 import logoPhone from '../static/images/img-model/header__logophone.png'
 import logoUser from '../static/images/img-model/user.svg'
 import { Link } from 'react-router-dom';
-function Nav({user}) {
+function Nav({ user }) {
   return (
     <div className="main__header">
       <div className="nav row">
@@ -34,7 +34,7 @@ function Nav({user}) {
         <div className="nav__right col-lg-3 col-md-3 col-sm-6">
           <div className="nav__right-btns">
             <div className="nav__right-btn">
-              <i className="fa-solid fa-magnifying-glass"></i>
+              <a href='/Cancel'><i className="fa-solid fa-magnifying-glass"></i></a>
             </div>
             <a href='/Cart' className="nav__right-btn">
               <i className="fa-solid fa-cart-arrow-down"></i>
@@ -51,8 +51,8 @@ function Nav({user}) {
             ></div>
           </div>
 
-                <div style={(user && user.roles === 'USER') ? { display: 'block' } : { display: 'none' }} className="nav__right-control">
-              <div className="dropdown">
+          <div style={(user && user.roles === 'USER') ? { display: 'block' } : { display: 'none' }} className="nav__right-control">
+            <div className="dropdown">
               <button className="btn admin dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {(user) ? user.fullName : ''}
               </button>
@@ -62,18 +62,18 @@ function Nav({user}) {
                 <div className="dropdown-item js-model-logout">Logout</div>
               </div>
             </div>
-            </div>
-                <div style={(user && user.roles === 'USER') ? { display: 'none' } : { display: 'block' }} className="nav__right-control js-model-login">
-                  Login
-                </div>
-
-
-          
+          </div>
+          <div style={(user && user.roles === 'USER') ? { display: 'none' } : { display: 'block' }} className="nav__right-control js-model-login">
+            Login
+          </div>
 
 
 
-            
-          
+
+
+
+
+
         </div>
       </div>
       <script type="module" src="../static/js/home.js"></script>

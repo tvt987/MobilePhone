@@ -1,0 +1,63 @@
+.kiet {
+    border: 2px solid red;
+    border-radius: 25px;
+}
+
+.oder__btn--cancel button {
+    border-radius: 20px;
+    background-color: rgb(194, 58, 58);
+    color: rgb(214, 210, 210);
+}
+
+.huydon,
+.thongtin,
+.donhang,
+.tongquan {
+    border-bottom: 2px solid white;
+}
+
+.huydon h3,
+.thongtin h4 {
+    color: white;
+    font-weight: bold;
+}
+
+.huydon h4,
+.thongtin h6,
+.text h6,
+.tongquan h5 {
+    color: grey;
+}
+
+.thongtin i {
+    color: red;
+}
+
+.img-donhang img {
+    width: 100px;
+}
+
+.text h4 {
+    color: white;
+    font-weight: bold;
+}
+
+.chat a,
+.tongquan h4 {
+    color: white;
+}
+
+.tongquan .tong {
+    font-weight: bold;
+    color: black;
+}
+
+.tongquan .col-4 {
+    margin-top: 60px;
+}
+
+#myBtn {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
