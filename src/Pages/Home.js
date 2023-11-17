@@ -52,7 +52,7 @@ import { useState, useEffect, useRef } from 'react'
 
 
 function Home() {
-    const allProduct = 'http://localhost:8080/getProducts'
+    const allProduct = 'http://localhost:8080/admin/getProducts'
     const [iphoneList, setIphoneList] = useState([]);
     
     let conutdown = useRef()
@@ -104,7 +104,7 @@ conutdown.current = setInterval(() => {
             clearInterval(conutdown.current)
             )
     }, [])
-    const allProductDC = 'http://localhost:8080/getProductsDiscount'
+    const allProductDC = 'http://localhost:8080/admin/getProductsDiscount'
     const [productDCList, setProductDCList] = useState([])
     useEffect(() => {
         fetch(allProductDC)

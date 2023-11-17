@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 function User() {
     const [user, setUser] = useState(undefined)
     useEffect(() => {
+      
             
 const btnModelLogin = document.querySelector('.model__btn-login');
 let iptEmail = document.getElementById('model-body__emailIpt');
