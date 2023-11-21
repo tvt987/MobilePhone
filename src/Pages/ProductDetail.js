@@ -12,6 +12,11 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
 function ProductDetail() {
+  const [showReply, setShowReply] = useState(false);
+
+  const showReplyForm = () => {
+    setShowReply(!showReply);
+  };
   const { productId } = useParams();
   const productDetail = `http://localhost:8080/admin/getInformation/${productId}`
   const [product, setProduct] = useState([])
@@ -254,6 +259,20 @@ function ProductDetail() {
                     Sed blandit varius mauris, vel volutpat urna hendrerit id.
                     Curabitur rutrum dolor gravida turpis tristique efficitur.
                   </p>
+                  <div>
+                    <button onClick={showReplyForm} className="btn btn-link">
+                      Trả lời
+                    </button>
+                  </div>
+                  {showReply && (
+                    <div className="form-group">
+                      <input type="text" className="form-input" />
+                      <button type="button" className="btn btn-secondary">
+                        Send
+                      </button>
+                    </div>
+                  )}
+
                 </div>
               </div>
               <div className="be-comment">

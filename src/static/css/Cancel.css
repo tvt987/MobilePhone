@@ -56,8 +56,120 @@
     margin-top: 60px;
 }
 
-#myBtn {
+#myBtn .Nam,
+#myBtn .btn-thaydoi {
     text-decoration: none;
     color: white;
     font-weight: bold;
+}
+
+#myBtn {
+    max-width: 960px;
+    display: flex;
+    justify-content: center;
+    color: #333;
+
+}
+
+.btn-huydon {
+    padding: 15px 25px;
+    border: 1px solid #333;
+    display: inline-block;
+    overflow: hidden;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    width: 267.56px;
+    text-align: center;
+
+}
+
+.btn-huydon::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: red;
+    left: -100%;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.btn-huydon:hover::before {
+    left: 0;
+}
+
+.btn span {
+    z-index: 10;
+}
+
+
+.btn-thaydoi {
+    padding: 15px 25px;
+    border: 1px solid #333;
+    display: inline-block;
+    overflow: hidden;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+
+}
+
+.btn-thaydoi::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: green;
+    left: -100%;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.btn-thaydoi:hover::before {
+    left: 0;
+}
+
+.btn span {
+    z-index: 10;
+}
+
+.btn-submit {
+    padding: 15px 25px;
+    border: 1px solid #333;
+    display: inline-block;
+    overflow: hidden;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+
+}
+
+.btn-submit::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: green;
+    left: -100%;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.btn-submit:hover::before {
+    left: 0;
+}
+
+.btn span {
+    z-index: 10;
+}
+
+
+
+.btn span {
+    z-index: 10;
 }
