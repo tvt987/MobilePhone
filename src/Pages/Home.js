@@ -48,62 +48,64 @@ import iconBeatStudioBudsTrangThumb from '../static/images/img-amthanh/beats-stu
 import iconBluetoothAirpodsProMagsafe from '../static/images/img-amthanh/bluetooth-airpods-pro-magsafe-charge-apple-mlwk3-tkm-650x650.webp'
 
 import home from '../static/js/home.js'
+import time from '../static/js/time.js'
 import { useState, useEffect, useRef } from 'react'
 
 
 function Home() {
     const allProduct = 'http://localhost:8080/admin/getProducts'
     const [iphoneList, setIphoneList] = useState([]);
+    const tm = useRef()
     
-    let conutdown = useRef()
+
     
     useEffect(() => {
+    
         fetch(allProduct)
             .then(response => response.json())
             .then(data => {
                 setIphoneList(data)
             })
+            var fuT = new Date("Jan 12, 2024 00:00:00")
+            tm.current = setInterval(() => {
 
+        var noW = new Date().getTime()
+        var D = fuT - noW
+
+
+        var days = Math.floor(D/(1000*60*60*24))
+        var hours = Math.floor(D/(1000*60*60))
+        var minutes = Math.floor(D/(1000*60))
+        var seconds = Math.floor(D/(1000))
+
+        hours %= 24
+        minutes %= 60
+        seconds %= 60
+                if(document.getElementById("hours")){
+                    document.getElementById("hours").innerText = hours
+                    document.getElementById("minutes").innerText = minutes
+                    document.getElementById("seconds").innerText = seconds
+                }
+        
+
+       
+
+
+    }, 1000);
             
         /**------------------------set coundown time sale-----------------------  **/
-
-let countDownDate = new Date("Nov 5, 2023 15:37:25").getTime();
-conutdown.current = setInterval(() => {
-  let now = new Date().getTime();
-  let distance = countDownDate - now;
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  if (hours < 10) {
-    hours = '0' + hours;
-  }
-  if (seconds < 10) {
-    seconds = '0' + seconds;
-  }
-  if (minutes < 10) {
-    minutes = '0' + minutes;
-  }
-
-  document.querySelector('.count-down .countdown-time .hours span').innerHTML = hours;
-  document.querySelector('.count-down .countdown-time .minutes span').innerHTML = minutes;
-  document.querySelector('.count-down .countdown-time .seconds span').innerHTML = seconds;
-  if (distance < 0) {
-    clearInterval();
-  }
-
-}, 1000);
-
         home()
         
+        return () => {
+            setTimeout(() => {
+                clearInterval(tm.current)
+            }, 2000);
+        }
         
         
         
-        
-            return(
-            clearInterval(conutdown.current)
-            )
-    }, [])
+
+    })
     const allProductDC = 'http://localhost:8080/admin/getProductsDiscount'
     const [productDCList, setProductDCList] = useState([])
     useEffect(() => {
@@ -158,11 +160,11 @@ conutdown.current = setInterval(() => {
                         <div className="count-down">
                             <span>KẾT THÚC TRONG</span>
                             <div className="countdown-time">
-                                <div className="hours"><span>55</span></div>
+                                <div style={{color: 'white'}} id='hours' className="hours"><span>55</span></div>
                                 <span>:</span>
-                                <div className="minutes"><span>55</span></div>
+                                <div style={{color: 'white'}} id='minutes' className="minutes"><span>55</span></div>
                                 <span>:</span>
-                                <div className="seconds"><span>55</span></div>
+                                <div style={{color: 'white'}} id='seconds' className="seconds"><span>55</span></div>
                             </div>
                         </div>
                         <div className="happenning">

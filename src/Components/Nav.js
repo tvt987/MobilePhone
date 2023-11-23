@@ -26,10 +26,10 @@ function Nav({ user }) {
           </div>
         </div>
         <div className="nav__center col-lg-6 col-md-6 col-sm-0">
-          <a className="nav__center-item nav__center-item--active fa-fade">IPHONE</a>
-          <Link to='/oppo' className="nav__center-item">OPPO</Link>
-          <Link to='/' className="nav__center-item">XIAOMI</Link>
-          <Link to='/' className="nav__center-item">HUAWEI</Link>
+          <Link to='/1'className="nav__center-item nav__center-item--active fa-fade">IPHONE</Link>
+          <Link to='/15' className="nav__center-item">OPPO</Link>
+          <Link to='/3' className="nav__center-item">XIAOMI</Link>
+          <Link to='/4' className="nav__center-item">HUAWEI</Link>
         </div>
         <div className="nav__right col-lg-3 col-md-3 col-sm-6">
           <div className="nav__right-btns">

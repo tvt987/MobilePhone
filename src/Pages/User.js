@@ -9,10 +9,12 @@ import Category from '../Pages/Category.js'
 import Cart from '../Pages/Cart.js'
 import Cancel from '../Pages/Cancel.js'
 import Canceldetail from '../Pages/CancelDetial.js'
+import nav from '../static/js/nav.js';
 import { useEffect } from 'react';
 function User() {
   const [user, setUser] = useState(undefined)
   useEffect(() => {
+    nav()
 
 
     const btnModelLogin = document.querySelector('.model__btn-login');
@@ -54,24 +56,17 @@ function User() {
       <Nav user={user} />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/oppo' element={<Category />} />
-        <Route path='/ProductDetail' element={<ProductDetail />} />
+        <Route path='/:brand' element={<Category />} />
+        <Route path='/:brand' element={<Category />} />
+        <Route path='/:brand' element={<Category />} />
+        <Route path='/:brand' element={<Category />} />
+        <Route path='/ProductDetail' user={user} element={<ProductDetail />} />
         <Route path='/ProductDetail/:productId' element={<ProductDetail />} />
         <Route path='/Cart' element={<Cart />} />
         <Route path='/Cancel' element={<Cancel />} />
         <Route path='/Canceldetail' element={<Canceldetail />} />
       </Routes>
-      {/* Use state values instead of querying the DOM */}
-      <div className="count-down">
-        <span>KẾT THÚC TRONG</span>
-        <div className="countdown-time">
-          <div className="hours"><span>55</span></div>
-          <span>:</span>
-          <div className="minutes"><span>55</span></div>
-          <span>:</span>
-          <div className="seconds"><span>55</span></div>
-        </div>
-      </div>
+     
       <Footer />
       <Model />
     </div>
