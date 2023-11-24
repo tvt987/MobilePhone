@@ -24,36 +24,6 @@ function User() {
     nav()
 
 
-    const btnModelLogin = document.querySelector('.model__btn-login');
-    let iptEmail = document.getElementById('model-body__emailIpt');
-    let iptPass = document.getElementById('model-body__passIpt');
-
-    btnModelLogin.addEventListener('click', () => {
-      const apiUser = `http://localhost:8080/signin/${iptEmail.value}/${iptPass.value}`;
-
-      fetch(apiUser, {
-        method: 'POST', // Giả sử điều này là một yêu cầu POST dựa trên mã phía máy chủ của bạn
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        // Bao gồm một body nếu cần, ví dụ:
-        // body: JSON.stringify({ email: iptEmail.value, password: iptPass.value }),
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log(data)
-          setUser(data)
-        })
-        .catch(error => console.error('Lỗi:', error));
-    });
-    function handleClickLogout() {
-      setUser(undefined)
-    }
-
-    let btnLogout = document.querySelector('.js-model-logout')
-    btnLogout.addEventListener('click', () => {
-      handleClickLogout()
-    })
 
     
   }, [])
@@ -61,7 +31,7 @@ function User() {
 
   return (
     <div style={{ backgroundColor: '#3E3E3F' }}>
-      <Nav user={user} />
+      <Nav />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/:brand' element={<Category />} />

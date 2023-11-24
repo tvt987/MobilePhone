@@ -2,7 +2,9 @@ import '../static/css/nav.css'
 import logoPhone from '../static/images/img-model/header__logophone.png'
 import logoUser from '../static/images/img-model/user.svg'
 import { Link } from 'react-router-dom';
-function Nav({ user }) {
+function Nav() {
+  const a = sessionStorage.getItem("user");
+const user = JSON.parse(a)
   return (
     <div className="main__header">
       <div className="nav1 row">
