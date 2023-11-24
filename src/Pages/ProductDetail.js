@@ -60,35 +60,6 @@ function ProductDetail({user}) {
                         }
                       })}
 
-                      {product.dataProductDetail.images.map((product, index) => (
-                        <div key={index} className="carousel-item">
-                          <img src={product} alt="Hills" />
-                        </div>
-                      )
-
-                      )}
-                      {product.dataProductDetail.images.map((product, index) => (
-                        <div key={index} className="carousel-item">
-                          <img src={product} alt="Hills" />
-                        </div>
-                      )
-
-                      )}
-                      {product.dataProductDetail.images.map((product, index) => (
-                        <div key={index} className="carousel-item">
-                          <img src={product} alt="Hills" />
-                        </div>
-                      )
-
-                      )}
-                      {product.dataProductDetail.images.map((product, index) => (
-                        <div key={index} className="carousel-item">
-                          <img src={product} alt="Hills" />
-                        </div>
-                      )
-
-                      )}
-
 
 
                     </div>
@@ -142,7 +113,8 @@ function ProductDetail({user}) {
             product.dataProductDetail.priceNew : "Giá chưa được cập nhật"}</span>
               <span className="discount">{(product && product.dataProductDetail) ? 
             product.dataProductDetail.priceOld : "Giá chưa được cập nhật"}</span>
-              <span className="percent">{(product && product.dataProductDetail) ? 
+              <span className="percent">{((product && product.dataProductDetail)
+              && product.dataProductDetail.discounts.length > 0) ? 
             product.dataProductDetail.discounts[0].product.percentDiscount + '%' : ""}</span>
 
 

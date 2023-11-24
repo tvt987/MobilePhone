@@ -10,6 +10,12 @@ import { useParams } from 'react-router-dom'
 function Category() {
     const productCategory = ''
     const {brand} = useParams()
+    const [products, setProducts] = useState([])
+    useEffect(() => {
+        fetch(`http://localhost:8080/admin/getInformationBrand/${brand}`)
+            .then(response => response.json())
+            .then(data => setProducts(data))
+    }, [brand])
 
     return (
         <div>
@@ -56,142 +62,28 @@ function Category() {
                     </a>
                 </div>
                 <div className="products mt-md-4 mb-md-4" style={{marginTop: '5px'}}>
-                    <a href='/ProductDetail' className="item-product">
-                        <img src={image3} alt=""/>
+                    {products ? products.map((item, index) => (
+                        <a key={index} href={`/ProductDetail/${item.id}`} className="item-product">
+                        <img src={image3} alt=""/> 
                             <ul className="prods-group">
                                 <li className="merge__item item">256GB</li>
                                 <li className="merge__item item">512GB</li>
                                 <li className="merge__item item">1TB</li>
                             </ul>
                             <div className="prods-info">
-                                <p className="name-prods">IPhone 12</p>
+                                <p className="name-prods">{item.name}</p>
                                 <div className="price">
-                                    <span className="price-new">34.990.000₫</span>
+                                    <span className="price-new">
+                                        {item.price}đ
+                                    </span>
                                     <span className="discount">24.790.000₫</span>
-                                    <span className="percent">-3%</span>
+                                    <span className="percent">%</span>
                                 </div>
                             </div>
                             <p className="notification">Online giá rẻ</p>
                     </a>
-                    <div className="item-product">
-                        <img src={image3} alt=""/>
-                            <ul className="prods-group">
-                                <li className="merge__item item">256GB</li>
-                                <li className="merge__item item">512GB</li>
-                                <li className="merge__item item">1TB</li>
-                            </ul>
-                            <div className="prods-info">
-                                <p className="name-prods">IPhone 12</p>
-                                <div className="price">
-                                    <span className="price-new">34.990.000₫</span>
-                                    <span className="discount">24.790.000₫</span>
-                                    <span className="percent">-3%</span>
-                                </div>
-                            </div>
-                            <p className="notification">Online giá rẻ</p>
-                    </div>
-                    <div className="item-product">
-                        <img src={image3} alt=""/>
-                            <ul className="prods-group">
-                                <li className="merge__item item">256GB</li>
-                                <li className="merge__item item">512GB</li>
-                                <li className="merge__item item">1TB</li>
-                            </ul>
-                            <div className="prods-info">
-                                <p className="name-prods">IPhone 12</p>
-                                <div className="price">
-                                    <span className="price-new">34.990.000₫</span>
-                                    <span className="discount">24.790.000₫</span>
-                                    <span className="percent">-3%</span>
-                                </div>
-                            </div>
-                            <p className="notification">Online giá rẻ</p>
-                    </div>
-                    <div className="item-product">
-                        <img src={image3} alt=""/>
-                            <ul className="prods-group">
-                                <li className="merge__item item">256GB</li>
-                                <li className="merge__item item">512GB</li>
-                                <li className="merge__item item">1TB</li>
-                            </ul>
-                            <div className="prods-info">
-                                <p className="name-prods">IPhone 12</p>
-                                <div className="price">
-                                    <span className="price-new">34.990.000₫</span>
-                                    <span className="discount">24.790.000₫</span>
-                                    <span className="percent">-3%</span>
-                                </div>
-                            </div>
-                            <p className="notification">Online giá rẻ</p>
-                    </div>
-                    <div className="item-product">
-                        <img src={image3} alt=""/>
-                            <ul className="prods-group">
-                                <li className="merge__item item">256GB</li>
-                                <li className="merge__item item">512GB</li>
-                                <li className="merge__item item">1TB</li>
-                            </ul>
-                            <div className="prods-info">
-                                <p className="name-prods">IPhone 12</p>
-                                <div className="price">
-                                    <span className="price-new">34.990.000₫</span>
-                                    <span className="discount">24.790.000₫</span>
-                                    <span className="percent">-3%</span>
-                                </div>
-                            </div>
-                            <p className="notification">Online giá rẻ</p>
-                    </div>
-                    <div className="item-product">
-                        <img src={image3} alt=""/>
-                            <ul className="prods-group">
-                                <li className="merge__item item">256GB</li>
-                                <li className="merge__item item">512GB</li>
-                                <li className="merge__item item">1TB</li>
-                            </ul>
-                            <div className="prods-info">
-                                <p className="name-prods">IPhone 12</p>
-                                <div className="price">
-                                    <span className="price-new">34.990.000₫</span>
-                                    <span className="discount">24.790.000₫</span>
-                                    <span className="percent">-3%</span>
-                                </div>
-                            </div>
-                            <p className="notification">Online giá rẻ</p>
-                    </div>
-                    <div className="item-product">
-                        <img src={image3} alt=""/>
-                            <ul className="prods-group">
-                                <li className="merge__item item">256GB</li>
-                                <li className="merge__item item">512GB</li>
-                                <li className="merge__item item">1TB</li>
-                            </ul>
-                            <div className="prods-info">
-                                <p className="name-prods">IPhone 12</p>
-                                <div className="price">
-                                    <span className="price-new">34.990.000₫</span>
-                                    <span className="discount">24.790.000₫</span>
-                                    <span className="percent">-3%</span>
-                                </div>
-                            </div>
-                            <p className="notification">Online giá rẻ</p>
-                    </div>
-                    <div className="item-product">
-                        <img src={image3} alt=""/>
-                            <ul className="prods-group">
-                                <li className="merge__item item">256GB</li>
-                                <li className="merge__item item">512GB</li>
-                                <li className="merge__item item">1TB</li>
-                            </ul>
-                            <div className="prods-info">
-                                <p className="name-prods">IPhone 12</p>
-                                <div className="price">
-                                    <span className="price-new">34.990.000₫</span>
-                                    <span className="discount">24.790.000₫</span>
-                                    <span className="percent">-3%</span>
-                                </div>
-                            </div>
-                            <p className="notification">Online giá rẻ</p>
-                    </div>
+                    )) : ""}
+
                 </div>
                 <div className="feedback mb-md-4 mt-md-4 mt-sm-2 mb-sm-2">
                     <div className="main-form">
