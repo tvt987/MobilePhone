@@ -13,7 +13,14 @@ import nav from '../static/js/nav.js';
 import { useEffect } from 'react';
 function User() {
   const [user, setUser] = useState(undefined)
+  
+
+
+
+
   useEffect(() => {
+    
+            
     nav()
 
 
@@ -47,8 +54,9 @@ function User() {
     btnLogout.addEventListener('click', () => {
       handleClickLogout()
     })
-  }, [])
 
+    
+  }, [])
 
 
   return (

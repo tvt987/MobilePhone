@@ -10,10 +10,7 @@ import { useParams } from 'react-router-dom'
 function Category() {
     const productCategory = ''
     const {brand} = useParams()
-    fetch('http://localhost:8080/admin/getAllBrand')
-    useEffect(() => {
-        fetch(``)
-    }, [])
+
     return (
         <div>
             <div className="container ">

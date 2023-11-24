@@ -17,6 +17,7 @@ function ProductDetail({user}) {
   const showReplyForm = () => {
     setShowReply(!showReply);
   };
+  
   const { productId } = useParams();
   const productDetail = `http://localhost:8080/admin/getInformation/${productId}`
   const [product, setProduct] = useState([])
@@ -24,8 +25,6 @@ function ProductDetail({user}) {
     fetch(productDetail)
       .then(response => response.json())
       .then(data => setProduct(data))
-      
-      
   }, [])
 
 
