@@ -6,8 +6,11 @@ import image3 from '../static/images/img-iphone/iphone-11-white-thumbtz-650x650.
 import happyIcon from '../static/images/icon/icon-happy.png'
 import badIcon from '../static/images/icon/icon-bad.png'
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 function Category() {
     const productCategory = ''
+    const {brand} = useParams()
+
     return (
         <div>
             <div className="container ">

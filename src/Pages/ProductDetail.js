@@ -11,23 +11,24 @@ import avatar3 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
-function ProductDetail() {
+function ProductDetail({user}) {
   const [showReply, setShowReply] = useState(false);
 
   const showReplyForm = () => {
     setShowReply(!showReply);
   };
+  
   const { productId } = useParams();
   const productDetail = `http://localhost:8080/admin/getInformation/${productId}`
   const [product, setProduct] = useState([])
   useEffect(() => {
     fetch(productDetail)
       .then(response => response.json())
-      .then(data => {
-        setProduct(data)
-      })
+      .then(data => setProduct(data))
   }, [])
-  console.log(product.imageList)
+
+
+
   useEffect(() => {
     clearInterval()
   }, [])
@@ -39,11 +40,11 @@ function ProductDetail() {
           <div className="container-carousel">
             <div className="row">
               <div className="col-md-12">
-                {product.imageList && product.imageList.length > 0 ? (
+                {(product && product.dataProductDetail) ? (product.dataProductDetail.images && product.dataProductDetail.images.length > 0 ? (
                   <div id="custCarousel" className="carousel slide" data-ride="carousel" align="center">
 
                     <div className="carousel-inner">
-                      {product.imageList.map((product, index) => {
+                      {product.dataProductDetail.images.map((product, index) => {
                         if (index == 0) {
                           return (
                             <div key={index} className="carousel-item active">
@@ -59,28 +60,28 @@ function ProductDetail() {
                         }
                       })}
 
-                      {product.imageList.map((product, index) => (
+                      {product.dataProductDetail.images.map((product, index) => (
                         <div key={index} className="carousel-item">
                           <img src={product} alt="Hills" />
                         </div>
                       )
 
                       )}
-                      {product.imageList.map((product, index) => (
+                      {product.dataProductDetail.images.map((product, index) => (
                         <div key={index} className="carousel-item">
                           <img src={product} alt="Hills" />
                         </div>
                       )
 
                       )}
-                      {product.imageList.map((product, index) => (
+                      {product.dataProductDetail.images.map((product, index) => (
                         <div key={index} className="carousel-item">
                           <img src={product} alt="Hills" />
                         </div>
                       )
 
                       )}
-                      {product.imageList.map((product, index) => (
+                      {product.dataProductDetail.images.map((product, index) => (
                         <div key={index} className="carousel-item">
                           <img src={product} alt="Hills" />
                         </div>
@@ -127,26 +128,49 @@ function ProductDetail() {
                     </ol>
                   </div>
                 ) : (
-                  <p>Không có hình ảnh nào</p>
-                )}
+                  <p></p>
+                )) : <p>Không có hình ảnh nào</p>}
               </div>
             </div>
           </div>
           <div className="product-info ml-md-4">
-            <h2 className="prod-name">IPhone 15Pro Max 256GB</h2>
-            <span className="status">HÀNG SẮP VỀ</span>
+            <h2 className="prod-name">{(product && product.dataProductDetail) ? 
+            product.dataProductDetail.name : "Tên chưa được cập nhật"}</h2>
+
             <div className="price">
-              <span className="price-new">34.990.000₫</span>
-              <span className="discount">24.790.000₫</span>
-              <span className="percent">-3%</span>
+              <span className="price-new">{(product && product.dataProductDetail) ? 
+            product.dataProductDetail.priceNew : "Giá chưa được cập nhật"}</span>
+              <span className="discount">{(product && product.dataProductDetail) ? 
+            product.dataProductDetail.priceOld : "Giá chưa được cập nhật"}</span>
+              <span className="percent">{(product && product.dataProductDetail) ? 
+            product.dataProductDetail.discounts[0].product.percentDiscount + '%' : ""}</span>
+
+
             </div>
             <span className="capacity">Dung lượng</span>
             <ul className="prods-group">
-              <li className="merge__item item">256GB</li>
-              <li className="merge__item item">512GB</li>
-              <li className="merge__item item">1TB</li>
+            {(product && product.storages) ? 
+            product.storages.map(
+              (item, index) => (
+                <li key={index} className="merge__item item">
+                  {item.readOnlyMemoryValue + item.readOnlyMemoryUnit}
+                </li>
+              )
+            ) : ""}
+              
+             
             </ul>
-            <span className="prod-color">Màu: Titan Xanh</span>
+              <div>
+
+              
+            {(product && product.colors) ?
+            product.colors.map(
+              (item, index) => (
+                <span  key={index} className="prod-color">{item.color}</span>
+              )
+            ) : ""}
+          </div>
+            
             <img className="img-dis" src={image5} alt="" />
             <div className="pay-addcart">
               <button>Thêm vào giỏ</button>
@@ -235,26 +259,27 @@ function ProductDetail() {
 
             <div className="be-comment-block">
               <h1 className="comments-title">Comments (3)</h1>
-              <div className="be-comment">
+              {(product && product.commentList) ?
+            product.commentList.map(
+              (item, index) => (
+                <div key={index} className="be-comment">
                 <div className="be-img-comment">
                   <a href="blog-detail-2.html">
-                    <img src={avatar1} alt="" className="be-ava-comment" />
+                    <img src={item.avatar} alt="" className="be-ava-comment" />
                   </a>
                 </div>
                 <div className="be-comment-content">
 
                   <span className="be-comment-name">
-                    <a href="blog-detail-2.html">Ravi Sah</a>
+                    <a href="blog-detail-2.html">{item.nameUser}</a>
                   </span>
                   <span className="be-comment-time">
                     <i className="fa fa-clock-o"></i>
-                    May 27, 2015 at 3:14am
+                   {item.createDate}
                   </span>
 
                   <p className="be-comment-text">
-                    Pellentesque gravida tristique ultrices.
-                    Sed blandit varius mauris, vel volutpat urna hendrerit id.
-                    Curabitur rutrum dolor gravida turpis tristique efficitur.
+                    {item.content}
                   </p>
                   <div>
                     <button onClick={showReplyForm} className="btn btn-link">
@@ -272,50 +297,20 @@ function ProductDetail() {
 
                 </div>
               </div>
-              <div className="be-comment">
-                <div className="be-img-comment">
-                  <a href="blog-detail-2.html">
-                    <img src={avatar2} alt="" className="be-ava-comment" />
-                  </a>
-                </div>
-                <div className="be-comment-content">
-                  <span className="be-comment-name">
-                    <a href="blog-detail-2.html">Phoenix, the Creative Studio</a>
-                  </span>
-                  <span className="be-comment-time">
-                    <i className="fa fa-clock-o"></i>
-                    May 27, 2015 at 3:14am
-                  </span>
-                  <p className="be-comment-text">
-                    Nunc ornare sed dolor sed mattis. In scelerisque dui a arcu mattis, at maximus eros commodo. Cras magna nunc, cursus lobortis luctus at, sollicitudin vel neque. Duis eleifend lorem non ant. Proin ut ornare lectus, vel eleifend est. Fusce hendrerit dui in turpis tristique blandit.
-                  </p>
-                </div>
-              </div>
-              <div className="be-comment">
-                <div className="be-img-comment">
-                  <a href="blog-detail-2.html">
-                    <img src={avatar3} alt="" className="be-ava-comment" />
-                  </a>
-                </div>
-                <div className="be-comment-content">
-                  <span className="be-comment-name">
-                    <a href="blog-detail-2.html">Cüneyt ŞEN</a>
-                  </span>
-                  <span className="be-comment-time">
-                    <i className="fa fa-clock-o"></i>
-                    May 27, 2015 at 3:14am
-                  </span>
-                  <p className="be-comment-text">
-                    Cras magna nunc, cursus lobortis luctus at, sollicitudin vel neque. Duis eleifend lorem non ant
-                  </p>
-                </div>
-              </div>
+              )
+            ) : ""}
+              
+
+
+            
+
               <form className="form-block">
                 <div className="row">
                   <div className="col-xs-12 col-sm-6">
                     <div className="form-group fl_icon">
                       <div className="icon"><i className="fa fa-user"></i></div>
-                      <input className="form-input" type="text" placeholder="Your name" />
+                      {user ? (<input className="form-input" type="text" placeholder={user.fullname} />) 
+                      : (<input className="form-input" type="text" placeholder="Họ tên" />)}
                     </div>
                   </div>
                   <div className="col-xs-12 col-sm-6 fl_icon">

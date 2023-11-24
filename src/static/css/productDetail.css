@@ -336,3 +336,11 @@
   transform: translateY(55px);   
   padding-top: 0px!important;
 }
+
+.prod-color{
+  display: inline-block !important;
+}
+
+.prod-color{
+  margin-right: 12px;
+}
