@@ -3,12 +3,12 @@ import iconLogoFace from '../static/images/img-model/logo-face.png'
 import logoProfile from '../static/images/img-model/ex_setprofile.jpg'
 import { useState } from 'react'
 
-function Model(){
+function Model() {
     const $ = document.querySelector.bind(document)
     const $$ = document.querySelectorAll.bind(document)
 
-    
-    
+
+
 
     return (
         <div>
@@ -41,17 +41,17 @@ function Model(){
 
                         <div className="model-body__remember">
                             <div className="model-body__remember-wrap">
-                                <div  className="model-body__rememberMe">
+                                <div className="model-body__rememberMe">
                                     Remember Me?
                                 </div>
-                                <div  className="model-body__forgotPass js-model-forget">
+                                <div className="model-body__forgotPass js-model-forget">
                                     Forgot Password?
                                 </div>
                             </div>
                             <button onClick={() => alert('a')} className='model__btn-login'>Login
                                 <i className="fa-solid fa-right-to-bracket"></i>
                             </button>
-</div>
+                        </div>
 
                     </div>
 
@@ -107,7 +107,7 @@ function Model(){
                                 <i className="fa-solid fa-key fa-fade"></i>
                             </div>
                             <div className="model-body__ipt--confirm">
-<input type="text" className="model-body__ipt" placeholder="Confirm Password..." />
+                                <input type="text" className="model-body__ipt" placeholder="Confirm Password..." />
                                 <i className="fa-solid fa-lock fa-fade"></i>
                             </div>
                         </div>
@@ -165,7 +165,7 @@ function Model(){
                                     placeholder="Confirm Password..." />
                                 <i className="fa-solid fa-lock fa-fade"></i>
                             </div>
-</div>
+                        </div>
                     </div>
 
                     <div className="model-form__footer">
@@ -241,7 +241,7 @@ function Model(){
                         <div className="model-body__avt-wrap">
                             <div className="model-body__img"
                                 style={{
-backgroundImage: `url(${logoProfile})`,
+                                    backgroundImage: `url(${logoProfile})`,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
                                     backgroundRepeat: 'no-repeat'
