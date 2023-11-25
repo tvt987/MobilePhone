@@ -55,62 +55,67 @@ import { useState, useEffect, useRef } from 'react'
 function Home() {
 
     const tm = useRef()
-    
-
-    
+    const [productIphone, setProductIphone] = useState([])
     useEffect(() => {
-    
-        
-            var fuT = new Date("Jan 12, 2024 00:00:00")
-            tm.current = setInterval(() => {
-
-        var noW = new Date().getTime()
-        var D = fuT - noW
+        fetch("link")
+            .then(response => response.json())
+            .then(data => setProductIphone(data))
+    }, [])
 
 
-        var days = Math.floor(D/(1000*60*60*24))
-        var hours = Math.floor(D/(1000*60*60))
-        var minutes = Math.floor(D/(1000*60))
-        var seconds = Math.floor(D/(1000))
-
-        hours %= 24
-        minutes %= 60
-        seconds %= 60
-                if(document.getElementById("hours")){
-                    document.getElementById("hours").innerText = hours
-                    document.getElementById("minutes").innerText = minutes
-                    document.getElementById("seconds").innerText = seconds
-                }
-        
-
-       
+    useEffect(() => {
 
 
-    }, 1000);
-            
+        var fuT = new Date("Jan 12, 2024 00:00:00")
+        tm.current = setInterval(() => {
+
+            var noW = new Date().getTime()
+            var D = fuT - noW
+
+
+            var days = Math.floor(D / (1000 * 60 * 60 * 24))
+            var hours = Math.floor(D / (1000 * 60 * 60))
+            var minutes = Math.floor(D / (1000 * 60))
+            var seconds = Math.floor(D / (1000))
+
+            hours %= 24
+            minutes %= 60
+            seconds %= 60
+            if (document.getElementById("hours")) {
+                document.getElementById("hours").innerText = hours
+                document.getElementById("minutes").innerText = minutes
+                document.getElementById("seconds").innerText = seconds
+            }
+
+
+
+
+
+        }, 1000);
+
         /**------------------------set coundown time sale-----------------------  **/
         home()
-        
+
         return () => {
             setTimeout(() => {
                 clearInterval(tm.current)
             }, 2000);
         }
-        
-        
-        
+
+
+
 
     }, [])
     const allProductDC = 'http://localhost:8080/admin/getProductsDiscount'
     const [productDCList, setProductDCList] = useState([])
     useEffect(() => {
         fetch(allProductDC)
-        .then(response => response.json())
-        .then(data => {
-            setProductDCList(data)
-        })
+            .then(response => response.json())
+            .then(data => {
+                setProductDCList(data)
+            })
 
-        
+
 
 
     }, [])
@@ -119,10 +124,10 @@ function Home() {
 
     useEffect(() => {
         fetch(allProduct)
-        .then(response => response.json())
-        .then(data => {
-            setIphoneList(data)
-        })
+            .then(response => response.json())
+            .then(data => {
+                setIphoneList(data)
+            })
 
     }, [])
 
@@ -167,11 +172,11 @@ function Home() {
                         <div className="count-down">
                             <span>KẾT THÚC TRONG</span>
                             <div className="countdown-time">
-                                <div style={{color: 'white'}} id='hours' className="hours"><span>55</span></div>
+                                <div style={{ color: 'white' }} id='hours' className="hours"><span>55</span></div>
                                 <span>:</span>
-                                <div style={{color: 'white'}} id='minutes' className="minutes"><span>55</span></div>
+                                <div style={{ color: 'white' }} id='minutes' className="minutes"><span>55</span></div>
                                 <span>:</span>
-                                <div style={{color: 'white'}} id='seconds' className="seconds"><span>55</span></div>
+                                <div style={{ color: 'white' }} id='seconds' className="seconds"><span>55</span></div>
                             </div>
                         </div>
                         <div className="happenning">
@@ -188,24 +193,24 @@ function Home() {
                             <i className="fas fa-chevron-left"></i>
                         </button>
                         <div className="product-sale">
-                        {productDCList.map((product, index) => (
-                            <a href={`/ProductDetail/${product.id}`} key={index} className="product-item">
-                                <img src={iconAdaptor} />
-                                <p className="name-sale">{product.name}</p>
-                                <div className="price">
-                                    <p className="price-new">{product.price}</p>
-                                <p className="price-old">{product.priceUpdate}</p>
-                                </div>
-                                <div className="count-product">
-                                    <img src={iconFsIconFire} />
-                                    <i>10/10</i>
-                                </div>
-                            </a>
-                        ))}
+                            {productDCList.map((product, index) => (
+                                <a href={`/ProductDetail/${product.id}`} key={index} className="product-item">
+                                    <img src={iconAdaptor} />
+                                    <p className="name-sale">{product.name}</p>
+                                    <div className="price">
+                                        <p className="price-new">{product.price}</p>
+                                        <p className="price-old">{product.priceUpdate}</p>
+                                    </div>
+                                    <div className="count-product">
+                                        <img src={iconFsIconFire} />
+                                        <i>10/10</i>
+                                    </div>
+                                </a>
+                            ))}
 
                         </div>
                         <button id="next-product" className="btn-slide-product">
-<i className="fas fa-chevron-right"></i>
+                            <i className="fas fa-chevron-right"></i>
                         </button>
                     </div>
                 </div>
@@ -245,23 +250,23 @@ function Home() {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-iphone">
-                                {iphoneList ? iphoneList.map((iphone, index) => (
+                                {productIphone ? iphoneList.map((iphone, index) => (
                                     <div key={index} className="product-item">
-                                    <img src={iconIphone11WhiteThumb} />
-                                    <p className="name-product">{iphone.name}</p>
-                                    <div className="price">
-                                        <p className="price-new">{iphone.price}</p>
-                                        <p className="price-old">{iphone.priceUpdate}<span className="discount">-3%</span></p>
+                                        <img src={iconIphone11WhiteThumb} />
+                                        <p className="name-product">{iphone.name}</p>
+                                        <div className="price">
+                                            <p className="price-new">{iphone.price}</p>
+                                            <p className="price-old">{iphone.priceUpdate}<span className="discount">-3%</span></p>
+                                        </div>
                                     </div>
-                                </div>
                                 )) : ""}
-                                
 
-                                
+
+
                             </div>
                             <button id="next-iphone" className="btn-slide-product">
                                 <i className="fas fa-chevron-right"></i>
-</button>
+                            </button>
                         </div>
                     </div>
                     <div className="container-ipad mt-2 mb-2">
@@ -273,15 +278,15 @@ function Home() {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-ipad">
-                            {iphoneList ? iphoneList.map((iphone, index) => (
+                                {iphoneList ? iphoneList.map((iphone, index) => (
                                     <div key={index} className="product-item">
-                                    <img src={iconIpadAir5Wifi} />
-                                    <p className="name-product">{iphone.name}</p>
-                                    <div className="price">
-                                        <p className="price-new">{iphone.price}</p>
-                                        <p className="price-old">{iphone.priceUpdate} <span className="discount">-10%</span></p>
+                                        <img src={iconIpadAir5Wifi} />
+                                        <p className="name-product">{iphone.name}</p>
+                                        <div className="price">
+                                            <p className="price-new">{iphone.price}</p>
+                                            <p className="price-old">{iphone.priceUpdate} <span className="discount">-10%</span></p>
+                                        </div>
                                     </div>
-                                </div>
                                 )) : ""}
 
                             </div>
@@ -299,15 +304,15 @@ function Home() {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-mac">
-                            {iphoneList ? iphoneList.map((iphone, index) => (
+                                {iphoneList ? iphoneList.map((iphone, index) => (
                                     <div key={index} className="product-item">
-                                    <img src={iconMacAir13M1Xam} />
-                                    <p className="name-product">{iphone.name}</p>
-                                    <div className="price">
-                                        <p className="price-new">{iphone.price}</p>
-                                        <p className="price-old">{iphone.priceUpdate}<span className="discount">-3%</span></p>
+                                        <img src={iconMacAir13M1Xam} />
+                                        <p className="name-product">{iphone.name}</p>
+                                        <div className="price">
+                                            <p className="price-new">{iphone.price}</p>
+                                            <p className="price-old">{iphone.priceUpdate}<span className="discount">-3%</span></p>
+                                        </div>
                                     </div>
-                                </div>
                                 )) : ""}
 
                             </div>
@@ -325,15 +330,15 @@ function Home() {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-watch">
-                            {iphoneList ? iphoneList.map((iphone, index) => (
+                                {iphoneList ? iphoneList.map((iphone, index) => (
                                     <div key={index} className="product-item">
-                                    <img src={iconAppleWatchS841mmDoThumb} />
-                                    <p className="name-product">{iphone.name}</p>
-                                    <div className="price">
-                                        <p className="price-new">{iphone.price}</p>
-                                        <p className="price-old">{iphone.priceUpdate}<span className="discount">-17%</span></p>
+                                        <img src={iconAppleWatchS841mmDoThumb} />
+                                        <p className="name-product">{iphone.name}</p>
+                                        <div className="price">
+                                            <p className="price-new">{iphone.price}</p>
+                                            <p className="price-old">{iphone.priceUpdate}<span className="discount">-17%</span></p>
+                                        </div>
                                     </div>
-                                </div>
                                 )) : ""}
 
                             </div>
@@ -352,15 +357,15 @@ function Home() {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-at">
-                            {iphoneList ? iphoneList.map((iphone, index) => (
+                                {iphoneList ? iphoneList.map((iphone, index) => (
                                     <div key={index} className="product-item">
-                                    <img src={iconAirpodsMaxSelecthongThumb} />
-                                    <p className="name-product">{iphone.iphone}</p>
+                                        <img src={iconAirpodsMaxSelecthongThumb} />
+                                        <p className="name-product">{iphone.iphone}</p>
                                         <div className="price">
-                                        <p className="price-new">{iphone.price}</p>
-                                        <p className="price-old">{iphone.priceUpdate}<span className="discount">-10%</span></p>
+                                            <p className="price-new">{iphone.price}</p>
+                                            <p className="price-old">{iphone.priceUpdate}<span className="discount">-10%</span></p>
+                                        </div>
                                     </div>
-                                </div>
                                 )) : ""}
 
                             </div>
