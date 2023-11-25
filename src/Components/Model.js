@@ -3,83 +3,13 @@ import iconLogoFace from '../static/images/img-model/logo-face.png'
 import logoProfile from '../static/images/img-model/ex_setprofile.jpg'
 import { useState, useEffect } from 'react'
 
+
 function Model() {
-    const [user, setUser] = useState({});
-
-
-    useEffect(() => {
-        const btnLogin = document.querySelector('.model__btn-login');
-
-        btnLogin.addEventListener('click', () => {
-            const email = document.getElementById('model-body__emailIpt').value;
-            const pass = document.getElementById('model-body__passIpt').value;
-
-            // Dữ liệu bạn muốn gửi
-            const formData = {
-                email: email,
-                pass: pass
-            };
-
-            // Tạo một đối tượng Options cho fetch với method là POST và body chứa dữ liệu
-            const requestOptions = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                    // Bạn có thể thêm các header khác nếu cần thiết
-                },
-            };
-
-            // Sử dụng fetch với các tùy chọn mới
-            fetch(`http://localhost:8080/admin/signin/${email}/${pass}`, requestOptions)
-                .then(response => response.json())
-                .then(data => {
-                    setUser(data);
-                    sessionStorage.setItem("user", JSON.stringify(data));
-                })
-                .catch(error => console.error('Error:', error));
-        });
 
 
 
-    }, []);
-
-    useEffect(() => {
-        const btnSet = document.querySelector('.model__btn-set');
-
-        btnSet.addEventListener('click', () => {
-            const userId = 5;
-            const email = document.getElementById('model-body__Emailipt').value;
-            const fullName = document.getElementById('model-body__fullNameipt').value;
-            const phoneNumber = document.getElementById('model-body__phoneipt').value;
-            const address = document.getElementById('model-body__adressipt').value;
-            const birthDay = document.getElementById('model-body__ipt--birthday').value;
 
 
-
-            const requestOptions = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                    // Bạn có thể thêm các header khác nếu cần thiết
-                },
-            };
-
-            fetch(`/api/set-profile/${userId}/${fullName}/${phoneNumber}/${address}/${birthDay}/${email}`, requestOptions)
-                .then(response => response.json())
-                .then(data => {
-                    setUser(data);
-                    sessionStorage.setItem("user", JSON.stringify(data));
-                })
-                .catch(error => console.error('Error:', error));
-        });
-
-    }, []);
-    const a = sessionStorage.getItem("user");
-    const b = JSON.parse(a)
-
-
-    const $ = document.querySelector.bind(document)
-    const $$ = document.querySelectorAll.bind(document)
 
     return (
         <div>
@@ -204,7 +134,7 @@ function Model() {
                 </div>
             </div>
 
-            <div className="model-forget">
+            {/* <div className="model-forget">
                 <div className="model-form">
 
 
@@ -250,7 +180,38 @@ function Model() {
 
 
                 </div>
+            </div> */}
+            <div className="model-forget">
+                <div className="model-form">
+
+
+                    <div className="model-form__header">
+                        Forget Password
+                    </div>
+
+                    <div className="model-form__body">
+                        <div className="model-body__ipts">
+                            <div className="model-body__ipt-wrap">
+                                <input type="email" className="model-body__ipt"
+                                    placeholder="Enter email..." />
+                                <i className="fa-solid fa-envelope fa-fade"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div className="model-form__footer">
+                        <button className="model-form__btn">
+                            Gửi mã
+                        </button>
+                        <div className="model-form__backlogin js-model-login">
+                            Login
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
+
 
             <div className="model-changepass">
                 <div className="model-form">
@@ -322,31 +283,31 @@ function Model() {
                         <div className="model-body__ipts">
 
                             <div className="model-body__ipt-wrap">
-                                <input type="text" className="model-body__fullNameipt"
+                                <input type="text" className="model-body__ipt model-body__fullNameipt"
                                     placeholder="Enter fullname..." />
                                 <i className="fa-solid fa-user"></i>
                             </div>
 
                             <div className="model-body__ipt-wrap">
-                                <input type="text" className="model-body__phoneipt"
+                                <input type="text" className="model-body__ipt model-body__phoneipt"
                                     placeholder="Enter phone..." />
                                 <i className="fa-solid fa-phone"></i>
                             </div>
 
                             <div className="model-body__ipt-wrap">
-                                <input type="text" className="model-body__adressipt"
+                                <input type="text" className="model-body__ipt model-body__adressipt"
                                     placeholder="Enter address..." />
                                 <i className="fa-solid fa-location-dot"></i>
                             </div>
 
                             <div className="model-body__ipt-wrap">
-                                <input type="date" className="model-body__ipt model-body__ipt--birthday"
+                                <input type="date" className="model-body__ipt model-body__birthdayipt"
                                     placeholder="Enter birth..." />
                                 <i className="fa-solid fa-calendar"></i>
                             </div>
 
                             <div className="model-body__ipt-wrap">
-                                <input type="email" className="model-body__Emailipt"
+                                <input type="email" className="model-body__ipt model-body__Emailipt"
                                     placeholder="Enter email..." />
                                 <i className="fa-solid fa-envelope"></i>
                             </div>

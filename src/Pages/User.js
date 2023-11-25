@@ -11,21 +11,100 @@ import Cancel from '../Pages/Cancel.js'
 import Canceldetail from '../Pages/CancelDetial.js'
 import nav from '../static/js/nav.js';
 import { useEffect } from 'react';
+import clsx from 'clsx';
 function User() {
-  const [user, setUser] = useState(undefined)
-  
+  const [userz, setUser] = useState({});
+  const modelLogin = document.querySelector('.model-login')
+
+
+
+  useEffect(() => {
+    const btnLogin = document.querySelector('.model__btn-login');
+
+    btnLogin.addEventListener('click', () => {
+      const email = document.getElementById('model-body__emailIpt').value;
+      const pass = document.getElementById('model-body__passIpt').value;
+
+      // Dữ liệu bạn muốn gửi
+      const formData = {
+        email: email,
+        pass: pass
+      };
+
+      // Tạo một đối tượng Options cho fetch với method là POST và body chứa dữ liệu
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+          // Bạn có thể thêm các header khác nếu cần thiết
+        },
+      };
+
+      // Sử dụng fetch với các tùy chọn mới
+      fetch(`http://localhost:8080/admin/signin/${email}/${pass}`, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          setUser(data);
+          sessionStorage.setItem("user", JSON.stringify(data));
+        })
+        .catch(error => console.error('Error:', error));
+
+    });
+
+
+    const modelLogout = document.querySelector(".js-model-logout")
+
+    modelLogout.addEventListener("click", () => {
+      setUser(undefined)
+      sessionStorage.setItem("user", JSON.stringify(""))
+    })
+
+
+  }, [userz]);
+  const a = sessionStorage.getItem("user");
+  const user = JSON.parse(a)
+  if (user) {
+    if (modelLogin) {
+      modelLogin.style.display = "none"
+    }
+  }
+
 
 
 
 
   useEffect(() => {
-
-            
     nav()
+    const btnSet = document.querySelector('.model__btn-set');
+
+    btnSet.addEventListener('click', () => {
+      const email = document.querySelector('.model-body__Emailipt').value;
+      const fullName = document.querySelector('.model-body__fullNameipt').value;
+      const phoneNumber = document.querySelector('.model-body__phoneipt').value;
+      const address = document.querySelector('.model-body__adressipt').value;
+      const birthDay = document.querySelector('.model-body__birthdayipt').value;
+      const userId = sessionStorage.id;
 
 
 
-    
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      };
+
+      fetch(`http://localhost:8080/api/set-profile/5/${fullName}/${phoneNumber}/${address}/${birthDay}/${email}`, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          setUser(data);
+          sessionStorage.setItem("user", JSON.stringify(data));
+        })
+        .catch(error => console.error('Error:', error));
+      console.log(userId);
+
+    });
+
   }, [])
 
 
@@ -43,8 +122,9 @@ function User() {
         <Route path='/Cart' element={<Cart />} />
         <Route path='/Cancel' element={<Cancel />} />
         <Route path='/Canceldetail' element={<Canceldetail />} />
+        <Route path='/getOrders' element={<Cart />} />
       </Routes>
-     
+
       <Footer />
       <Model />
     </div>

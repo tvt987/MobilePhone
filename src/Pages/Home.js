@@ -54,13 +54,14 @@ import { useState, useEffect, useRef } from 'react'
 
 function Home() {
 
+
     const tm = useRef()
     const [productIphone, setProductIphone] = useState([])
-    useEffect(() => {
-        fetch("link")
-            .then(response => response.json())
-            .then(data => setProductIphone(data))
-    }, [])
+    // useEffect(() => {
+    //     fetch("link")
+    //         .then(response => response.json())
+    //         .then(data => setProductIphone(data))
+    // }, [])
 
 
     useEffect(() => {
