@@ -4,18 +4,31 @@ import '../static/css/style.css'
 import image1 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import image2 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import image3 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
-
+import { useParams } from 'react-router-dom';
 function Cart() {
+    const { id } = useParams();
+    
     const a = sessionStorage.getItem("user");
     const [orders, setOrders] = useState([])
     const user = JSON.parse(a)
     useEffect(() => {
-        fetch(`http://localhost:8080/admin/getOrders/${user.id}`)
+        fetch(`http://localhost:8080/admin/getOrder/${id}`)
             .then(response => response.json())
             .then(data => setOrders(data))
+
+            
     }, [])
     console.log(orders)
+    // const clickremove = document.querySelector(".clickremove")
+    // clickremove.addEventListener("click", () => {
+    //     alert("a")
+    // })
 
+    function handleRemove(idRemove){
+        fetch(`http://localhost:8080/admin/deleteOrderDetail/${idRemove}/${id}`)
+            .then(response => response.json())
+            .then(data => setOrders(data))
+    }
     return (
         <div>
             <div className="container">
@@ -48,48 +61,23 @@ function Cart() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            {orders ? orders.map((item, index) => (
+                                                <tr key={index}>
                                                 <th scope="row" className="border-0">
                                                     <div className="p-2">
-                                                        <img src={image1} alt="" width="70" className="img-fluid rounded shadow-sm"/>
+                                                        <img src={item.images[0].imageUrl} alt="" width="70" className="img-fluid rounded shadow-sm"/>
                                                             <div className="ml-3 d-inline-block align-middle">
-                                                                <h5 className="mb-0"> <a href="#" className="text-dark d-inline-block align-middle">Timex Unisex Originals</a></h5><span className="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
+                                                                <h5 className="mb-0"> <a href="#" className="text-dark d-inline-block align-middle">{item.name}</a></h5><span className="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
                                                             </div>
                                                     </div>
                                                 </th>
-                                                <td className="border-0 align-middle"><strong>$79.00</strong></td>
-                                                <td className="border-0 align-middle"><strong>3</strong></td>
-                                                <td className="border-0 align-middle"><a href="#" className="text-dark"><i className="fa fa-trash"></i></a></td>
+                                                <td className="border-0 align-middle"><strong>{item.price}</strong></td>
+                                                <td className="border-0 align-middle"><strong>{item.quantity}</strong></td>
+                                                <td className="border-0 align-middle"><button className="text-dark clickremove" onClick={() => handleRemove(item.id)}><i className="fa fa-trash"></i></button></td>
                                             </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div className="p-2">
-                                                        <img src={image2} alt="" width="70" className="img-fluid rounded shadow-sm"/>
-                                                            <div className="ml-3 d-inline-block align-middle">
-                                                                <h5 className="mb-0"><a href="#" className="text-dark d-inline-block">Lumix camera lense</a></h5><span className="text-muted font-weight-normal font-italic">Category: Electronics</span>
-                                                            </div>
-                                                    </div>
-                                                </th>
-                                                <td className="align-middle"><strong>$79.00</strong></td>
-                                                <td className="align-middle"><strong>3</strong></td>
-                                                <td className="align-middle"><a href="#" className="text-dark"><i className="fa fa-trash"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div className="p-2">
-                                                        <img src={image3} alt="" width="70" className="img-fluid rounded shadow-sm"/>
-                                                            <div className="ml-3 d-inline-block align-middle">
-                                                                <h5 className="mb-0"> <a href="#" className="text-dark d-inline-block">Gray Nike running shoe</a></h5><span className="text-muted font-weight-normal font-italic">Category: Fashion</span>
-                                                            </div>
-                                                    </div>
-                                                    </th>
-                                                    <td className="align-middle"><strong>$79.00</strong></td>
-                                                    <td className="align-middle"><strong>3</strong></td>
-                                                    <td className="align-middle"><a href="#" className="text-dark"><i className="fa fa-trash"></i></a>
-                                                    </td>
-                                                    
-                                            </tr>
+                                            )) : ""}
+                                            
+                                           
                                         </tbody>
                                     </table>
                                 </div>

@@ -6,8 +6,24 @@ import '../static/css/Cancel.css'
 import image1 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import image2 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import image3 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
-
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 function Cancel() {
+
+    const [orders, setOrders] = useState([])
+    const b = sessionStorage.getItem("user")
+    let user
+    if(b){
+        user = JSON.parse(b)
+    }
+
+    useEffect(() => {
+
+        fetch(`http://localhost:8080/admin/getOrders/${user.id}`)
+            .then(response => response.json())
+            .then(data => setOrders(data))
+    }, [])
+
     return (
         <div>
             <div className="pb-5 pt-5">
@@ -35,64 +51,32 @@ function Cancel() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row" className="border-0">
-                                                <div className=" p-2">
-                                                    <img src={image1} alt=""
-                                                        width="70" className="img-fluid rounded shadow-sm" />
-                                                    <div className="ml-3 d-inline-block align-middle">
-                                                        <h5 className="mb-0"> <a href="/Canceldetail"
-                                                            className="text-dark d-inline-block align-middle">Iphone 13</a></h5>
-                                                        <span
-                                                            className="text-muted font-weight-normal font-italic d-block">Category:
-                                                            Phones</span>
-                                                    </div>
-                                                </div>
-                                            </th>
-                                            <td className="border-0 align-middle"><strong>$45.00</strong></td>
-                                            <td className="border-0 align-middle"><strong>1</strong></td>
-                                            <td className="oder__btn--cancel border-0 align-middle"><button><strong>Hủy
-                                                hàng</strong></button></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" className="border-0">
-                                                <div className="oder__btn--cancel p-2">
-                                                    <img src={image2} alt=""
-                                                        width="70" className="img-fluid rounded shadow-sm" />
-                                                    <div className="ml-3 d-inline-block align-middle">
-                                                        <h5 className="mb-0"><a href="huydon.html"
-                                                            className="text-dark d-inline-block">Iphne
-                                                            14</a></h5><span
-                                                                className="text-muted font-weight-normal font-italic">Category:
-                                                            Phones</span>
-                                                    </div>
-                                                </div>
-                                            </th>
-                                            <td className="border-0 align-middle"><strong>$45.00</strong></td>
-                                            <td className="border-0 align-middle"><strong>1</strong></td>
+                                    {orders ? orders.map((item, index) => (
 
-                                            <td className="oder__btn--cancel border-0 align-middle"><button><strong>Hủy
-                                                hàng</strong></button></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" className="border-0">
-                                                <div className="oder__btn--cancel p-2">
-                                                    <img src={image3}
-                                                        alt="" width="70" className="img-fluid rounded shadow-sm" />
-                                                    <div className="ml-3 d-inline-block align-middle">
-                                                        <h5 className="mb-0"> <a href="huydon.html"
-                                                            className="text-dark d-inline-block">Iphone 14
-                                                            Pro Max</a></h5>
-                                                        <span className="text-muted font-weight-normal font-italic">Category:
-                                                            Phones</span>
-                                                    </div>
+                                        <tr key={index}>
+                                           
+                                        <th scope="row" className="border-0">
+                                            <div className=" p-2">
+                                                <img src={image1} alt=""
+                                                    width="70" className="img-fluid rounded shadow-sm" />
+                                                <div className="ml-3 d-inline-block align-middle">
+                                                    <h5 className="mb-0"> <a href={`/OrderDetail/${item.id}`}
+                                                        className="text-dark d-inline-block align-middle">Đơn Hàng</a></h5>
+                                                    <span
+                                                        className="text-muted font-weight-normal font-italic d-block">Category:
+                                                        Phones</span>
                                                 </div>
-                                            </th>
-                                            <td className="border-0 align-middle"><strong>$45.00</strong></td>
-                                            <td className="border-0 align-middle"><strong>1</strong></td>
-                                            <td className="oder__btn--cancel border-0 align-middle"><button><strong>Hủy
-                                                hàng</strong></button></td>
-                                        </tr>
+                                            </div>
+                                        </th>
+                                        <td className="border-0 align-middle"><strong>{item.total}</strong></td>
+                                        <td className="border-0 align-middle"><strong>{item.quantity}</strong></td>
+                                        <td className="oder__btn--cancel border-0 align-middle"><button><strong>Hủy
+                                            hàng</strong></button></td>
+                                           
+                                    </tr>
+                                    )) : ""}
+                                        
+
                                     </tbody>
                                 </table>
                             </div>

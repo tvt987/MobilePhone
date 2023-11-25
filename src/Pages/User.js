@@ -14,8 +14,9 @@ import { useEffect } from 'react';
 import clsx from 'clsx';
 function User() {
   const [userz, setUser] = useState({});
-  const modelLogin = document.querySelector('.model-login')
-
+    const modelLogin = document.querySelector('.model-login')
+const [orders, setOrders] = useState([])
+    
 
 
   useEffect(() => {
@@ -70,6 +71,9 @@ function User() {
   }
 
 
+  
+
+
 
 
 
@@ -106,7 +110,7 @@ function User() {
     });
 
   }, [])
-
+console.log(orders)
 
   return (
     <div style={{ backgroundColor: '#3E3E3F' }}>
@@ -119,10 +123,10 @@ function User() {
         <Route path='/:brand' element={<Category />} />
         <Route path='/ProductDetail' user={user} element={<ProductDetail />} />
         <Route path='/ProductDetail/:productId' element={<ProductDetail />} />
-        <Route path='/Cart' element={<Cart />} />
+        <Route path='/OrderDetail/:id' element={<Cart />} />
+
         <Route path='/Cancel' element={<Cancel />} />
-        <Route path='/Canceldetail' element={<Canceldetail />} />
-        <Route path='/getOrders' element={<Cart />} />
+        <Route path='/getOrders' element={<Cancel />} />
       </Routes>
 
       <Footer />

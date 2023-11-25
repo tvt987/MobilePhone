@@ -15,7 +15,9 @@ function Category() {
         fetch(`http://localhost:8080/admin/getInformationBrand/${brand}`)
             .then(response => response.json())
             .then(data => setProducts(data))
+            
     }, [brand])
+
 
     return (
         <div>
