@@ -92,6 +92,8 @@ console.log(orders)
         <Route path='/:brand' element={<Category />} />
         <Route path='/ProductDetail' user={user} element={<ProductDetail />} />
         <Route path='/ProductDetail/:productId' element={<ProductDetail />} />
+        <Route path='/OrderDetail/:id' element={<Cart />} />
+
         <Route path='/Cancel' element={<Cancel />} />
         <Route path='/getOrders' element={<Cancel />} />
       </Routes>

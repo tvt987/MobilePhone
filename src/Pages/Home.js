@@ -53,7 +53,17 @@ import { useState, useEffect, useRef } from 'react'
 
 
 function Home() {
-    
+    const allProductSamSung = 'http://localhost:8080/admin/getInformationBrand/2'
+    const [samsungList, setSamSungList] = useState([])
+
+    useEffect(() => {
+        fetch(allProductSamSung)
+            .then(response => response.json())
+            .then(data => {
+                setSamSungList(data)
+            })
+
+    }, [])
 
     const tm = useRef()
     
@@ -251,17 +261,16 @@ function Home() {
                                     if (Array.isArray(iphone.images) && iphone.images.length > 0) {
                                         // Tạo một biến để lưu trữ đường dẫn hình ảnh
                                         const imageURL = iphone.images[0].imageUrl;
-                                        console.log("imageURL:", iphone.images[0].imageUrl);
                                         // Trả về JSX với sử dụng biến imageURL trong thẻ img
                                         return (
-                                            <div key={index} className="product-item">
+                                            <a href={`/ProductDetail/${iphone.id}`}  key={index} className="product-item">
                                                 <img src={imageURL} alt={iphone.name} />
                                                 <p className="name-product">{iphone.name}</p>
                                                 <div className="price">
                                                     <p className="price-new">{iphone.price}</p>
                                                     <p className="price-old">{iphone.priceUpdate}<span className="discount">{iphone.percentDiscount}</span></p>
                                                 </div>
-                                            </div>
+                                            </a>
                                         );
                                     } else {
                                         // Nếu không có hình ảnh, trả về một thông báo
@@ -296,16 +305,37 @@ function Home() {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-ipad">
-                            {iphoneList ? iphoneList.map((iphone, index) => (
-                                    <div key={index} className="product-item">
-                                    <img src={iconIpadAir5Wifi} />
-                                    <p className="name-product">{iphone.name}</p>
-                                    <div className="price">
-                                        <p className="price-new">{iphone.price}</p>
-                                        <p className="price-old">{iphone.priceUpdate} <span className="discount">-10%</span></p>
-                                    </div>
-                                </div>
-                                )) : ""}
+                            {samsungList ? samsungList.map((samsung, index) => {
+                                    // Kiểm tra nếu 'images' là một mảng và có ít nhất một phần tử
+                                    if (Array.isArray(samsung.images) && samsung.images.length > 0) {
+                                        // Tạo một biến để lưu trữ đường dẫn hình ảnh
+                                        const imageURL = samsung.images[0].imageUrl;
+                                        console.log("imageURL:", samsung.images[0].imageUrl);
+                                        // Trả về JSX với sử dụng biến imageURL trong thẻ img
+                                        return (
+                                            <div key={index} className="product-item">
+                                                <img src={imageURL} alt={samsung.name} />
+                                                <p className="name-product">{samsung.name}</p>
+                                                <div className="price">
+                                                    <p className="price-new">{samsung.price}</p>
+                                                    <p className="price-old">{samsung.priceUpdate}<span className="discount">{samsung.percentDiscount}</span></p>
+                                                </div>
+                                            </div>
+                                        );
+                                    } else {
+                                        // Nếu không có hình ảnh, trả về một thông báo
+                                        return (
+                                            <div key={index} className="product-item">
+                                                <p>No image available</p>
+                                                <p className="name-product">{samsung.name}</p>
+                                                <div className="price">
+                                                    <p className="price-new">{samsung.price}</p>
+                                                    <p className="price-old">{samsung.priceUpdate}<span className="discount">{samsung.percentDiscount}</span></p>
+                                                </div>
+                                            </div>
+                                        );
+                                    }
+                                }) : "No iPhones available."}
 
                             </div>
                             <button id="next-ipad" className="btn-slide-product">

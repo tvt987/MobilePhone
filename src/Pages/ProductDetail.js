@@ -18,8 +18,11 @@ function ProductDetail() {
   const showReplyForm = () => {
     setShowReply(!showReply);
   };
+
+
   
   const { productId } = useParams();
+  
   const productDetail = `http://localhost:8080/admin/getInformation/${productId}`
   const [product, setProduct] = useState([])
   useEffect(() => {
@@ -27,6 +30,8 @@ function ProductDetail() {
       .then(response => response.json())
       .then(data => setProduct(data))
   }, [])
+
+
 
 
 
@@ -49,13 +54,13 @@ function ProductDetail() {
                         if (index == 0) {
                           return (
                             <div key={index} className="carousel-item active">
-                              <img src={product} alt="Hills" />
+                              <img src={product.imageUrl} alt="Hills" />
                             </div>
                           )
                         } else {
                           return (
                             <div key={index} className="carousel-item">
-                              <img src={product} alt="Hills" />
+                              <img src={product.imageUrl} alt="Hills" />
                             </div>
                           )
                         }
@@ -75,28 +80,15 @@ function ProductDetail() {
 
 
                     <ol className="carousel-indicators list-inline">
-                      <li className="list-inline-item active">
+                      {product ? product.dataProductDetail.images.map((item, index) => (
+                        <li key={index} className="list-inline-item active">
                         <a id="carousel-selector-0" className="selected" data-slide-to="0" data-target="#custCarousel">
-                          <img src={image1} className="img-fluid" />
+                          <img src={item.imageUrl} className="img-fluid" />
                         </a>
                       </li>
+                      )) : ""}
 
-                      <li className="list-inline-item">
-                        <a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel">
-                          <img src={image2} className="img-fluid" />
-                        </a>
-                      </li>
-
-                      <li className="list-inline-item">
-                        <a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel">
-                          <img src={image3} className="img-fluid" />
-                        </a>
-                      </li>
-                      <li className="list-inline-item">
-                        <a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel">
-                          <img src={image4} className="img-fluid" />
-                        </a>
-                      </li>
+                      
                     </ol>
                   </div>
                 ) : (
@@ -146,7 +138,7 @@ function ProductDetail() {
             
             <img className="img-dis" src={image5} alt="" />
             <div className="pay-addcart">
-              <button>Thêm vào giỏ</button>
+              <button> Thêm vào giỏ </button>
               <button>Mua ngay</button>
             </div>
             <ul className="describe">
