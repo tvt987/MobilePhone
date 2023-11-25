@@ -6,8 +6,17 @@ import '../static/css/Cancel.css'
 import image1 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import image2 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import image3 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
+import { useEffect, useState } from 'react'
 
 function Cancel() {
+    const [orders, setOrders] = useState([])
+
+    useEffect(() => {
+
+        fetch(`http://localhost:8080/admin/getOrders/${orders}`)
+            .then(response => response.json())
+            .then(data => setOrders(data))
+    }, [])
     return (
         <div>
             <div className="pb-5 pt-5">

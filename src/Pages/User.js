@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 function User() {
   const [userz, setUser] = useState({});
     const modelLogin = document.querySelector('.model-login')
-
+const [orders, setOrders] = useState([])
     
 
 useEffect(() => {
@@ -69,6 +69,9 @@ if(user){
 }
 
 
+  
+
+
 
 
 
@@ -76,7 +79,7 @@ if(user){
     nav()
 
   }, [])
-
+console.log(orders)
 
   return (
     <div style={{ backgroundColor: '#3E3E3F' }}>
@@ -89,10 +92,8 @@ if(user){
         <Route path='/:brand' element={<Category />} />
         <Route path='/ProductDetail' user={user} element={<ProductDetail />} />
         <Route path='/ProductDetail/:productId' element={<ProductDetail />} />
-        <Route path='/Cart' element={<Cart />} />
         <Route path='/Cancel' element={<Cancel />} />
-        <Route path='/Canceldetail' element={<Canceldetail />} />
-        <Route path='/getOrders' element={<Cart />} />
+        <Route path='/getOrders' element={<Cancel />} />
       </Routes>
      
       <Footer />
