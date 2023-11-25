@@ -2,7 +2,9 @@ import '../static/css/nav.css'
 import logoPhone from '../static/images/img-model/header__logophone.png'
 import logoUser from '../static/images/img-model/user.svg'
 import { Link } from 'react-router-dom';
-function Nav({ user }) {
+function Nav() {
+  const a = sessionStorage.getItem("user");
+const user = JSON.parse(a)
   return (
     <div className="main__header">
       <div className="nav1 row">
@@ -26,7 +28,7 @@ function Nav({ user }) {
           </div>
         </div>
         <div className="nav__center col-lg-6 col-md-6 col-sm-0">
-          <Link to='/1'className="nav__center-item nav__center-item--active fa-fade">IPHONE</Link>
+          <Link to='/10'className="nav__center-item nav__center-item--active fa-fade">IPHONE</Link>
           <Link to='/15' className="nav__center-item">OPPO</Link>
           <Link to='/3' className="nav__center-item">XIAOMI</Link>
           <Link to='/4' className="nav__center-item">HUAWEI</Link>
