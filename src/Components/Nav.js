@@ -1,10 +1,19 @@
+import { useEffect } from 'react';
 import '../static/css/nav.css'
 import logoPhone from '../static/images/img-model/header__logophone.png'
 import logoUser from '../static/images/img-model/user.svg'
 import { Link } from 'react-router-dom';
 function Nav() {
-  const a = sessionStorage.getItem("user");
-const user = JSON.parse(a)
+  let user
+  const b = sessionStorage.getItem("user")
+        if(b){
+          user = JSON.parse(b)
+        }
+
+        
+  
+
+
   return (
     <div className="main__header">
       <div className="nav1 row">
@@ -61,6 +70,7 @@ const user = JSON.parse(a)
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div className="dropdown-item js-model-changepass">Change Password</div>
                 <div className="dropdown-item js-model-setprofileO">Set Profile</div>
+                <a href='/getOrders' className="dropdown-item js-orders">Orders</a>
                 <div className="dropdown-item js-model-logout">Logout</div>
               </div>
             </div>
@@ -68,14 +78,6 @@ const user = JSON.parse(a)
           <div style={(user && user.roles === 'USER') ? { display: 'none' } : { display: 'block' }} className="nav__right-control js-model-login">
             Login
           </div>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <script type="module" src="../static/js/home.js"></script>

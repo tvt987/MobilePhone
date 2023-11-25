@@ -5,51 +5,10 @@ import { useState, useEffect } from 'react'
 
 
 function Model(){
-    const [user, setUser] = useState({});
     
 
-useEffect(() => {
-    const btnLogin = document.querySelector('.model__btn-login');
-
-    btnLogin.addEventListener('click', () => {
-        const email = document.getElementById('model-body__emailIpt').value;
-        const pass = document.getElementById('model-body__passIpt').value;
-
-        // Dữ liệu bạn muốn gửi
-        const formData = {
-            email: email,
-            pass: pass
-        };
-
-        // Tạo một đối tượng Options cho fetch với method là POST và body chứa dữ liệu
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-                // Bạn có thể thêm các header khác nếu cần thiết
-            },
-        };
-
-        // Sử dụng fetch với các tùy chọn mới
-        fetch(`http://localhost:8080/admin/signin/${email}/${pass}`, requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                setUser(data);
-                sessionStorage.setItem("user",JSON.stringify(data));
-            })
-            .catch(error => console.error('Error:', error));
-    });
-
-}, []);
-
-const a = sessionStorage.getItem("user");
-const b = JSON.parse(a)
 
 
-    const $ = document.querySelector.bind(document)
-    const $$ = document.querySelectorAll.bind(document)
-
-    
     
 
     return (

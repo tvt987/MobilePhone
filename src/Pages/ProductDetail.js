@@ -11,7 +11,8 @@ import avatar3 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
-function ProductDetail({user}) {
+function ProductDetail() {
+  const user = sessionStorage.getItem("user")
   const [showReply, setShowReply] = useState(false);
 
   const showReplyForm = () => {

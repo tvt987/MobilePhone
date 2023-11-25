@@ -1,10 +1,21 @@
 //
+import { useState, useEffect } from 'react';
 import '../static/css/style.css'
 import image1 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import image2 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import image3 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 
 function Cart() {
+    const a = sessionStorage.getItem("user");
+    const [orders, setOrders] = useState([])
+    const user = JSON.parse(a)
+    useEffect(() => {
+        fetch(`http://localhost:8080/admin/getOrders/${user.id}`)
+            .then(response => response.json())
+            .then(data => setOrders(data))
+    }, [])
+    console.log(orders)
+
     return (
         <div>
             <div className="container">
