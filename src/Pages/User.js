@@ -14,9 +14,9 @@ import { useEffect } from 'react';
 import clsx from 'clsx';
 function User() {
   const [userz, setUser] = useState({});
-    const modelLogin = document.querySelector('.model-login')
-const [orders, setOrders] = useState([])
-    
+  const modelLogin = document.querySelector('.model-login')
+  const [orders, setOrders] = useState([])
+
 
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const [orders, setOrders] = useState([])
   }
 
 
-  
+
 
 
 
@@ -110,7 +110,91 @@ const [orders, setOrders] = useState([])
     });
 
   }, [])
-console.log(orders)
+  useEffect(() => {
+    nav()
+    const btnSet = document.querySelector('.btn--guima');
+
+    btnSet.addEventListener('click', () => {
+      const email = document.querySelector('.body__sendMail').value;
+
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      };
+
+      fetch(`http://localhost:8080/forgot-password?email=${email}`, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          setUser(data);
+          console.log(data);
+          sessionStorage.setItem("user", JSON.stringify(data));
+        })
+        .catch(error => console.error('Error:', error));
+
+    });
+  }, [])
+
+  useEffect(() => {
+    nav()
+    const btnChange = document.querySelector('.btn--change');
+
+    btnChange.addEventListener('click', () => {
+      const token = document.querySelector('.tokencapcha').value;
+      const newPassword = document.querySelector('.newPassword').value;
+
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      };
+
+      fetch(`http://localhost:8080/reset-password?token=${token}&newPassword=${newPassword}`, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          setUser(data);
+          console.log(data);
+          sessionStorage.setItem("user", JSON.stringify(data));
+        })
+        .catch(error => console.error('Error:', error));
+
+    });
+  }, [])
+
+  useEffect(() => {
+    nav()
+    const btnSignup = document.querySelector('.btn--signup');
+
+    btnSignup.addEventListener('click', () => {
+      const email = document.querySelector('.emailSingup').value;
+      const phoneNumber = document.querySelector('.phoneSignup').value;
+      const fullName = document.querySelector('.fullnameSignup').value;
+      const address = document.querySelector('.adressSignup').value;
+      const birthDay = document.querySelector('.birthdaySignup').value;
+      const password = document.querySelector('.passSignup').value;
+      const confirmPassword = document.querySelector('.confirmPassSignup').value;
+
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      };
+
+      fetch(`http://localhost:8080/api/register/${email}/${phoneNumber}/${fullName}/${address}/${birthDay}/${password}/${confirmPassword}`, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          setUser(data);
+          console.log(data);
+          sessionStorage.setItem("user", JSON.stringify(data));
+        })
+        .catch(error => console.error('Error:', error));
+
+    });
+  }, [])
+  console.log(orders)
 
   return (
     <div style={{ backgroundColor: '#3E3E3F' }}>

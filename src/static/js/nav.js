@@ -8,7 +8,7 @@ function nav() {
   const modelLoginForm = $$('.model-form')
   const modelRegisterO = $('.js-model-registerO')
   const modelLoginOpen = $('.js-model-loginO')
-  const modelForget = $('.model-forget')
+  const modelForget = $('.js-guima')
   const modelForgetO = $('.js-model-forget')
   const modelChangePass = $('.model-changepass')
   const modelChangePassO = $('.js-model-changepass')
