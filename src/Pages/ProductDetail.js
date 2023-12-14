@@ -10,7 +10,8 @@ import avatar2 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.
 import avatar3 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import HandleCart from "../Components/HandleCart"
+import testz from './testz'
+
 // import addCartSession from '_Components_HandleCart__WEBPACK_IMPORTED_MODULE_8__';
 
 function ProductDetail() {
@@ -170,7 +171,7 @@ function ProductDetail() {
             <div className="pay-addcart">
             <button
                 onClick={() => {
-                  HandleCart({ id: 1, price: 1000000000 });
+                  testz();
                 }}
               > Thêm vào giỏ </button>
               <button><a style={{color: "white"}} href={(user && product.dataProductDetail && product.dataProductDetail.id) ? `/Cancel/${product.dataProductDetail.id}` : ((user && product.productId) ? `/Cancel/${product.productId}` : "/NoLogin/1")}>Mua ngay</a></button>
