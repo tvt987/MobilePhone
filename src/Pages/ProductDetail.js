@@ -10,9 +10,15 @@ import avatar2 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.
 import avatar3 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
+import HandleCart from "../Components/HandleCart"
+// import addCartSession from '_Components_HandleCart__WEBPACK_IMPORTED_MODULE_8__';
 
 function ProductDetail() {
-  const user = sessionStorage.getItem("user")
+  const b = sessionStorage.getItem("user")
+  var user
+  if(b) {
+    user = JSON.parse(b)
+  }
   const [showReply, setShowReply] = useState(false);
 
   const showReplyForm = () => {
@@ -22,6 +28,9 @@ function ProductDetail() {
 
   
   const { productId } = useParams();
+
+
+
   
   const productDetail = `http://localhost:8080/admin/getInformation/${productId}`
   const [product, setProduct] = useState([])
@@ -29,6 +38,9 @@ function ProductDetail() {
     fetch(productDetail)
       .then(response => response.json())
       .then(data => setProduct(data))
+
+
+      
   }, [])
 
 
@@ -38,6 +50,24 @@ function ProductDetail() {
   useEffect(() => {
     clearInterval()
   }, [])
+
+  function handleRam(idRam){
+    fetch(`http://localhost:8080/admin/getProducts/${product.dataProductDetail.name}/${idRam}`)
+      .then(response => response.json())
+      .then(data => {
+        const arr = data[0]
+        setProduct(arr)
+      })
+  }
+
+  function handleColor(idColor){
+    fetch(`http://localhost:8080/admin/getProductsColor/${product.dataProductDetail.name}/${idColor}`)
+      .then(response => response.json())
+      .then(data => {
+        const arr = data[0]
+        setProduct(arr)
+      })
+  }
   return (
     <div className="prcss">
 
@@ -117,8 +147,8 @@ function ProductDetail() {
             {(product && product.storages) ? 
             product.storages.map(
               (item, index) => (
-                <li key={index} className="merge__item item">
-                  {item.readOnlyMemoryValue + item.readOnlyMemoryUnit}
+                <li onClick={() => handleRam(item.id)} style={(item.id == product.dataProductDetail.storage.id) ? {backgroundColor: "blue"} : {backgroundColor: "black"}} key={index} className="merge__item item">
+                  <span>{item.readOnlyMemoryValue + item.readOnlyMemoryUnit}</span>
                 </li>
               )
             ) : ""}
@@ -131,15 +161,19 @@ function ProductDetail() {
             {(product && product.colors) ?
             product.colors.map(
               (item, index) => (
-                <span  key={index} className="prod-color">{item.color}</span>
+                <span  style={(item.id == product.dataProductDetail.color.id) ? {backgroundColor: "blue"} : {backgroundColor: "black"}}    onClick={() => handleColor(item.id)}   key={index} className="prod-color">{item.color}</span>
               )
             ) : ""}
           </div>
             
             <img className="img-dis" src={image5} alt="" />
             <div className="pay-addcart">
-              <button> Thêm vào giỏ </button>
-              <button>Mua ngay</button>
+            <button
+                onClick={() => {
+                  HandleCart({ id: 1, price: 1000000000 });
+                }}
+              > Thêm vào giỏ </button>
+              <button><a style={{color: "white"}} href={(user && product.dataProductDetail && product.dataProductDetail.id) ? `/Cancel/${product.dataProductDetail.id}` : ((user && product.productId) ? `/Cancel/${product.productId}` : "/NoLogin/1")}>Mua ngay</a></button>
             </div>
             <ul className="describe">
               <li><i className="fas fa-box"></i>Bộ sản phẩm gồm: Hộp, Sách hướng dẫn, Cây lấy sim, Cáp Type C</li>

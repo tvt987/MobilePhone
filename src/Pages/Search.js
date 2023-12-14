@@ -7,18 +7,15 @@ import happyIcon from '../static/images/icon/icon-happy.png'
 import badIcon from '../static/images/icon/icon-bad.png'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-function Category() {
+function Search() {
     const productCategory = ''
-    const {brand} = useParams()
+    const {name} = useParams()
     const [products, setProducts] = useState([])
     useEffect(() => {
-            fetch(`http://localhost:8080/admin/getInformationBrand/${brand}`)
+        fetch(`http://localhost:8080/admin/getProducts/${name}`)
             .then(response => response.json())
             .then(data => setProducts(data))
-       
-        
-            
-    }, [brand])
+    }, [name])
 
 
     return (
@@ -68,7 +65,7 @@ function Category() {
                 <div className="products mt-md-4 mb-md-4" style={{marginTop: '5px'}}>
                     {(products) ? products.map((item, index) => (
                         <a key={index} href={`/ProductDetail/${item.id}`} className="item-product">
-                        <img src={item.images[0].imageUrl} alt=""/> 
+                        <img src={item.images[0].imageUrl} alt=""/>
                             <ul className="prods-group">
                                 {item.storages ? item.storages.map((item, index) => (
                                     <li key={index} className="merge__item item">{item.readOnlyMemoryValue + item.readOnlyMemoryUnit}</li>
@@ -118,4 +115,4 @@ function Category() {
     )
 }
 
-export default Category
+export default Search

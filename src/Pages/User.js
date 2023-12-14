@@ -6,11 +6,15 @@ import Footer from '../Components/Footer.js';
 import Model from '../Components/Model.js';
 import ProductDetail from './ProductDetail.js';
 import Category from '../Pages/Category.js'
-import Cart from '../Pages/Cart.js'
 import Cancel from '../Pages/Cancel.js'
 import Canceldetail from '../Pages/CancelDetial.js'
 import nav from '../static/js/nav.js';
 import { useEffect } from 'react';
+import CartNew from './CartNew.js';
+import Statistical from './Statistical.js';
+import Search from '../Pages/Search.js';
+import Order from './Order.js';
+import Cart from './Cart.js';
 function User() {
   const [userz, setUser] = useState({});
     const modelLogin = document.querySelector('.model-login')
@@ -79,7 +83,7 @@ if(user){
     nav()
 
   }, [])
-console.log(orders)
+
 
   return (
     <div style={{ backgroundColor: '#3E3E3F' }}>
@@ -92,10 +96,15 @@ console.log(orders)
         <Route path='/:brand' element={<Category />} />
         <Route path='/ProductDetail' user={user} element={<ProductDetail />} />
         <Route path='/ProductDetail/:productId' element={<ProductDetail />} />
-        <Route path='/OrderDetail/:id' element={<Cart />} />
-
-        <Route path='/Cancel' element={<Cancel />} />
+        <Route path='/OrderDetail/:id' element={<Order />} />
+        <Route path='/NoLogin/:checkLogin' element={<Home />} />
+        <Route path='/Cancel/:productId' element={<CartNew />} />
         <Route path='/getOrders' element={<Cancel />} />
+        <Route path='/Search/:name' element={<Search />} />
+        <Route path='/Cart' element={<Cart />} />
+        <Route path='/product/:name' element={<Search />} />
+        
+
       </Routes>
      
       <Footer />

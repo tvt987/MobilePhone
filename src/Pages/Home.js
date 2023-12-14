@@ -50,19 +50,25 @@ import iconBluetoothAirpodsProMagsafe from '../static/images/img-amthanh/bluetoo
 import home from '../static/js/home.js'
 import time from '../static/js/time.js'
 import { useState, useEffect, useRef } from 'react'
+import { useParams } from 'react-router-dom'
 
 
 function Home() {
     const allProductSamSung = 'http://localhost:8080/admin/getInformationBrand/2'
     const [samsungList, setSamSungList] = useState([])
+    
+    const {checkLogin} = useParams()
 
     useEffect(() => {
+
+    if(checkLogin){
+        alert("Please login or sign up for an account")
+    }
         fetch(allProductSamSung)
             .then(response => response.json())
             .then(data => {
                 setSamSungList(data)
             })
-
     }, [])
 
     const tm = useRef()
@@ -125,7 +131,7 @@ function Home() {
 
 
     }, [])
-    const allProduct = 'http://localhost:8080/admin/getInformationBrand/10'
+    const allProduct = 'http://localhost:8080/admin/getInformationBrand/1'
     const [iphoneList, setIphoneList] = useState([])
 
     useEffect(() => {
@@ -134,6 +140,28 @@ function Home() {
         .then(data => {
             setIphoneList(data)
         })
+
+    }, [])
+    const allProductOppo = 'http://localhost:8080/admin/getInformationBrand/15'
+    const [oppoList, setOppoList] = useState([])
+
+    useEffect(() => {
+        fetch(allProductOppo)
+            .then(response => response.json())
+            .then(data => {
+                setOppoList(data)
+            })
+
+    }, [])
+    const allProductXiaomi = 'http://localhost:8080/admin/getInformationBrand/3'
+    const [xiaomiList, setXiaomi] = useState([])
+
+    useEffect(() => {
+        fetch(allProductXiaomi)
+            .then(response => response.json())
+            .then(data => {
+                setXiaomi(data)
+            })
 
     }, [])
 
@@ -201,11 +229,12 @@ function Home() {
                         <div className="product-sale">
                         {productDCList.map((product, index) => (
                             <a href={`/ProductDetail/${product.id}`} key={index} className="product-item">
-                                <img src={iconAdaptor} />
+                                <img src={product.images[0].imageUrl} />
                                 <p className="name-sale">{product.name}</p>
                                 <div className="price">
-                                    <p className="price-new">{product.price}</p>
-                                <p className="price-old">{product.priceUpdate}</p>
+                                    <p className="price-new">{product.priceUpdate}</p>
+                                <p className="price-old">{product.price}</p>
+                                <span className='percentDiscount'>-{product.percentDiscount}%</span>
                                 </div>
                                 <div className="count-product">
                                     <img src={iconFsIconFire} />
@@ -267,8 +296,9 @@ function Home() {
                                                 <img src={imageURL} alt={iphone.name} />
                                                 <p className="name-product">{iphone.name}</p>
                                                 <div className="price">
-                                                    <p className="price-new">{iphone.price}</p>
-                                                    <p className="price-old">{iphone.priceUpdate}<span className="discount">{iphone.percentDiscount}</span></p>
+                                                    <p className="price-new">{iphone.priceUpdate}</p>
+                                                    <p className="price-old">{iphone.price}</p>
+                                                    <span className="percentDiscount">-{iphone.percentDiscount}%</span>
                                                 </div>
                                             </a>
                                         );
@@ -279,8 +309,8 @@ function Home() {
                                                 <p>No image available</p>
                                                 <p className="name-product">{iphone.name}</p>
                                                 <div className="price">
-                                                    <p className="price-new">{iphone.price}</p>
-                                                    <p className="price-old">{iphone.priceUpdate}<span className="discount">{iphone.percentDiscount}</span></p>
+                                                    <p className="price-new">{iphone.priceUpdate}</p>
+                                                    <p className="price-old">{iphone.price}</p><span className="discount">{iphone.percentDiscount}</span>
                                                 </div>
                                             </div>
                                         );
@@ -310,29 +340,30 @@ function Home() {
                                     if (Array.isArray(samsung.images) && samsung.images.length > 0) {
                                         // Tạo một biến để lưu trữ đường dẫn hình ảnh
                                         const imageURL = samsung.images[0].imageUrl;
-                                        console.log("imageURL:", samsung.images[0].imageUrl);
                                         // Trả về JSX với sử dụng biến imageURL trong thẻ img
                                         return (
-                                            <div key={index} className="product-item">
-                                                <img src={imageURL} alt={samsung.name} />
+                                            <a href={`/ProductDetail/${samsung.id}`} key={index} className="product-item">
+                                                <img src={imageURL} alt={samsung.name} className='imgofsamsung' />
                                                 <p className="name-product">{samsung.name}</p>
                                                 <div className="price">
-                                                    <p className="price-new">{samsung.price}</p>
-                                                    <p className="price-old">{samsung.priceUpdate}<span className="discount">{samsung.percentDiscount}</span></p>
+                                                    <p className="price-new">{samsung.priceUpdate}</p>
+                                                    <p className="price-old">{samsung.price}</p>
+                                                    <span className="percentDiscount">-{samsung.percentDiscount}%</span>
                                                 </div>
-                                            </div>
+                                            </a>
                                         );
                                     } else {
                                         // Nếu không có hình ảnh, trả về một thông báo
                                         return (
-                                            <div key={index} className="product-item">
+                                            <a key={index} className="product-item">
                                                 <p>No image available</p>
                                                 <p className="name-product">{samsung.name}</p>
                                                 <div className="price">
-                                                    <p className="price-new">{samsung.price}</p>
-                                                    <p className="price-old">{samsung.priceUpdate}<span className="discount">{samsung.percentDiscount}</span></p>
+                                                    <p className="price-new">{samsung.priceUpdate}</p>
+                                                    <p className="price-old">{samsung.price}</p>
+                                                    <span className="percentDiscount">{samsung.percentDiscount}</span>
                                                 </div>
-                                            </div>
+                                            </a>
                                         );
                                     }
                                 }) : "No iPhones available."}
@@ -352,16 +383,38 @@ function Home() {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-mac">
-                            {iphoneList ? iphoneList.map((iphone, index) => (
-                                    <div key={index} className="product-item">
-                                    <img src={iconMacAir13M1Xam} />
-                                    <p className="name-product">{iphone.name}</p>
-                                    <div className="price">
-                                        <p className="price-new">{iphone.price}</p>
-                                        <p className="price-old">{iphone.priceUpdate}<span className="discount">-3%</span></p>
-                                    </div>
-                                </div>
-                                )) : ""}
+                            {oppoList ? oppoList.map((oppo, index) => {
+                                    // Kiểm tra nếu 'images' là một mảng và có ít nhất một phần tử
+                                    if (Array.isArray(oppo.images) && oppo.images.length > 0) {
+                                        // Tạo một biến để lưu trữ đường dẫn hình ảnh
+                                        const imageURL = oppo.images[0].imageUrl;
+                                        
+                                        // Trả về JSX với sử dụng biến imageURL trong thẻ img
+                                        return (
+                                            <a href={`/ProductDetail/${oppo.id}`} key={index} className="product-item">
+                                                <img src={imageURL} alt={oppo.name} className='imgofsamsung' />
+                                                <p className="name-product">{oppo.name}</p>
+                                                <div className="price">
+                                                    <p className="price-new">{oppo.priceUpdate}</p>
+                                                    <p className="price-old">{oppo.price}</p>
+                                                    <span className="percentDiscount">-{oppo.percentDiscount}%</span>
+                                                </div>
+                                            </a>
+                                        );
+                                    } else {
+                                        // Nếu không có hình ảnh, trả về một thông báo
+                                        return (
+                                            <div key={index} className="product-item">
+                                                <p>No image available</p>
+                                                <p className="name-product">{oppo.name}</p>
+                                                <div className="price">
+                                                    <p className="price-new">{oppo.priceUpdate}</p>
+                                                    <p className="price-old">{oppo.price}</p><span className="discount">{oppo.percentDiscount}</span>
+                                                </div>
+                                            </div>
+                                        );
+                                    }
+                                }) : "No iPhones available."}
 
                             </div>
                             <button id="next-mac" className="btn-slide-product">
@@ -378,50 +431,45 @@ function Home() {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-watch">
-                            {iphoneList ? iphoneList.map((iphone, index) => (
-                                    <div key={index} className="product-item">
-                                    <img src={iconAppleWatchS841mmDoThumb} />
-                                    <p className="name-product">{iphone.name}</p>
-                                    <div className="price">
-                                        <p className="price-new">{iphone.price}</p>
-                                        <p className="price-old">{iphone.priceUpdate}<span className="discount">-17%</span></p>
-                                    </div>
-                                </div>
-                                )) : ""}
-
+                            {xiaomiList ? xiaomiList.map((xiaomi, index) => {
+                                    // Kiểm tra nếu 'images' là một mảng và có ít nhất một phần tử
+                                    if (Array.isArray(xiaomi.images) && xiaomi.images.length > 0) {
+                                        // Tạo một biến để lưu trữ đường dẫn hình ảnh
+                                        const imageURL = xiaomi.images[0].imageUrl;
+                                        // Trả về JSX với sử dụng biến imageURL trong thẻ img
+                                        return (
+                                            <a href={`/ProductDetail/${xiaomi.id}`} key={index} className="product-item">
+                                                <img src={imageURL} alt={xiaomi.name}  className='imgofsamsung'/>
+                                                <p className="name-product">{xiaomi.name}</p>
+                                                <div className="price">
+                                                    <p className="price-new">{xiaomi.priceUpdate}</p>
+                                                    <p className="price-old">{xiaomi.price}</p>
+                                                    <span className="percentDiscount">-{xiaomi.percentDiscount}%</span>
+                                                </div>
+                                            </a>
+                                        );
+                                    } else {
+                                        // Nếu không có hình ảnh, trả về một thông báo
+                                        return (
+                                            <a key={index} className="product-item">
+                                                <p>No image available</p>
+                                                <p className="name-product">{xiaomi.name}</p>
+                                                <div className="price">
+                                                    <p className="price-new">{xiaomi.priceUpdate}</p>
+                                                    <p className="price-old">{xiaomi.price}</p>
+                                                    <span className="percentDiscount">{xiaomi.percentDiscount}</span>
+                                                </div>
+                                            </a>
+                                        );
+                                    }
+                                }) : "No iPhones available."}
                             </div>
                             <button id="next-watch" className="btn-slide-product">
                                 <i className="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
-                    <div className="container-at mt-2 mb-2">
-                        <div className="head-product-at">
-                            <h2>Âm Thanh</h2>
-                        </div>
-
-                        <div id="slider-at">
-                            <button id="prev-at" className="btn-slide-product">
-                                <i className="fas fa-chevron-left"></i>
-                            </button>
-                            <div className="product-at">
-                            {iphoneList ? iphoneList.map((iphone, index) => (
-                                    <div key={index} className="product-item">
-                                    <img src={iconAirpodsMaxSelecthongThumb} />
-                                    <p className="name-product">{iphone.iphone}</p>
-                                        <div className="price">
-                                        <p className="price-new">{iphone.price}</p>
-                                        <p className="price-old">{iphone.priceUpdate}<span className="discount">-10%</span></p>
-                                    </div>
-                                </div>
-                                )) : ""}
-
-                            </div>
-                            <button id="next-at" className="btn-slide-product">
-                                <i className="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div >

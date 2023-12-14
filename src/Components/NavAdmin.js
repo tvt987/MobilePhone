@@ -2,6 +2,8 @@ import headerLogoPhone from "../static/images/img-model/header__logophone.png"
 import exSetProfile from "../static/images/img-model/ex_setprofile.jpg";
 
 function NavAdmin(){
+  
+
     return (
         <div>
             <div className="main__header">
@@ -9,11 +11,11 @@ function NavAdmin(){
             <div className="nav__lef 
         col-lg-3 col-md-3 col-sm-6">
               <div className="nav__lef-name">
-                <span>Mobile</span>
+                <span>ONLINE</span>
                 <span>-</span>
-                <span>League</span>
+                <span>MOBILE</span>
                 <span>-</span>
-                <span>OTI</span>
+                <span>STORE</span>
               </div>
               <div className="nav__lef-logo">
                 <div

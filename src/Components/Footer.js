@@ -23,11 +23,11 @@ function Footer() {
                         }}></div>
 
                     <div className="footer__introduce-name">
-                        <span>Mobile</span>
+                        <span>ONLINE</span>
                         <span>-</span>
-                        <span>League</span>
+                        <span>MOBILE</span>
                         <span>-</span>
-                        <span>OTI</span>
+                        <span>STORE</span>
                     </div>
                     <div className="footer__introduce-content">
                         Tại <span>Mobile</span>

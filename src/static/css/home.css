@@ -133,16 +133,8 @@
   display: inline-block;
   margin-bottom: 6px;
 }
-.product-sale > .product-item > .price > .price-old:after{
-  content: "-10%";
-  position: absolute;
-  top:-10px;
-  right: -38px;
-  background-color: #F70000;
-  color: #DEFFF2;
-  padding: 1px;
-  border-radius: 5px;
-}
+
+
 .product-sale > .product-item > .count-product {
   background-color: #FCB702;
   margin: 0 20px 10px 20px;
@@ -310,19 +302,8 @@
   color: gray;
   position: relative;
 }
-.box-pk > .products-pk > .item-pk > .price > .price-old > .discount,
-.box-at > .products-at > .item-at > .price > .price-old > .discount,
-.box-watch > .products-watch > .item-watch > .price > .price-old > .discount,
-.box-ipad > .products-ipad > .item-ipad > .price > .price-old > .discount,
-.box-mac > .products-mac > .item-mac > .price > .price-old > .discount,
-.box-iphone > .products-iphone > .item-ip > .price > .price-old > .discount {
-  position: absolute;
-  color: white;
-  font-size: 14px;
-  top: 0;
-  right: -30px;
-  
-}
+
+
 /*----------------------TOP ZONE------------------  */
 .topzone {
   max-width: 100%;
@@ -488,18 +469,8 @@
     .box-iphone > .products-iphone > .item-ip .price span{
       display: inline-flex;
     }
-    .box-pk > .products-pk > .item-pk > .price > .price-old > .discount,
-    .box-at > .products-at > .item-at > .price > .price-old > .discount,
-    .box-watch > .products-watch > .item-watch > .price > .price-old > .discount,
-    .box-ipad > .products-ipad > .item-ipad > .price > .price-old > .discount,
-    .box-mac > .products-mac > .item-mac > .price > .price-old > .discount,
-    .box-iphone > .products-iphone > .item-ip > .price > .price-old > .discount {
-      position: absolute;
-      color: white;
-      font-size: 10px;
-      top: 0;
-      right: -16px;
-    }
+
+    
 }
 
 .model-login{
@@ -1039,4 +1010,54 @@
 .model-form__header button:hover{
   color: aqua;
   font-size: 2.4rem;
+}
+
+.product-sale a{
+  position: relative;
+}
+
+.product-sale .percentDiscount{
+  position: absolute;
+  top: 69%;
+  background-color: #f75d04;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 4px;
+  font-size: .7rem;
+}
+
+.product-iphone a,
+.product-ipad a,
+.product-mac a,
+.product-watch a{
+  position: relative;
+  width: 200px !important;
+  height: 341px !important;
+
+}
+.product-iphone .percentDiscount,
+.product-ipad .percentDiscount,
+.product-mac .percentDiscount,
+.product-watch .percentDiscount{
+  position: absolute;
+  top: 76%;
+  background-color: #f75d04;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 4px;
+  font-size: .7rem;
+}
+
+.imgofsamsung{
+  width: 200px !important;
+  height: 200px !important;
+}
+
+.name-product {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

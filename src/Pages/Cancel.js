@@ -3,15 +3,26 @@ import '../static/css/discount.css'
 import '../static/css/nav.css'
 import '../static/css/Cancel.css'
 
-import image1 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
+import image1 from '../static/images/icon/order.jpg'
 import image2 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import image3 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.webp'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 function Cancel() {
-
     const [orders, setOrders] = useState([])
+
+    function handleRemove(id){
+        const b = sessionStorage.getItem("user")
+        const user = JSON.parse(b)
+        fetch(`http://localhost:8080/admin/deleteOrder/${id}/${user.id}`)
+            .then(response => response.json())
+            .then(data => setOrders(data))
+    }
+    
+
     const b = sessionStorage.getItem("user")
+
+
     let user
     if(b){
         user = JSON.parse(b)
@@ -23,6 +34,7 @@ function Cancel() {
             .then(response => response.json())
             .then(data => setOrders(data))
     }, [])
+    console.log(orders)
 
     return (
         <div>
@@ -52,9 +64,7 @@ function Cancel() {
                                     </thead>
                                     <tbody>
                                     {orders ? orders.map((item, index) => (
-
                                         <tr key={index}>
-                                           
                                         <th scope="row" className="border-0">
                                             <div className=" p-2">
                                                 <img src={image1} alt=""
@@ -63,14 +73,13 @@ function Cancel() {
                                                     <h5 className="mb-0"> <a href={`/OrderDetail/${item.id}`}
                                                         className="text-dark d-inline-block align-middle">Đơn Hàng</a></h5>
                                                     <span
-                                                        className="text-muted font-weight-normal font-italic d-block">Category:
-                                                        Phones</span>
+                                                        className="text-muted font-weight-normal font-italic d-block">{item.createDate}</span>
                                                 </div>
                                             </div>
                                         </th>
-                                        <td className="border-0 align-middle"><strong>{item.total}</strong></td>
+                                        <td className="border-0 align-middle"><strong>{item.price}</strong></td>
                                         <td className="border-0 align-middle"><strong>{item.quantity}</strong></td>
-                                        <td className="oder__btn--cancel border-0 align-middle"><button><strong>Hủy
+                                        <td className="oder__btn--cancel border-0 align-middle" onClick={() => {handleRemove(item.id)}}><button><strong>Hủy
                                             hàng</strong></button></td>
                                            
                                     </tr>

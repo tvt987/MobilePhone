@@ -8,6 +8,63 @@
     padding: 0;
     z-index: 50;
 }
+.nav__center.hidden {
+    display: none;
+  }
+  
+  .nav__search {
+    display: none;
+  }
+  .nav__search .nav__search-ipt{
+    width: 100%;
+  }
+    .nav__search-ipt {
+    border-radius: 8px;
+    box-sizing: border-box; /* Đảm bảo chiều rộng bao gồm cả padding và border */
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: #0000005d;
+    transition: width 0.5s ease-in-out; /* Hiệu ứng chuyển động chiều rộng */
+    color: aqua;
+    padding-left: 24px;
+    font-size: 1.2rem;
+    height: 40px;
+    margin-top: 7.5px;
+    border: 2px solid rgb(0, 200, 255);
+    box-shadow: 0px 0px 5px rgb(4, 4, 5);
+  }
+  .nav__search.active {
+    display: block;
+    opacity: 1;
+    width: 100%;
+  }
+
+  .nav__search.active .nav__search-ipt{
+
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+        width: 10%;
+        opacity: 0;
+    }
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+  }
+  @keyframes fadeOut {
+    from {
+        width: 100%;
+        opacity: 0;
+    }
+    to {
+        width: 10%;
+        opacity: 1;
+    }
+  }
 
 .nav1 {
     height: 100%;
@@ -34,7 +91,6 @@
 }
 
 .nav__lef-name span{
-    font-size: 1.4rem;
     line-height: 55px;
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -130,6 +186,7 @@
     width: 43%;
     height: 100%;
     padding-top: 8px;
+    color: rgb(224, 223, 223);
 
 }
 
@@ -176,3 +233,46 @@
         border: none;
         border-radius: 0% !important;
     }
+
+
+    .nav__center{
+        position: relative;
+      }
+
+    .line{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 4px;
+        border-radius: 15px;
+        background-color: rgb(0, 171, 171);
+        transition: all 0.2s ease;
+      }
+    
+      .nav__center-item{
+        font-size: 20px;
+        cursor: pointer;
+         transition: all 0.5s ease;
+      }
+
+      /* GPT */
+      /* Thêm kiểu cho ô nhập dữ liệu khi hiển thị */
+.nav__center-search-input {
+    width: 0; /* Bắt đầu với chiều rộng là 0 */
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    transition: width 0.3s ease-in-out; /* Hiệu ứng chuyển động chiều rộng */
+  }
+  
+  /* Khi ô nhập dữ liệu được mở rộng */
+  .nav__center-search-input.active {
+    width: 150px; /* Chiều rộng mong muốn */
+  }
+  
+  /* Thêm hiệu ứng chuyển động khi nhập liệu vào ô */
+  .nav__center-search-input:focus {
+    width: 150px; /* Chiều rộng khi ô nhập dữ liệu được focus */
+  }

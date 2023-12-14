@@ -1,0 +1,45 @@
+const HandleCart = async (Product) => {
+  const idUser = sessionStorage.getItem("user")?.id;
+  // if (idUser) {
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:8080/cart/addProductToCart/${Product?.id}/${idUser}`,
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
+  //     if (!response.ok) {
+  //       throw new Error("Add cart not success");
+  //     }
+  //   } catch (error) {
+  //     console.error(error.message);
+  //   }
+  // } else {
+  //   const dataCart = sessionStorage.getItem("dataCart");
+  //   if (dataCart) {
+  //     let cartJson = JSON.parse(dataCart) || [];
+  //     const existingProductIndex = cartJson.findIndex(
+  //       (cart) => cart.product.id === Product.id
+  //     );
+  //     if (existingProductIndex !== -1) {
+  //       cartJson[existingProductIndex].quantity += 1;
+  //     } else {
+  //       const newProduct = { product: Product, quantity: 1 };
+  //       cartJson.push(newProduct);
+  //     }
+  //     console.log(cartJson);
+  //     sessionStorage.setItem("dataCart", JSON.stringify(cartJson));
+  //   } else {
+  //     let cartJson = [];
+  //     const newProduct = { product: Product, quantity: 1 };
+  //     cartJson.push(newProduct);
+  //     console.log(cartJson);
+  //     sessionStorage.setItem("dataCart", JSON.stringify(cartJson));
+  //   }
+  // }
+};
+
+export default HandleCart;

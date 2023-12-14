@@ -151,26 +151,9 @@ const nextpAt = document.getElementById('next-at');
 // const nexttopzoneAt = document.getElementById('next-topzone');
 const prevpAt = document.getElementById('prev-at');
 // const prevtopzoneAt = document.getElementById('prev-topzone');
-const initSliderAt = () => {
-  nextpAt.addEventListener('click', () => {
-    const scrollAmount = itemlistAt.clientWidth;
-    itemlistAt.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  });
-  prevpAt.addEventListener('click', () => {
-    const scrollAmount = -itemlistAt.clientWidth;
-    itemlistAt.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  });
-  // nexttopzoneAt.addEventListener('click', () => {
-  //   const scrollAmount = itemlisttopzoneAt.clientWidth;
-  //   itemlisttopzoneAt.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  // });
-  // prevtopzoneAt.addEventListener('click', () => {
-  //   const scrollAmount = -itemlisttopzoneAt.clientWidth;
-  //   itemlisttopzoneAt.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  // });
-}
 
-window.addEventListener("load", initSliderAt);
+
+
 
 
 

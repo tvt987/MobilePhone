@@ -54,8 +54,8 @@
     margin-top: 10px;
 }
 .item-product img{
-    width: 100%;
-    height: auto;
+    width: 356.66px;
+    height: 356.66px;
 }
 .prods-group  li {
     background-color: #222324;
@@ -70,8 +70,22 @@
     border: solid white;
     border-width: 0.5px;
 }
+
+.prods-info{
+    text-align: center;
+}
 .prods-info .name-prods {
+    width: 100%;
     color: azure;
+}
+
+.prods-info .name-prods span{
+    background-color: rgb(120, 88, 88);
+    width: 200px; /* Đặt chiều rộng tối đa cho span */
+    display: inline-block; /* Đảm bảo span không chiếm toàn bộ chiều rộng của phần tử cha */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .price .price-new {
     color: azure;

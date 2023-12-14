@@ -116,16 +116,8 @@
     margin-bottom: 6px;
 }
 
-.product-iphone>.product-item>.price>.price-old:after {
-    content: "-10%";
-    position: absolute;
-    top: -10px;
-    right: -38px;
-    background-color: #F70000;
-    color: #DEFFF2;
-    padding: 1px;
-    border-radius: 5px;
-}
+
+
 
 /* Silder-Ipad ------------------------------------------------- */
 .container-ipad {
@@ -245,16 +237,8 @@
     margin-bottom: 6px;
 }
 
-.product-ipad>.product-item>.price>.price-old:after {
-    content: "-10%";
-    position: absolute;
-    top: -10px;
-    right: -38px;
-    background-color: #F70000;
-    color: #DEFFF2;
-    padding: 1px;
-    border-radius: 5px;
-}
+
+
 
 /* Silder-Mac ------------------------------------------------- */
 .container-mac {
@@ -374,16 +358,6 @@
     margin-bottom: 6px;
 }
 
-.product-mac>.product-item>.price>.price-old:after {
-    content: "-10%";
-    position: absolute;
-    top: -10px;
-    right: -38px;
-    background-color: #F70000;
-    color: #DEFFF2;
-    padding: 1px;
-    border-radius: 5px;
-}
 
 /* Silder-Watch ------------------------------------------------- */
 .container-watch {
@@ -503,16 +477,7 @@
     margin-bottom: 6px;
 }
 
-.product-watch>.product-item>.price>.price-old:after {
-    content: "-10%";
-    position: absolute;
-    top: -10px;
-    right: -38px;
-    background-color: #F70000;
-    color: #DEFFF2;
-    padding: 1px;
-    border-radius: 5px;
-}
+
 
 /* Silder-at ------------------------------------------------- */
 .container-at {
@@ -632,13 +597,4 @@
     margin-bottom: 6px;
 }
 
-.product-at>.product-item>.price>.price-old:after {
-    content: "-10%";
-    position: absolute;
-    top: -10px;
-    right: -38px;
-    background-color: #F70000;
-    color: #DEFFF2;
-    padding: 1px;
-    border-radius: 5px;
-}
+
