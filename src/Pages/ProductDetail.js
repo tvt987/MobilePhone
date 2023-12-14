@@ -11,6 +11,7 @@ import avatar3 from '../static/images/img-iphone/iphone-13-blue-thumbtz-650x650.
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import testz from './testz'
+import HandleCart from '../Components/HandleCart'
 
 // import addCartSession from '_Components_HandleCart__WEBPACK_IMPORTED_MODULE_8__';
 
@@ -171,7 +172,7 @@ function ProductDetail() {
             <div className="pay-addcart">
             <button
                 onClick={() => {
-                  testz();
+                  HandleCart({id: 1, price: 100000});
                 }}
               > Thêm vào giỏ </button>
               <button><a style={{color: "white"}} href={(user && product.dataProductDetail && product.dataProductDetail.id) ? `/Cancel/${product.dataProductDetail.id}` : ((user && product.productId) ? `/Cancel/${product.productId}` : "/NoLogin/1")}>Mua ngay</a></button>

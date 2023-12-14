@@ -1,4 +1,4 @@
-const testz = async (Product) => {
+const HandleCart = async (Product) => {
     const idUser = sessionStorage.getItem("user")?.id;
   if (idUser) {
     try {
@@ -42,4 +42,4 @@ const testz = async (Product) => {
   }
 }
 
-export default testz
+export default HandleCart
