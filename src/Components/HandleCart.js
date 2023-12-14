@@ -1,5 +1,5 @@
 const HandleCart = async (Product) => {
-    const idUser = sessionStorage.getItem("user")?.id;
+  const idUser = sessionStorage.getItem("user")?.id;
   if (idUser) {
     try {
       const response = await fetch(
@@ -40,6 +40,6 @@ const HandleCart = async (Product) => {
       sessionStorage.setItem("dataCart", JSON.stringify(cartJson));
     }
   }
-}
+};
 
-export default HandleCart
+export default HandleCart;
