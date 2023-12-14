@@ -54,6 +54,7 @@ import { useParams } from 'react-router-dom'
 
 
 function Home() {
+
     const allProductSamSung = 'http://localhost:8080/admin/getInformationBrand/2'
     const [samsungList, setSamSungList] = useState([])
     
@@ -72,62 +73,67 @@ function Home() {
     }, [])
 
     const tm = useRef()
-    
+    const [productIphone, setProductIphone] = useState([])
+    // useEffect(() => {
+    //     fetch("link")
+    //         .then(response => response.json())
+    //         .then(data => setProductIphone(data))
+    // }, [])
 
-    
+
     useEffect(() => {
-    
-        
-            var fuT = new Date("Jan 12, 2024 00:00:00")
-            tm.current = setInterval(() => {
-
-        var noW = new Date().getTime()
-        var D = fuT - noW
 
 
-        var days = Math.floor(D/(1000*60*60*24))
-        var hours = Math.floor(D/(1000*60*60))
-        var minutes = Math.floor(D/(1000*60))
-        var seconds = Math.floor(D/(1000))
+        var fuT = new Date("Jan 12, 2024 00:00:00")
+        tm.current = setInterval(() => {
 
-        hours %= 24
-        minutes %= 60
-        seconds %= 60
-                if(document.getElementById("hours")){
-                    document.getElementById("hours").innerText = hours
-                    document.getElementById("minutes").innerText = minutes
-                    document.getElementById("seconds").innerText = seconds
-                }
-        
-
-       
+            var noW = new Date().getTime()
+            var D = fuT - noW
 
 
-    }, 1000);
-            
+            var days = Math.floor(D / (1000 * 60 * 60 * 24))
+            var hours = Math.floor(D / (1000 * 60 * 60))
+            var minutes = Math.floor(D / (1000 * 60))
+            var seconds = Math.floor(D / (1000))
+
+            hours %= 24
+            minutes %= 60
+            seconds %= 60
+            if (document.getElementById("hours")) {
+                document.getElementById("hours").innerText = hours
+                document.getElementById("minutes").innerText = minutes
+                document.getElementById("seconds").innerText = seconds
+            }
+
+
+
+
+
+        }, 1000);
+
         /**------------------------set coundown time sale-----------------------  **/
         home()
-        
+
         return () => {
             setTimeout(() => {
                 clearInterval(tm.current)
             }, 2000);
         }
-        
-        
-        
+
+
+
 
     }, [])
     const allProductDC = 'http://localhost:8080/admin/getProductsDiscount'
     const [productDCList, setProductDCList] = useState([])
     useEffect(() => {
         fetch(allProductDC)
-        .then(response => response.json())
-        .then(data => {
-            setProductDCList(data)
-        })
+            .then(response => response.json())
+            .then(data => {
+                setProductDCList(data)
+            })
 
-        
+
 
 
     }, [])
@@ -136,10 +142,10 @@ function Home() {
 
     useEffect(() => {
         fetch(allProduct)
-        .then(response => response.json())
-        .then(data => {
-            setIphoneList(data)
-        })
+            .then(response => response.json())
+            .then(data => {
+                setIphoneList(data)
+            })
 
     }, [])
     const allProductOppo = 'http://localhost:8080/admin/getInformationBrand/15'
@@ -206,11 +212,11 @@ function Home() {
                         <div className="count-down">
                             <span>KẾT THÚC TRONG</span>
                             <div className="countdown-time">
-                                <div style={{color: 'white'}} id='hours' className="hours"><span>55</span></div>
+                                <div style={{ color: 'white' }} id='hours' className="hours"><span>55</span></div>
                                 <span>:</span>
-                                <div style={{color: 'white'}} id='minutes' className="minutes"><span>55</span></div>
+                                <div style={{ color: 'white' }} id='minutes' className="minutes"><span>55</span></div>
                                 <span>:</span>
-                                <div style={{color: 'white'}} id='seconds' className="seconds"><span>55</span></div>
+                                <div style={{ color: 'white' }} id='seconds' className="seconds"><span>55</span></div>
                             </div>
                         </div>
                         <div className="happenning">
@@ -227,6 +233,7 @@ function Home() {
                             <i className="fas fa-chevron-left"></i>
                         </button>
                         <div className="product-sale">
+<<<<<<< HEAD
                         {productDCList.map((product, index) => (
                             <a href={`/ProductDetail/${product.id}`} key={index} className="product-item">
                                 <img src={product.images[0].imageUrl} />
@@ -242,10 +249,26 @@ function Home() {
                                 </div>
                             </a>
                         ))}
+=======
+                            {productDCList.map((product, index) => (
+                                <a href={`/ProductDetail/${product.id}`} key={index} className="product-item">
+                                    <img src={iconAdaptor} />
+                                    <p className="name-sale">{product.name}</p>
+                                    <div className="price">
+                                        <p className="price-new">{product.price}</p>
+                                        <p className="price-old">{product.priceUpdate}</p>
+                                    </div>
+                                    <div className="count-product">
+                                        <img src={iconFsIconFire} />
+                                        <i>10/10</i>
+                                    </div>
+                                </a>
+                            ))}
+>>>>>>> 5bc5d0e554ccb611602204ccc5a393e51d2e6be7
 
                         </div>
                         <button id="next-product" className="btn-slide-product">
-<i className="fas fa-chevron-right"></i>
+                            <i className="fas fa-chevron-right"></i>
                         </button>
                     </div>
                 </div>
@@ -285,14 +308,24 @@ function Home() {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-iphone">
-                            {iphoneList ? iphoneList.map((iphone, index) => {
+                                {productIphone ? iphoneList.map((iphone, index) => (
+                                    <div key={index} className="product-item">
+                                        <img src={iconIphone11WhiteThumb} />
+                                        <p className="name-product">{iphone.name}</p>
+                                        <div className="price">
+                                            <p className="price-new">{iphone.price}</p>
+                                            <p className="price-old">{iphone.priceUpdate}<span className="discount">-3%</span></p>
+                                        </div>
+                                    </div>
+                                )) : ""}
+                                {iphoneList ? iphoneList.map((iphone, index) => {
                                     // Kiểm tra nếu 'images' là một mảng và có ít nhất một phần tử
                                     if (Array.isArray(iphone.images) && iphone.images.length > 0) {
                                         // Tạo một biến để lưu trữ đường dẫn hình ảnh
                                         const imageURL = iphone.images[0].imageUrl;
                                         // Trả về JSX với sử dụng biến imageURL trong thẻ img
                                         return (
-                                            <a href={`/ProductDetail/${iphone.id}`}  key={index} className="product-item">
+                                            <a href={`/ProductDetail/${iphone.id}`} key={index} className="product-item">
                                                 <img src={imageURL} alt={iphone.name} />
                                                 <p className="name-product">{iphone.name}</p>
                                                 <div className="price">
@@ -316,14 +349,15 @@ function Home() {
                                         );
                                     }
                                 }) : "No iPhones available."}
-                                
-                                
 
-                                
+
+
+
+
                             </div>
                             <button id="next-iphone" className="btn-slide-product">
                                 <i className="fas fa-chevron-right"></i>
-</button>
+                            </button>
                         </div>
                     </div>
                     <div className="container-ipad mt-2 mb-2">
@@ -335,7 +369,17 @@ function Home() {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-ipad">
-                            {samsungList ? samsungList.map((samsung, index) => {
+                                {iphoneList ? iphoneList.map((iphone, index) => (
+                                    <div key={index} className="product-item">
+                                        <img src={iconIpadAir5Wifi} />
+                                        <p className="name-product">{iphone.name}</p>
+                                        <div className="price">
+                                            <p className="price-new">{iphone.price}</p>
+                                            <p className="price-old">{iphone.priceUpdate} <span className="discount">-10%</span></p>
+                                        </div>
+                                    </div>
+                                )) : ""}
+                                {samsungList ? samsungList.map((samsung, index) => {
                                     // Kiểm tra nếu 'images' là một mảng và có ít nhất một phần tử
                                     if (Array.isArray(samsung.images) && samsung.images.length > 0) {
                                         // Tạo một biến để lưu trữ đường dẫn hình ảnh
@@ -383,6 +427,7 @@ function Home() {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-mac">
+<<<<<<< HEAD
                             {oppoList ? oppoList.map((oppo, index) => {
                                     // Kiểm tra nếu 'images' là một mảng và có ít nhất một phần tử
                                     if (Array.isArray(oppo.images) && oppo.images.length > 0) {
@@ -415,6 +460,18 @@ function Home() {
                                         );
                                     }
                                 }) : "No iPhones available."}
+=======
+                                {iphoneList ? iphoneList.map((iphone, index) => (
+                                    <div key={index} className="product-item">
+                                        <img src={iconMacAir13M1Xam} />
+                                        <p className="name-product">{iphone.name}</p>
+                                        <div className="price">
+                                            <p className="price-new">{iphone.price}</p>
+                                            <p className="price-old">{iphone.priceUpdate}<span className="discount">-3%</span></p>
+                                        </div>
+                                    </div>
+                                )) : ""}
+>>>>>>> 5bc5d0e554ccb611602204ccc5a393e51d2e6be7
 
                             </div>
                             <button id="next-mac" className="btn-slide-product">
@@ -431,6 +488,7 @@ function Home() {
                                 <i className="fas fa-chevron-left"></i>
                             </button>
                             <div className="product-watch">
+<<<<<<< HEAD
                             {xiaomiList ? xiaomiList.map((xiaomi, index) => {
                                     // Kiểm tra nếu 'images' là một mảng và có ít nhất một phần tử
                                     if (Array.isArray(xiaomi.images) && xiaomi.images.length > 0) {
@@ -463,13 +521,56 @@ function Home() {
                                         );
                                     }
                                 }) : "No iPhones available."}
+=======
+                                {iphoneList ? iphoneList.map((iphone, index) => (
+                                    <div key={index} className="product-item">
+                                        <img src={iconAppleWatchS841mmDoThumb} />
+                                        <p className="name-product">{iphone.name}</p>
+                                        <div className="price">
+                                            <p className="price-new">{iphone.price}</p>
+                                            <p className="price-old">{iphone.priceUpdate}<span className="discount">-17%</span></p>
+                                        </div>
+                                    </div>
+                                )) : ""}
+
+>>>>>>> 5bc5d0e554ccb611602204ccc5a393e51d2e6be7
                             </div>
                             <button id="next-watch" className="btn-slide-product">
                                 <i className="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
+<<<<<<< HEAD
                     
+=======
+                    <div className="container-at mt-2 mb-2">
+                        <div className="head-product-at">
+                            <h2>Âm Thanh</h2>
+                        </div>
+
+                        <div id="slider-at">
+                            <button id="prev-at" className="btn-slide-product">
+                                <i className="fas fa-chevron-left"></i>
+                            </button>
+                            <div className="product-at">
+                                {iphoneList ? iphoneList.map((iphone, index) => (
+                                    <div key={index} className="product-item">
+                                        <img src={iconAirpodsMaxSelecthongThumb} />
+                                        <p className="name-product">{iphone.iphone}</p>
+                                        <div className="price">
+                                            <p className="price-new">{iphone.price}</p>
+                                            <p className="price-old">{iphone.priceUpdate}<span className="discount">-10%</span></p>
+                                        </div>
+                                    </div>
+                                )) : ""}
+
+                            </div>
+                            <button id="next-at" className="btn-slide-product">
+                                <i className="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+>>>>>>> 5bc5d0e554ccb611602204ccc5a393e51d2e6be7
                 </div>
             </div>
         </div >
